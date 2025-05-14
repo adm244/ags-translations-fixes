@@ -1,0 +1,160 @@
+diff --git a/GlobalScript.s b/../GlobalScript.s
+index 7d64aad..0106599 100755
+--- a/GlobalScript.s
++++ b/../GlobalScript.s
+@@ -59481,6 +59481,11 @@ setSmithPage$0: ; 0 args
+ 	jzi label000000134293
+ 	sourceline 7129
+ 	li ax, "Sharing a mind can be difficult. I have learned that it is important to keep a record of important thoughts and details before they get filtered out. Hence, this journal. I have cast a veil over it, as a precaution.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -59490,6 +59495,11 @@ setSmithPage$0: ; 0 args
+ 	push op
+ 	li ax, "I am still so weak. This city has become so ordinary. So mundane.[[The world has turned its back on all things magical. Even the local chapter of the Unavowed is a mere skeleton crew, headed by an old fossil of a jinn. I do not foresee them being a problem.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -59508,6 +59518,11 @@ setSmithPage$0: ; 0 args
+ 	push op
+ 	li ax, "I am powerless here. Whatever magic this city possesses, it is stamped out and tucked away. I cannot access it. How to change this\?[[I see several options open to me:"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -59721,6 +59736,11 @@ label000000134706: ; inside setSmithPage$0, ; referenced by 2 spots
+ label000000134737: ; inside setSmithPage$0, ; referenced by 1 spots
+ 	sourceline 7153
+ 	li ax, "1- Creating poltergeists. The method is easy enough. I need to find some souls I can corrupt. Their mere existence will generate plenty of spiritual energy.[[2- General Zarug of the mer-folk is desperate. He is fighting a losing war. Can I use this somehow\? Share his power with a mundane human or two\? Release his power into the world\?[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -59730,6 +59750,11 @@ label000000134737: ; inside setSmithPage$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "3- There\'s a dryad trapped in the North Woods. If she is freed, so will her power. Power that I can use. I will try and make contact. Maybe we can help each other\?[[The more spiritual energy is released, the stronger I become. What do I do with this power\? Every day I feel capable of more and more. Yet there is still more to be tapped."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -59944,6 +59969,11 @@ label000000135205: ; inside setSmithPage$0, ; referenced by 3 spots
+ label000000135236: ; inside setSmithPage$0, ; referenced by 1 spots
+ 	sourceline 7176
+ 	li ax, "4- The Wall Street area. There are plenty of weak-willed executives, all desperately clinging to power. All would be easy to corrupt. But who\?[[5- Manhattan\'s Chinatown. I sense a power there. Something old and ancient, but hidden. I need to bring it out into the open.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -59953,6 +59983,11 @@ label000000135236: ; inside setSmithPage$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "6- The neighborhood around Brooklyn\'s Prospect Park has changed so much. There used to be a magic there. The people so full of wonder. They have lost their way. Perhaps I can help them. And myself.[[I am strong enough now. I can create a pocket realm of my very own. But I cannot create the door! Nothing I try works. I will have to think on this."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -60063,6 +60098,11 @@ label000000135470: ; inside setSmithPage$0, ; referenced by 2 spots
+ label000000135501: ; inside setSmithPage$0, ; referenced by 1 spots
+ 	sourceline 7190
+ 	li ax, "I should have realized from the start. A pocket realm is a personal thing. Only opened from a place I have an emotional connection to. But where\? The answer was, as always, obvious: "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -60080,6 +60120,11 @@ label000000135501: ; inside setSmithPage$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Under the Bricks. The theater where I came into my new form.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -60107,6 +60152,11 @@ label000000135574: ; inside setSmithPage$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Sammy\'s. The bar where I came into my new form.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -60134,6 +60184,11 @@ label000000135632: ; inside setSmithPage$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Eternox. The nightclub where I came into my new form.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -60153,6 +60208,11 @@ label000000135690: ; inside setSmithPage$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "The portal formed quickly, held closed with the very power I have siphoned into the city. On the other side\? Anything I wish. Very soon I can go to work.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -60171,6 +60231,11 @@ label000000135690: ; inside setSmithPage$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "However, there is the matter of the mind I share. And the Unavowed. Do they know of my existence or not\? Did I overestimate them\?[[This is a loose end that must be dealt with."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar

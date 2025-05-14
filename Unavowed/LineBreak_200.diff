@@ -1,0 +1,22 @@
+diff --git a/LineBreak_200.s b/../LineBreak_200.s
+index f73f566..70e01d4 100755
+--- a/LineBreak_200.s
++++ b/../LineBreak_200.s
+@@ -29,6 +29,17 @@ String::InsertLineBreaks$2: ; 2 args
+ 	push op
+ 	pop mar
+ 	mr ax, mar
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	mr op, ax
++	push op
++	pop mar
++	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	setfuncargs 0

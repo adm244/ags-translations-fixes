@@ -1,0 +1,28 @@
+diff --git a/Flashtext.s b/../Flashtext.s
+index a984d4c..0ac2aea 100755
+--- a/Flashtext.s
++++ b/../Flashtext.s
+@@ -306,6 +306,11 @@ doFlashInv$2: ; 2 args
+ 	ptrinit ax
+ 	sourceline 33
+ 	li ax, "Item received: "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	mr mar, sp
+ 	ptrinit ax
+@@ -318,6 +323,11 @@ doFlashInv$2: ; 2 args
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar

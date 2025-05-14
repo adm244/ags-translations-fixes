@@ -1,0 +1,260 @@
+diff --git a/CustomDialog.s b/../CustomDialog.s
+index 4e6c0c4..9a2ae7a 100755
+--- a/CustomDialog.s
++++ b/../CustomDialog.s
+@@ -3354,6 +3354,11 @@ label000000007073: ; inside CustomDialogGui::_addOption$3, ; referenced by 2 spo
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$FRIEND1"
+ 	farpush ax
+ 	ptrstack 40
+@@ -3414,6 +3419,11 @@ label000000007204: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$FRIEND2"
+ 	farpush ax
+ 	ptrstack 40
+@@ -3468,6 +3478,11 @@ label000000007335: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "him"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$HIMHER1"
+ 	farpush ax
+ 	ptrstack 40
+@@ -3502,6 +3517,11 @@ label000000007455: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "her"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$HIMHER1"
+ 	farpush ax
+ 	ptrstack 40
+@@ -3572,7 +3592,12 @@ label000000007639: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "him"
+ 	farpush ax
+-	li ax, "$HIMHER1"
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
++	li ax, "$HIMHER2"
+ 	farpush ax
+ 	ptrstack 40
+ 	push mar
+@@ -3622,7 +3647,12 @@ label000000007751: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "her"
+ 	farpush ax
+-	li ax, "$HIMHER1"
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
++	li ax, "$HIMHER2"
+ 	farpush ax
+ 	ptrstack 40
+ 	push mar
+@@ -3673,6 +3703,11 @@ label000000007799: ; inside CustomDialogGui::_addOption$3, ; referenced by 2 spo
+ 	farpush ax
+ 	li ax, "That\'s the Eternox Nightclub!"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$HQMTGORIGIN"
+ 	farpush ax
+ 	ptrstack 40
+@@ -3704,6 +3739,11 @@ label000000007912: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "That\'s \"Under the Bricks!\" The theater I used to run with Morey and Zack!"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$HQMTGORIGIN"
+ 	farpush ax
+ 	ptrstack 40
+@@ -3735,6 +3775,11 @@ label000000007980: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "That\'s the address of Sammy\'s bar!"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$HQMTGORIGIN"
+ 	farpush ax
+ 	ptrstack 40
+@@ -3834,6 +3879,11 @@ label000000008208: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$ORIGINPLACE"
+ 	farpush ax
+ 	ptrstack 44
+@@ -3937,6 +3987,11 @@ label000000008431: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$AORIGIN"
+ 	farpush ax
+ 	ptrstack 44
+@@ -3992,6 +4047,11 @@ label000000008494: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "man"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$MANWOMAN"
+ 	farpush ax
+ 	ptrstack 40
+@@ -4024,6 +4084,11 @@ label000000008609: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "woman"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$MANWOMAN"
+ 	farpush ax
+ 	ptrstack 40
+@@ -4075,6 +4140,11 @@ label000000008677: ; inside CustomDialogGui::_addOption$3, ; referenced by 3 spo
+ 	farpush ax
+ 	li ax, "He"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$HESHE"
+ 	farpush ax
+ 	ptrstack 40
+@@ -4107,6 +4177,11 @@ label000000008792: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "She"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$HESHE"
+ 	farpush ax
+ 	ptrstack 40
+@@ -4158,6 +4233,11 @@ label000000008860: ; inside CustomDialogGui::_addOption$3, ; referenced by 3 spo
+ 	farpush ax
+ 	li ax, "him"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$HIMHERME"
+ 	farpush ax
+ 	ptrstack 40
+@@ -4190,6 +4270,11 @@ label000000008975: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "her"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$HIMHERME"
+ 	farpush ax
+ 	ptrstack 40
+@@ -4241,6 +4326,11 @@ label000000009043: ; inside CustomDialogGui::_addOption$3, ; referenced by 3 spo
+ 	farpush ax
+ 	li ax, "his"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$HISHERME"
+ 	farpush ax
+ 	ptrstack 40
+@@ -4273,6 +4363,11 @@ label000000009158: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "her"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$HISHERME"
+ 	farpush ax
+ 	ptrstack 40
+@@ -4324,6 +4419,11 @@ label000000009226: ; inside CustomDialogGui::_addOption$3, ; referenced by 3 spo
+ 	farpush ax
+ 	li ax, "he"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$l_HESHE"
+ 	farpush ax
+ 	ptrstack 40
+@@ -4356,6 +4456,11 @@ label000000009341: ; inside CustomDialogGui::_addOption$3, ; referenced by 1 spo
+ 	farpush ax
+ 	li ax, "she"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "$l_HESHE"
+ 	farpush ax
+ 	ptrstack 40
