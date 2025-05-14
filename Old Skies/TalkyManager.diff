@@ -1,0 +1,24 @@
+diff --git a/TalkyManager.s b/../modified/TalkyManager.s
+index e01be9a..2970ec8 100644
+--- a/TalkyManager.s
++++ b/../modified/TalkyManager.s
+@@ -26657,6 +26657,19 @@ Character::GSay$5: ; 5 args
+ 	mr mar, sp
+ 	memcpy 4, 0
+ 	addi sp, 4
++
++	ptrstack 12
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrstack 12
++	ptrset ax
++
+ 	sourceline 3290
+ 	li ax, pauseBGspeech$0
+ 	call ax

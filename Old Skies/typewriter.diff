@@ -1,0 +1,24 @@
+diff --git a/typewriter.s b/../modified/typewriter.s
+index c1492d8..1bbd0f0 100644
+--- a/typewriter.s
++++ b/../modified/typewriter.s
+@@ -2053,6 +2053,19 @@ mySlate$1: ; 1 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++
++	ptrstack 8
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrstack 8
++	ptrset ax
++
+ 	sourceline 172
+ 	li ax, 1
+ 	farpush ax
