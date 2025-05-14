@@ -1,0 +1,928 @@
+diff --git a/MouseLabel.s b/../MouseLabel.s
+index ee95947..ae49ed5
+--- a/MouseLabel.s
++++ b/../MouseLabel.s
+@@ -108,6 +115,13 @@ repeatedly_execute_always$0: ; 0 args
+ 	pop op
+ 	push ax
+ 	li ax, "Appeal"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -140,6 +156,13 @@ label000000000303: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Luxurious"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -172,6 +195,13 @@ label000000000376: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Deals"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -204,6 +234,13 @@ label000000000449: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Lie"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -236,6 +273,13 @@ label000000000522: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Bluff"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -268,6 +312,13 @@ label000000000595: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Defy"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -300,6 +351,13 @@ label000000000668: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Taunt"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -332,6 +390,13 @@ label000000000741: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Assuage"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -364,6 +429,13 @@ label000000000814: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Awareness"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -396,6 +468,13 @@ label000000000887: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Futurism"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -428,6 +507,13 @@ label000000000960: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Ego"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -460,6 +546,13 @@ label000000001033: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Gentle"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -492,6 +585,13 @@ label000000001106: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Money"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -524,6 +624,13 @@ label000000001179: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Unforgiving"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -556,6 +663,13 @@ label000000001252: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Threaten Life"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -588,6 +702,13 @@ label000000001325: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Business"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -620,6 +741,13 @@ label000000001398: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Empathy"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -652,6 +780,13 @@ label000000001471: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Report"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -684,6 +819,13 @@ label000000001544: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Danger"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -716,6 +858,13 @@ label000000001617: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Agree"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -748,6 +897,13 @@ label000000001690: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Defend"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -780,6 +936,13 @@ label000000001763: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Acquiesce"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -877,6 +1040,13 @@ label000000001836: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Defend"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -909,6 +1079,13 @@ label000000002063: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Comfortable"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -941,6 +1118,13 @@ label000000002136: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Excitement"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -973,6 +1157,13 @@ label000000002209: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Truth"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1005,6 +1196,13 @@ label000000002282: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Expose"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1037,6 +1235,13 @@ label000000002355: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Dissuade"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1069,6 +1274,13 @@ label000000002428: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Reason"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1101,6 +1313,13 @@ label000000002501: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Compliment"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1133,6 +1352,13 @@ label000000002574: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Business"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1165,6 +1391,13 @@ label000000002647: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Beauty"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1197,6 +1430,13 @@ label000000002720: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Charity"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1229,6 +1469,13 @@ label000000002793: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Moderate"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1261,6 +1508,13 @@ label000000002866: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Retribution"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1293,6 +1547,13 @@ label000000002939: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Unreasonable"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1325,6 +1586,13 @@ label000000003012: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Threaten Family"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1357,6 +1625,13 @@ label000000003085: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Friend"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1389,6 +1664,13 @@ label000000003158: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Greed"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1421,6 +1703,13 @@ label000000003231: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Namedrop"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1453,6 +1742,13 @@ label000000003304: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Needed"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1485,6 +1781,13 @@ label000000003377: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Disagree"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1517,6 +1820,13 @@ label000000003450: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Deflect"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1549,6 +1859,13 @@ label000000003523: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Question"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1646,6 +1963,13 @@ label000000003596: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Explain"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1678,6 +2002,13 @@ label000000003823: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Practical"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1710,6 +2041,13 @@ label000000003896: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Ease"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1742,6 +2080,13 @@ label000000003969: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Joke"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1774,6 +2119,13 @@ label000000004042: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Chastise"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1806,6 +2158,13 @@ label000000004115: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Philosophize"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1838,6 +2197,13 @@ label000000004188: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Threaten"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1870,6 +2236,13 @@ label000000004261: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Placate"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1902,6 +2275,13 @@ label000000004334: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Assistance"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1934,6 +2314,13 @@ label000000004407: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Paradise"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1966,6 +2353,13 @@ label000000004480: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Morals"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -1998,6 +2392,13 @@ label000000004553: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Aggressive"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -2030,6 +2431,13 @@ label000000004626: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Lesson"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -2062,6 +2470,13 @@ label000000004699: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Violent"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -2094,6 +2509,13 @@ label000000004772: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Threaten Secret"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -2126,6 +2548,13 @@ label000000004845: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Conductor"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -2158,6 +2587,13 @@ label000000004918: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Conscience"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -2190,6 +2626,13 @@ label000000004991: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Plead"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -2222,6 +2665,13 @@ label000000005064: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Mother"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -2254,6 +2704,13 @@ label000000005137: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Convince"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -2286,6 +2743,13 @@ label000000005210: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Insult"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -2318,6 +2782,13 @@ label000000005283: ; inside repeatedly_execute_always$0, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Warn"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx

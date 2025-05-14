@@ -1,0 +1,928 @@
+diff --git a/GlobalScript.s b/../GlobalScript.s
+index 88371fe..7561030
+--- a/GlobalScript.s
++++ b/../GlobalScript.s
+@@ -27293,6 +27295,13 @@ Convobutt1_OnClick$2: ; 2 args
+ 	pop op
+ 	push ax
+ 	li ax, "Appeal"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -27454,6 +27469,13 @@ label000000062010: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Luxurious"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -27580,6 +27602,13 @@ label000000062306: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Deals"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -27706,6 +27735,13 @@ label000000062602: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Lie"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -27781,6 +27820,13 @@ label000000062778: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Bluff"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -27906,6 +27952,13 @@ label000000063073: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Defy"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -28031,6 +28084,13 @@ label000000063368: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Taunt"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -28118,6 +28178,13 @@ label000000063574: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Assuage"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -28249,6 +28316,13 @@ label000000063882: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Awareness"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -28362,6 +28436,13 @@ label000000064147: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Futurism"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -28494,6 +28575,13 @@ label000000064456: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Ego"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -28564,6 +28652,13 @@ label000000064620: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Gentle"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -28654,6 +28749,13 @@ label000000064830: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Money"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -28756,6 +28858,13 @@ label000000065070: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Unforgiving"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -28875,6 +28984,13 @@ label000000065350: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Threaten Life"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -28944,6 +29060,13 @@ label000000065513: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Business"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -29087,6 +29210,13 @@ label000000065849: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Empathy"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -29200,6 +29330,13 @@ label000000066114: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Report"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -29361,6 +29498,13 @@ label000000066491: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Danger"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -29477,6 +29621,13 @@ label000000066762: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Agree"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -29563,6 +29714,13 @@ label000000066962: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Defend"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -29761,6 +29919,13 @@ label000000067428: ; inside Convobutt1_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Acquiesce"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -31243,6 +31408,13 @@ Convobutt2_OnClick$2: ; 2 args
+ 	pop op
+ 	push ax
+ 	li ax, "Defend"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -31356,6 +31528,13 @@ label000000071133: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Comfortable"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -31487,6 +31666,13 @@ label000000071441: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Excitement"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -31636,6 +31822,13 @@ label000000071792: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Truth"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -31705,6 +31898,13 @@ label000000071953: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Expose"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -31842,6 +32042,13 @@ label000000072276: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Dissuade"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -31962,6 +32169,13 @@ label000000072557: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Reason"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -32049,6 +32263,13 @@ label000000072761: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Compliment"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -32157,6 +32378,13 @@ label000000073014: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Business"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -32288,6 +32516,13 @@ label000000073322: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Beauty"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -32413,6 +32648,13 @@ label000000073615: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Charity"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -32470,6 +32712,13 @@ label000000073748: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Moderate"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -32565,6 +32814,13 @@ label000000073970: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Retribution"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -32672,6 +32928,13 @@ label000000074222: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Unreasonable"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -32786,6 +33049,13 @@ label000000074490: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Threaten Family"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -32855,6 +33125,13 @@ label000000074653: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Friend"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -32975,6 +33252,13 @@ label000000074934: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Greed"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -33136,6 +33420,13 @@ label000000075311: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Namedrop"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -33235,6 +33526,13 @@ label000000075543: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Needed"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -33343,6 +33641,13 @@ label000000075796: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Disagree"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -33441,6 +33746,13 @@ label000000076024: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Deflect"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -33509,6 +33821,13 @@ label000000076181: ; inside Convobutt2_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Question"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -34991,6 +35310,13 @@ Convobutt3_OnClick$2: ; 2 args
+ 	pop op
+ 	push ax
+ 	li ax, "Explain"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -35111,6 +35437,13 @@ label000000079902: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Practical"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -35242,6 +35575,13 @@ label000000080210: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Ease"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -35373,6 +35713,13 @@ label000000080518: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Joke"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -35425,6 +35772,13 @@ label000000080639: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Chastise"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -35545,6 +35899,13 @@ label000000080920: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Philosophize"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -35688,6 +36049,13 @@ label000000081256: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Threaten"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -35782,6 +36150,13 @@ label000000081478: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Placate"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -35913,6 +36288,13 @@ label000000081786: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Assistance"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -36021,6 +36403,13 @@ label000000082039: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Paradise"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -36164,6 +36553,13 @@ label000000082375: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Morals"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -36221,6 +36617,13 @@ label000000082508: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Aggressive"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -36328,6 +36731,13 @@ label000000082760: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Lesson"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -36441,6 +36851,13 @@ label000000083025: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Violent"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -36548,6 +36965,13 @@ label000000083275: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Threaten Secret"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -36600,6 +37024,13 @@ label000000083396: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Conductor"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -36765,6 +37196,13 @@ label000000083783: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Conscience"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -36873,6 +37311,13 @@ label000000084036: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Plead"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -36942,6 +37387,13 @@ label000000084197: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Mother"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -37058,6 +37510,13 @@ label000000084468: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Convince"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -37166,6 +37625,13 @@ label000000084721: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Insult"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -37252,6 +37718,13 @@ label000000084921: ; inside Convobutt3_OnClick$2, ; referenced by 1 spots
+ 	pop op
+ 	push ax
+ 	li ax, "Warn"
++
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
