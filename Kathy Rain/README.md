@@ -24,3 +24,9 @@ This game has several issues with translations:
     - Added call to `SetupSpriteFonts` into `on_language_change` function (to allow switching Russian and non-Russian glyphs dynamically).
     - Added Russian language with ID 244 in `lb_Languages_OnSelectionChange` and `on_event` (so people can scroll through languages including Russian).
     - Added Russian language check in `game_start` to prevent French and Spanish language names using remapped glyphs (in other words this fixes Cyrillic characters appearing in "Français" and "Español" literal strings in game menu when Russian language is selected).
+
+## Screenshot
+
+This screenshot is an early proof-of-concept prototype with font made by me:
+
+![poc-screenshot](./screenshot.png)
