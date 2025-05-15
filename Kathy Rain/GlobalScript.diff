@@ -1,0 +1,5054 @@
+diff --git a/GlobalScript.s b/../GlobalScript.s
+index 6acc9e5..da13ce3
+--- a/GlobalScript.s
++++ b/../GlobalScript.s
+@@ -51,10 +51,10 @@ int var009016 = 0
+ int var009020 = 0
+ int var009024 = 0
+ int var009028 = 0
+-int var009032 = 0
++int font_pos_x = 0
+ int var009036 = 0
+ int var009040 = 0
+-int var009044 = 0
++int font_pos_y = 0
+ .text
+ 
+ add_sound$1: ; 1 args
+@@ -2475,7 +2475,7 @@ SetupSimpleGlyph$4: ; 4 args
+ 	memwrite4 ax
+ 	sourceline 276
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 277
+ 	ptrstack 12
+@@ -2490,7 +2490,7 @@ SetupSimpleGlyph$4: ; 4 args
+ 	sourceline 279
+ 	ptrstack 20
+ 	memread4 ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 280
+ 	li ax, 0
+@@ -2512,10 +2512,10 @@ SimpleSetGlyph$2: ; 2 args
+ 	add bx, ax
+ 	mr ax, bx
+ 	farpush ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memread4 ax
+ 	farpush ax
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memread4 ax
+ 	farpush ax
+ 	ptrstack 8
+@@ -2537,11 +2537,11 @@ SimpleSetGlyph$2: ; 2 args
+ 	add bx, ax
+ 	mr ax, bx
+ 	push ax
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memread4 ax
+ 	pop bx
+ 	add ax, bx
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 286
+ 	li ax, 0
+@@ -2582,7 +2584,8 @@ SimpleSetGlyphExt$2: ; 2 args
+ 	pop bx
+ 	lt bx, ax
+ 	mr ax, bx
+-	jzi label000000005821
++	jzi label_extended_ascii
++
+ 	li ax, 256
+ 	push ax
+ 	ptrstack 5
+@@ -2591,7 +2594,8 @@ SimpleSetGlyphExt$2: ; 2 args
+ 	add ax, bx
+ 	ptrstack 1
+ 	memwrite1 ax
+-label000000005821: ; inside SimpleSetGlyphExt$2, ; referenced by 1 spots
++
++label_extended_ascii: ; inside SimpleSetGlyphExt$2, ; referenced by 1 spots
+ 	sourceline 294
+ 	ptrstack 13
+ 	memread4 ax
+@@ -3100,11 +3105,11 @@ SetupComputerFont2$3: ; 3 args
+ 	subi sp, 8
+ 	sourceline 361
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 362
+ 	li ax, 12
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 364
+ 	li ax, 6
+@@ -3565,16 +3570,16 @@ SetupComputerFont2$3: ; 3 args
+ 	subi sp, 8
+ 	sourceline 451
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 452
+ 	li ax, 12
+ 	push ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memread4 ax
+ 	pop bx
+ 	add ax, bx
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 454
+ 	li ax, 6
+@@ -3839,6 +3844,554 @@ SetupComputerFont2$3: ; 3 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_computer2_rus_skip
++
++	li ax, 0
++	li mar, @font_pos_x
++	memwrite4 ax
++	li ax, 36
++	li mar, @font_pos_y
++	memwrite4 ax
++
++	li ax, 6
++	push ax
++	li ax, 192
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 193
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 194
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 195
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 196
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 197
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 168
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 198
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 199
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 200
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 201
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 202
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 203
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 204
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 205
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 206
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 207
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 208
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 209
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 210
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 211
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 212
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 213
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 214
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 215
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 216
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 217
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 218
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 219
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 220
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 221
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 222
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 223
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 224
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 225
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 226
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 227
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 228
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 229
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 184
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 230
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 231
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 232
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 233
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 234
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 235
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 236
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 237
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 238
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 239
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 240
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 241
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 242
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 243
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 244
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 245
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 246
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 247
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 248
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 249
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 250
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 251
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 252
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 253
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 254
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 255
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++label_computer2_rus_skip:
+ 	sourceline 487
+ 	li ax, 0
+ 	ret 
+@@ -4324,11 +4877,11 @@ SetupComputerFont$3: ; 3 args
+ 	subi sp, 8
+ 	sourceline 552
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 553
+ 	li ax, 12
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 555
+ 	li ax, 5
+@@ -4831,16 +5384,16 @@ SetupComputerFont$3: ; 3 args
+ 	subi sp, 8
+ 	sourceline 648
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 649
+ 	li ax, 12
+ 	push ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memread4 ax
+ 	pop bx
+ 	add ax, bx
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 651
+ 	li ax, 5
+@@ -5105,13 +5658,562 @@ SetupComputerFont$3: ; 3 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_computer_rus_skip
++
++	li ax, 0
++	li mar, @font_pos_x
++	memwrite4 ax
++	li ax, 36
++	li mar, @font_pos_y
++	memwrite4 ax
++
++	li ax, 5
++	push ax
++	li ax, 192
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 193
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 194
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 195
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 196
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 197
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 168
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 198
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 199
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 200
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 201
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 202
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 203
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 204
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 205
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 206
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 207
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 208
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 209
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 210
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 211
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 212
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 213
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 214
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 215
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 216
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 217
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 218
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 219
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 220
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 221
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 222
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 223
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 224
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 225
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 226
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 227
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 228
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 229
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 184
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 230
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 231
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 232
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 233
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 234
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 235
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 236
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 237
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 238
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 239
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 240
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 241
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 242
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 243
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 244
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 245
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 246
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 247
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 248
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 249
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 250
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 251
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 252
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 253
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 254
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 255
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++label_computer_rus_skip:
+ 	sourceline 684
+ 	li ax, 0
+ 	ret 
+ 
+-SetupSpeechFont$2: ; 2 args
++SetupSpeechFont$2: ; 2 args (int font, int sprite)
+ 	sourceline 687
+ 	thisaddr 12054
++
+ 	sourceline 688
+ 	li ax, 0
+ 	farpush ax
+@@ -5160,6 +6265,7 @@ SetupSpeechFont$2: ; 2 args
+ 	ptrstack 20
+ 	memread4 ax
+ 	push ax
++; SetupSimpleGlyph(int font?, int height, int spacing, int ?)
+ 	li ax, SetupSimpleGlyph$4
+ 	call ax
+ 	subi sp, 16
+@@ -5579,14 +6686,17 @@ SetupSpeechFont$2: ; 2 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
+ 	sourceline 748
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
++
+ 	sourceline 749
+ 	li ax, 13
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
++
+ 	sourceline 750
+ 	li ax, 5
+ 	push ax
+@@ -6430,6 +7541,556 @@ SetupSpeechFont$2: ; 2 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
++; Russian alphabet (replacing extended ascii)
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi labelSkipRussian
++
++	li ax, 0
++	li mar, @font_pos_x
++	memwrite4 ax
++
++	li ax, 26
++	li mar, @font_pos_y
++	memwrite4 ax
++
++	li ax, 5
++	push ax
++	li ax, 192
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 193
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 194
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 195
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 196
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 197
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 168
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 198
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 199
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 200
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 201
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 202
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 203
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 204
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 205
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 206
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 207
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 208
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 209
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 210
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 211
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 212
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 213
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 214
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 215
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 216
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 217
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 218
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 219
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 220
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 221
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 222
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 223
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 224
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 225
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 226
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 227
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 228
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 229
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 184
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 230
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 231
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 232
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 233
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 234
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 235
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 236
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 237
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 238
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 239
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 240
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 241
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 242
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 243
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 244
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 245
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 246
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 247
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 248
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 249
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 250
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 251
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 252
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 253
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 254
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 255
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++labelSkipRussian:
+ 	sourceline 873
+ 	li ax, 0
+ 	ret 
+@@ -6437,6 +8098,8 @@ SetupSpeechFont$2: ; 2 args
+ SetupSpriteFonts$0: ; 0 args
+ 	sourceline 876
+ 	thisaddr 15342
++
++; Font sprite 3076 (translatable)
+ 	sourceline 1056
+ 	li ax, 3076
+ 	farpush ax
+@@ -6803,16 +8471,18 @@ SetupSpriteFonts$0: ; 0 args
+ 	sourceline 1104
+ 	li ax, 15
+ 	push ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memread4 ax
+ 	pop bx
+ 	add ax, bx
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
++
+ 	sourceline 1105
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
++
+ 	sourceline 1107
+ 	li ax, 5
+ 	push ax
+@@ -7365,6 +9035,555 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_3076_rus_skip
++
++	li ax, 0
++	li mar, @font_pos_x
++	memwrite4 ax
++	li ax, 33
++	li mar, @font_pos_y
++	memwrite4 ax
++
++	li ax, 8
++	push ax
++	li ax, 192
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 193
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 194
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 195
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 196
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 197
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 168
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 14
++	push ax
++	li ax, 198
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 199
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 200
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 201
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 202
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 203
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 11
++	push ax
++	li ax, 204
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 205
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 206
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 207
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 208
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 209
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 210
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 211
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 212
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 213
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 214
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 215
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 13
++	push ax
++	li ax, 216
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 13
++	push ax
++	li ax, 217
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 218
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 12
++	push ax
++	li ax, 219
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 220
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 221
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 13
++	push ax
++	li ax, 222
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 223
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 224
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 225
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 226
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 227
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 228
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 229
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 184
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 12
++	push ax
++	li ax, 230
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 231
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 232
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 233
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 234
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 235
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 236
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 237
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 238
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 239
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 240
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 241
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 242
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 243
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 244
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 245
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 246
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 247
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 248
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 249
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 250
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 251
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 252
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 253
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 254
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 255
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++label_3076_rus_skip:
++; Font sprite 3006 (useless)
+ 	sourceline 1251
+ 	li ax, 3006
+ 	farpush ax
+@@ -7475,6 +9696,8 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
++; Font sprite 2558 (translatable)
+ 	sourceline 1303
+ 	li ax, 2558
+ 	farpush ax
+@@ -7940,14 +10166,17 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
+ 	sourceline 1363
+ 	li ax, 15
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
++
+ 	sourceline 1364
+ 	li ax, 97
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
++
+ 	sourceline 1366
+ 	li ax, 8
+ 	push ax
+@@ -8471,6 +10700,555 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_2558_rus_skip
++
++	li ax, 0
++	li mar, @font_pos_x
++	memwrite4 ax
++	li ax, 30
++	li mar, @font_pos_y
++	memwrite4 ax
++
++	li ax, 8
++	push ax
++	li ax, 192
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 193
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 194
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 195
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 196
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 197
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 168
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 14
++	push ax
++	li ax, 198
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 199
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 200
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 201
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 202
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 203
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 204
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 205
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 206
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 207
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 208
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 209
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 210
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 211
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 12
++	push ax
++	li ax, 212
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 213
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 214
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 215
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 11
++	push ax
++	li ax, 216
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 12
++	push ax
++	li ax, 217
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 218
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 11
++	push ax
++	li ax, 219
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 220
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 221
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 12
++	push ax
++	li ax, 222
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 223
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 224
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 225
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 226
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 227
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 228
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 229
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 184
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 230
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 231
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 232
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 233
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 234
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 235
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 236
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 237
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 238
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 239
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 240
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 241
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 242
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 243
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 244
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 245
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 246
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 247
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 248
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 11
++	push ax
++	li ax, 249
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 250
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 251
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 252
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 253
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 10
++	push ax
++	li ax, 254
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 255
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++label_2558_rus_skip:
++; Font sprite 1901 (chemical puzzle?)
+ 	sourceline 1427
+ 	li ax, 1901
+ 	farpush ax
+@@ -8597,11 +11379,11 @@ SetupSpriteFonts$0: ; 0 args
+ 	subi sp, 8
+ 	sourceline 1445
+ 	li ax, 32
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 1446
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 1447
+ 	ptrstack 4
+@@ -8687,15 +11469,15 @@ SetupSpriteFonts$0: ; 0 args
+ 	sourceline 1456
+ 	li ax, 32
+ 	push ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memread4 ax
+ 	pop bx
+ 	add ax, bx
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 1457
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 1458
+ 	ptrstack 4
+@@ -8781,15 +11563,15 @@ SetupSpriteFonts$0: ; 0 args
+ 	sourceline 1468
+ 	li ax, 32
+ 	push ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memread4 ax
+ 	pop bx
+ 	add ax, bx
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 1469
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 1471
+ 	ptrstack 4
+@@ -8875,15 +11657,15 @@ SetupSpriteFonts$0: ; 0 args
+ 	sourceline 1481
+ 	li ax, 32
+ 	push ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memread4 ax
+ 	pop bx
+ 	add ax, bx
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 1482
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 1484
+ 	ptrstack 4
+@@ -8970,15 +11752,15 @@ SetupSpriteFonts$0: ; 0 args
+ 	sourceline 1494
+ 	li ax, 32
+ 	push ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memread4 ax
+ 	pop bx
+ 	add ax, bx
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 1495
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 1497
+ 	ptrstack 4
+@@ -9070,15 +11852,15 @@ SetupSpriteFonts$0: ; 0 args
+ 	sourceline 1508
+ 	li ax, 32
+ 	push ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memread4 ax
+ 	pop bx
+ 	add ax, bx
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 1509
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 1511
+ 	ptrstack 4
+@@ -9125,6 +11907,8 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
++; Font sprite speech (monochrome) (translatable)
+ 	sourceline 1517
+ 	li ax, 1908
+ 	push ax
+@@ -9133,6 +11917,8 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SetupSpeechFont$2
+ 	call ax
+ 	subi sp, 8
++
++; Font sprite speech (gradient) (translatable)
+ 	sourceline 1518
+ 	li ax, 1907
+ 	push ax
+@@ -9141,6 +11927,8 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SetupSpeechFont$2
+ 	call ax
+ 	subi sp, 8
++
++; Font sprite 2541 (translatable)
+ 	sourceline 1520
+ 	li ax, 1
+ 	push ax
+@@ -9151,6 +11939,8 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SetupComputerFont$3
+ 	call ax
+ 	subi sp, 12
++
++; Font sprite 2592 (translatable)
+ 	sourceline 1521
+ 	li ax, 1
+ 	push ax
+@@ -9161,6 +11951,8 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SetupComputerFont2$3
+ 	call ax
+ 	subi sp, 12
++
++; Font sprite 2630 (translatable)
+ 	sourceline 1525
+ 	li ax, 2630
+ 	farpush ax
+@@ -9660,11 +12456,11 @@ SetupSpriteFonts$0: ; 0 args
+ 	subi sp, 8
+ 	sourceline 1586
+ 	li ax, 14
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 1587
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 1589
+ 	li ax, 5
+@@ -10221,15 +13017,15 @@ SetupSpriteFonts$0: ; 0 args
+ 	sourceline 1676
+ 	li ax, 14
+ 	push ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memread4 ax
+ 	pop bx
+ 	add ax, bx
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 1677
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 1678
+ 	li ax, 5
+@@ -10503,6 +13299,555 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_2630_rus_skip
++
++	li ax, 0
++	li mar, @font_pos_x
++	memwrite4 ax
++	li ax, 42
++	li mar, @font_pos_y
++	memwrite4 ax
++
++	li ax, 7
++	push ax
++	li ax, 192
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 193
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 194
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 195
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 196
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 197
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 168
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 198
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 199
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 200
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 201
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 202
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 203
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 204
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 205
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 206
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 207
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 208
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 209
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 210
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 211
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 212
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 213
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 214
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 215
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 11
++	push ax
++	li ax, 216
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 11
++	push ax
++	li ax, 217
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 218
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 219
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 220
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 221
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 222
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 223
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 224
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 225
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 226
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 227
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 228
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 229
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 184
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 230
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 231
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 232
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 233
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 234
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 235
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 236
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 237
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 238
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 239
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 240
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 241
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 242
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 243
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 244
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 245
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 246
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 247
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 248
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 249
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 250
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 251
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 252
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 253
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 254
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 255
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++label_2630_rus_skip:
++; Font sprite 2989 (translatable)
+ 	sourceline 1871
+ 	li ax, 2989
+ 	farpush ax
+@@ -10978,11 +14326,11 @@ SetupSpriteFonts$0: ; 0 args
+ 	subi sp, 8
+ 	sourceline 1933
+ 	li ax, 13
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 1934
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 1936
+ 	li ax, 3
+@@ -11776,6 +15124,555 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_2989_rus_skip
++
++	li ax, 0
++	li mar, @font_pos_x
++	memwrite4 ax
++	li ax, 27
++	li mar, @font_pos_y
++	memwrite4 ax
++
++	li ax, 3
++	push ax
++	li ax, 192
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 193
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 194
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 195
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 196
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 197
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 168
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 198
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 199
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 200
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 201
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 202
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 203
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 204
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 205
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 206
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 207
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 208
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 209
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 210
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 211
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 212
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 213
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 214
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 215
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 216
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 217
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 218
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 219
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 220
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 221
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 222
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 223
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 224
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 225
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 226
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 227
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 228
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 229
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 184
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 230
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 231
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 232
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 233
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 234
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 235
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 236
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 237
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 238
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 239
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 240
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 241
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 242
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 243
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 244
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 245
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 246
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 247
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 248
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 249
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 250
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 251
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 252
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 253
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 254
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 3
++	push ax
++	li ax, 255
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++label_2989_rus_skip:
++; Font sprite 2630 (translatable)
+ 	sourceline 2055
+ 	li ax, 2630
+ 	farpush ax
+@@ -12275,11 +16176,11 @@ SetupSpriteFonts$0: ; 0 args
+ 	subi sp, 8
+ 	sourceline 2116
+ 	li ax, 14
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 2117
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 2119
+ 	li ax, 5
+@@ -12836,15 +16737,15 @@ SetupSpriteFonts$0: ; 0 args
+ 	sourceline 2206
+ 	li ax, 14
+ 	push ax
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memread4 ax
+ 	pop bx
+ 	add ax, bx
+-	li mar, @var009044
++	li mar, @font_pos_y
+ 	memwrite4 ax
+ 	sourceline 2207
+ 	li ax, 0
+-	li mar, @var009032
++	li mar, @font_pos_x
+ 	memwrite4 ax
+ 	sourceline 2208
+ 	li ax, 5
+@@ -13118,6 +17019,554 @@ SetupSpriteFonts$0: ; 0 args
+ 	li ax, SimpleSetGlyph$2
+ 	call ax
+ 	subi sp, 8
++
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_2630dup_rus_skip
++
++	li ax, 0
++	li mar, @font_pos_x
++	memwrite4 ax
++	li ax, 42
++	li mar, @font_pos_y
++	memwrite4 ax
++
++	li ax, 7
++	push ax
++	li ax, 192
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 193
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 194
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 195
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 196
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 197
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 168
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 198
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 199
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 200
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 201
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 202
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 203
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 204
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 205
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 206
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 207
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 208
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 209
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 210
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 211
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 212
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 213
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 214
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 215
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 11
++	push ax
++	li ax, 216
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 11
++	push ax
++	li ax, 217
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 218
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 219
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 220
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 221
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 222
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 223
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 224
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 225
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 226
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 227
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 228
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 229
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 184
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 230
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 231
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 232
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 233
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 234
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 235
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 236
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 237
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 238
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 239
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 240
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 241
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 242
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 243
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 244
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 245
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 246
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 247
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 7
++	push ax
++	li ax, 248
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 8
++	push ax
++	li ax, 249
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 6
++	push ax
++	li ax, 250
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 251
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 252
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 4
++	push ax
++	li ax, 253
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 9
++	push ax
++	li ax, 254
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++	li ax, 5
++	push ax
++	li ax, 255
++	push ax
++	li ax, SimpleSetGlyph$2
++	call ax
++	subi sp, 8
++
++label_2630dup_rus_skip:
+ 	sourceline 2242
+ 	li ax, 0
+ 	subi sp, 4
+@@ -14879,6 +19332,18 @@ label000000035796: ; inside game_start$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
++
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jnzi label_game_start_replace_skip
++
+ 	sourceline 2602
+ 	push op
+ 	li ax, 0
+@@ -14967,6 +19433,8 @@ label000000035796: ; inside game_start$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
++
++label_game_start_replace_skip:
+ 	sourceline 2604
+ 	push op
+ 	ptrstack 8
+@@ -26491,6 +30959,10 @@ label000000061526: ; inside on_language_change$0, ; referenced by 1 spots
+ 	li ax, Dictaphone::OnLanguageChanged^0
+ 	farcall ax
+ 	pop op
++
++	li ax, SetupSpriteFonts$0
++	call ax
++
+ 	sourceline 4420
+ 	li ax, 0
+ 	ret 
+@@ -26620,6 +31092,24 @@ label000000062153: ; inside lb_Languages_OnSelectionChange$1, ; referenced by 1
+ 	push mar
+ 	pop mar
+ 	ptrset ax
++
++	ptrstack 4
++	push mar
++	pop mar
++	ptrget ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_onselectionchange_check_deutsch
++
++	li ax, 244
++	li mar, g_Language
++	memwrite4 ax
++	jmpi label000000062469
++
++label_onselectionchange_check_deutsch:
+ 	sourceline 4431
+ 	ptrstack 4
+ 	push mar
+@@ -28010,6 +32503,8 @@ label000000065378: ; inside on_event$2, ; referenced by 10 spots
+ 	cmpeq bx, ax
+ 	mr ax, bx
+ 	jzi label000000068382
++
++; on_event(on_change_language = 9)
+ 	sourceline 4600
+ 	li ax, 0
+ 	setfuncargs 0
+@@ -28018,6 +32513,25 @@ label000000065378: ; inside on_event$2, ; referenced by 10 spots
+ 	mr mar, sp
+ 	ptrinit ax
+ 	addi sp, 4
++
++	ptrstack 4
++	push mar
++	pop mar
++	ptrget ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_on_event_check_deutsch
++
++; Russian language number = 244
++	li ax, 244
++	li mar, g_Language
++	memwrite4 ax
++	jmpi label000000065672
++
++label_on_event_check_deutsch:
+ 	sourceline 4602
+ 	ptrstack 4
+ 	push mar
+@@ -28221,6 +32740,18 @@ label000000065734: ; inside on_event$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
++
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jnzi label_on_event_replace_skip
++
+ 	sourceline 4623
+ 	push op
+ 	li ax, 0
+@@ -28309,6 +32841,8 @@ label000000065734: ; inside on_event$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
++
++label_on_event_replace_skip:
+ 	sourceline 4626
+ 	push op
+ 	ptrstack 12
