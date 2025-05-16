@@ -1,0 +1,145 @@
+diff --git a/room0.s b/../modified/room0.s
+index a52a4c6..6e2c99f
+--- a/room0.s
++++ b/../modified/room0.s
+@@ -1669,6 +1669,106 @@ room_a$0: ; 0 args
+ 	li ax, 0
+ 	ret 
+ 
++setTitleTranslation$0: ; 0 args
++	sourceline 4
++	thisaddr 0
++	sourceline 5
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000000159
++	sourceline 7
++	li ax, 2207
++	mr bx, ax
++	li mar, oTitle
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Object::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 8
++	li ax, 2208
++	mr bx, ax
++	li mar, oSubtitle
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Object::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 10
++	li ax, 1
++	mr bx, ax
++	li mar, oTitle
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Object::set_Visible
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 11
++	li ax, 1
++	mr bx, ax
++	li mar, oSubtitle
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Object::set_Visible
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 12
++	jmpi label000000000221
++label000000000159: ; inside setTitleTranslation$0, ; referenced by 1 spots
++	sourceline 15
++	li ax, 0
++	mr bx, ax
++	li mar, oTitle
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Object::set_Visible
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 16
++	li ax, 0
++	mr bx, ax
++	li mar, oSubtitle
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Object::set_Visible
++	farcall ax
++	farsubsp 1
++	pop op
++label000000000221:
++	sourceline 18
++	li ax, 0
++	ret 
++
+ room_AfterFadeIn$0: ; 0 args
+ 	sourceline 313
+ 	thisaddr 3613
+@@ -1850,6 +1950,11 @@ label000000003983: ; inside room_AfterFadeIn$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
++
++	sourceline 22
++	li ax, setTitleTranslation$0
++	call ax
++
+ 	sourceline 349
+ 	li ax, 20
+ 	farpush ax
+@@ -1935,6 +2040,21 @@ CancelButt_OnClick$0: ; 0 args
+ on_call$1: ; 1 args
+ 	sourceline 366
+ 	thisaddr 4187
++
++	ptrstack 8
++	memread4 ax
++	push ax
++	li ax, 244
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label_on_call_original
++	sourceline 27
++	li ax, setTitleTranslation$0
++	call ax
++	jmpi label000000004251
++
++label_on_call_original:
+ 	sourceline 367
+ 	ptrstack 8
+ 	memread4 ax

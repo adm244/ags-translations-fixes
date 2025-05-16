@@ -1,0 +1,247 @@
+diff --git a/room18.s b/../modified/room18.s
+index ca3f468..c7eaf2e
+--- a/room18.s
++++ b/../modified/room18.s
+@@ -552,7 +556,7 @@ label000000001226: ; inside room_a$0, ; referenced by 1 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000001455
++	jzi label_check_russian
+ 	sourceline 75
+ 	li ax, 0
+ 	mr bx, ax
+@@ -638,6 +642,73 @@ label000000001226: ; inside room_a$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
++	jmpi label000000001455
++
++label_check_russian:
++	sourceline 74
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000001455
++
++	sourceline 75
++	li ax, 0
++	mr bx, ax
++	li mar, oSpanishEnd
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Object::set_Visible
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 76
++	li ax, 0
++	mr bx, ax
++	li mar, oGermanEnd
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Object::set_Visible
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 78
++	li ax, 2217
++	mr bx, ax
++	li mar, oPolishEnd
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Object::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++	li ax, 1
++	mr bx, ax
++	li mar, oPolishEnd
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Object::set_Visible
++	farcall ax
++	farsubsp 1
++	pop op
++
+ label000000001455: ; inside room_a$0, ; referenced by 5 spots
+ 	sourceline 84
+ 	li ax, 2
+@@ -811,9 +886,16 @@ label000000001726: ; inside room_a$0, ; referenced by 1 spots
+ 	memwrite4 ax
+ 	sourceline 108
+ 	jmpi label000000001916
++
+ label000000001852: ; inside room_a$0, ; referenced by 1 spots
++; credits[0].DefaultCreditFont = ...
+ 	sourceline 110
+-	li ax, 3
++;	li ax, 3
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_NormalFont
++	farcall ax
++	mr bx, ax
+ 	push ax
+ 	li ax, 0
+ 	assertlte ax, 4
+@@ -824,8 +906,11 @@ label000000001852: ; inside room_a$0, ; referenced by 1 spots
+ 	addi mar, 40
+ 	add mar, cx
+ 	memwrite4 ax
++
++; credits[0].DefaultTitleFont = ...
+ 	sourceline 111
+-	li ax, 3
++;	li ax, 3
++	mr ax, bx
+ 	push ax
+ 	li ax, 0
+ 	assertlte ax, 4
+@@ -1725,6 +1811,128 @@ label000000001916: ; inside room_a$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 7
+ 	pop op
++
++	sourceline 144
++	push op
++	li ax, -1
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, -2
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, 0
++	farpush ax
++	li ax, "Russian Translation"
++	newstr ax
++	farpush ax
++	li ax, 0
++	assertlte ax, 4
++	muli ax, 4140
++	mr cx, ax
++	li mar, Credits
++	add mar, cx
++	mr ax, mar
++	callobj ax
++	setfuncargs 7
++	li ax, CreditSequence::AddTitle^7
++	farcall ax
++	farsubsp 7
++	pop op
++	sourceline 145
++	push op
++	li ax, -1
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, -2
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, 0
++	farpush ax
++	li ax, "Prometheus Project"
++	newstr ax
++	farpush ax
++	li ax, 0
++	assertlte ax, 4
++	muli ax, 4140
++	mr cx, ax
++	li mar, Credits
++	add mar, cx
++	mr ax, mar
++	callobj ax
++	setfuncargs 7
++	li ax, CreditSequence::AddCredit^7
++	farcall ax
++	farsubsp 7
++	pop op
++	sourceline 145
++	push op
++	li ax, -1
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, -2
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, 0
++	farpush ax
++	li ax, "and"
++	newstr ax
++	farpush ax
++	li ax, 0
++	assertlte ax, 4
++	muli ax, 4140
++	mr cx, ax
++	li mar, Credits
++	add mar, cx
++	mr ax, mar
++	callobj ax
++	setfuncargs 7
++	li ax, CreditSequence::AddCredit^7
++	farcall ax
++	farsubsp 7
++	pop op
++	sourceline 145
++	push op
++	li ax, -1
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, -2
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, 0
++	farpush ax
++	li ax, "AdM244[[[["
++	newstr ax
++	farpush ax
++	li ax, 0
++	assertlte ax, 4
++	muli ax, 4140
++	mr cx, ax
++	li mar, Credits
++	add mar, cx
++	mr ax, mar
++	callobj ax
++	setfuncargs 7
++	li ax, CreditSequence::AddCredit^7
++	farcall ax
++	farsubsp 7
++	pop op
++
+ 	sourceline 147
+ 	push op
+ 	li ax, -1

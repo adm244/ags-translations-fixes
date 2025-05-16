@@ -1,0 +1,1332 @@
+diff --git a/room17.s b/../modified/room17.s
+index 7b44320..2c7b7a6
+--- a/room17.s
++++ b/../modified/room17.s
+@@ -3,801 +3,617 @@
+ room_a$0: ; 0 args
+ 	sourceline 4
+ 	thisaddr 0
+-	sourceline 6
+-	li ax, 100
+-	mr bx, ax
+-	li mar, cN
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Character::set_Transparency
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 7
+-	li ax, 0
+-	farpush ax
+-	li ax, 0
+-	farpush ax
+-	li ax, 0
+-	farpush ax
+-	setfuncargs 3
+-	li ax, MusicC::Play^3
+-	farcall ax
+-	farsubsp 3
+-	sourceline 9
+-	li ax, 1
+-	mr bx, ax
+-	li mar, gCodegui
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, GUI::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 11
+-	li ax, 4
+-	farpush ax
+-	setfuncargs 1
+-	li ax, GetGlobalInt
+-	farcall ax
+-	farsubsp 1
+-	push ax
+-	li ax, 4
+-	pop bx
+-	cmpne bx, ax
+-	mr ax, bx
+-	jzi label000000002414
+-	sourceline 12
+-	li ax, 1
+-	mr bx, ax
+-	li mar, gCracker
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, GUI::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 13
+-	li ax, 1
+-	mr bx, ax
+-	li mar, gPhrasenote
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, GUI::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 16
+-	li ax, "A"
++
++; init stack variables
++
++; Button* btns[26];
++	mr mar, sp
++	zeromem 104
++	addi sp, 104
++
++; String latin = ...;
++	li ax, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+ 	newstr ax
+-	mr bx, ax
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++
++; String cyrillic = ...;
++	li ax, "¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”’‘‹€ﬁﬂ"
++	newstr ax
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++
++; String alphabet;
++	mr mar, sp
++	zeromem 4
++	addi sp, 4
++
++; Buttons array
+ 	li mar, A1
+ 	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 17
+-	li ax, "B"
+-	newstr ax
+-	mr bx, ax
++	push ax
++	li ax, 0
++	assertlte ax, 26
++	mr dx, ax
++	pop ax
++	ptrstack 116
++	muli dx, 4
++	add mar, dx
++	push mar
++	pop mar
++	ptrset ax
++
+ 	li mar, B2
+ 	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 18
+-	li ax, "C"
+-	newstr ax
+-	mr bx, ax
+-	li mar, C3
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 19
+-	li ax, "D"
+-	newstr ax
+-	mr bx, ax
+-	li mar, D4
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 20
+-	li ax, "E"
+-	newstr ax
+-	mr bx, ax
+-	li mar, E5
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 21
+-	li ax, "F"
+-	newstr ax
+-	mr bx, ax
+-	li mar, F6
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 22
+-	li ax, "G"
+-	newstr ax
+-	mr bx, ax
+-	li mar, G7
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 23
+-	li ax, "H"
+-	newstr ax
+-	mr bx, ax
+-	li mar, H8
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 24
+-	li ax, "I"
+-	newstr ax
+-	mr bx, ax
+-	li mar, I9
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 25
+-	li ax, "J"
+-	newstr ax
+-	mr bx, ax
+-	li mar, J10
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 26
+-	li ax, "K"
+-	newstr ax
+-	mr bx, ax
+-	li mar, K11
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 27
+-	li ax, "L"
+-	newstr ax
+-	mr bx, ax
+-	li mar, L12
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 28
+-	li ax, "M"
+-	newstr ax
+-	mr bx, ax
+-	li mar, M13
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 29
+-	li ax, "N"
+-	newstr ax
+-	mr bx, ax
+-	li mar, N14
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 30
+-	li ax, "O"
+-	newstr ax
+-	mr bx, ax
+-	li mar, O15
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 31
+-	li ax, "P"
+-	newstr ax
+-	mr bx, ax
+-	li mar, P16
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 32
+-	li ax, "Q"
+-	newstr ax
+-	mr bx, ax
+-	li mar, Q17
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 33
+-	li ax, "R"
+-	newstr ax
+-	mr bx, ax
+-	li mar, R18
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 34
+-	li ax, "S"
+-	newstr ax
+-	mr bx, ax
+-	li mar, S19
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 35
+-	li ax, "T"
+-	newstr ax
+-	mr bx, ax
+-	li mar, T20
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 36
+-	li ax, "U"
+-	newstr ax
+-	mr bx, ax
+-	li mar, U21
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 37
+-	li ax, "V"
+-	newstr ax
+-	mr bx, ax
+-	li mar, V22
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 38
+-	li ax, "W"
+-	newstr ax
+-	mr bx, ax
+-	li mar, W23
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 39
+-	li ax, "X"
+-	newstr ax
+-	mr bx, ax
+-	li mar, X24
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 40
+-	li ax, "Y"
+-	newstr ax
+-	mr bx, ax
+-	li mar, Y25
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 41
+-	li ax, "Z"
+-	newstr ax
+-	mr bx, ax
+-	li mar, Z26
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Button::set_Text
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 43
+-	li ax, "A"
+-	newstr ax
+ 	push ax
+ 	li ax, 1
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 44
+-	li ax, "B"
+-	newstr ax
++
++	li mar, C3
++	mr ax, mar
+ 	push ax
+ 	li ax, 2
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 45
+-	li ax, "C"
+-	newstr ax
++
++	li mar, D4
++	mr ax, mar
+ 	push ax
+ 	li ax, 3
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 46
+-	li ax, "D"
+-	newstr ax
++
++	li mar, E5
++	mr ax, mar
+ 	push ax
+ 	li ax, 4
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 47
+-	li ax, "E"
+-	newstr ax
++
++	li mar, F6
++	mr ax, mar
+ 	push ax
+ 	li ax, 5
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 48
+-	li ax, "F"
+-	newstr ax
++
++	li mar, G7
++	mr ax, mar
+ 	push ax
+ 	li ax, 6
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 49
+-	li ax, "G"
+-	newstr ax
++
++	li mar, H8
++	mr ax, mar
+ 	push ax
+ 	li ax, 7
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 50
+-	li ax, "H"
+-	newstr ax
++
++	li mar, I9
++	mr ax, mar
+ 	push ax
+ 	li ax, 8
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 51
+-	li ax, "I"
+-	newstr ax
++
++	li mar, J10
++	mr ax, mar
+ 	push ax
+ 	li ax, 9
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 52
+-	li ax, "J"
+-	newstr ax
++
++	li mar, K11
++	mr ax, mar
+ 	push ax
+ 	li ax, 10
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 53
+-	li ax, "K"
+-	newstr ax
++
++	li mar, L12
++	mr ax, mar
+ 	push ax
+ 	li ax, 11
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 54
+-	li ax, "L"
+-	newstr ax
++
++	li mar, M13
++	mr ax, mar
+ 	push ax
+ 	li ax, 12
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 55
+-	li ax, "M"
+-	newstr ax
++
++	li mar, N14
++	mr ax, mar
+ 	push ax
+ 	li ax, 13
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 56
+-	li ax, "N"
+-	newstr ax
++
++	li mar, O15
++	mr ax, mar
+ 	push ax
+ 	li ax, 14
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 57
+-	li ax, "O"
+-	newstr ax
++
++	li mar, P16
++	mr ax, mar
+ 	push ax
+ 	li ax, 15
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 58
+-	li ax, "P"
+-	newstr ax
++
++	li mar, Q17
++	mr ax, mar
+ 	push ax
+ 	li ax, 16
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 59
+-	li ax, "Q"
+-	newstr ax
++
++	li mar, R18
++	mr ax, mar
+ 	push ax
+ 	li ax, 17
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 60
+-	li ax, "R"
+-	newstr ax
++
++	li mar, S19
++	mr ax, mar
+ 	push ax
+ 	li ax, 18
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 61
+-	li ax, "S"
+-	newstr ax
++
++	li mar, T20
++	mr ax, mar
+ 	push ax
+ 	li ax, 19
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 62
+-	li ax, "T"
+-	newstr ax
++
++	li mar, U21
++	mr ax, mar
+ 	push ax
+ 	li ax, 20
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 63
+-	li ax, "U"
+-	newstr ax
++
++	li mar, V22
++	mr ax, mar
+ 	push ax
+ 	li ax, 21
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 64
+-	li ax, "V"
+-	newstr ax
++
++	li mar, W23
++	mr ax, mar
+ 	push ax
+ 	li ax, 22
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 65
+-	li ax, "W"
+-	newstr ax
++
++	li mar, X24
++	mr ax, mar
+ 	push ax
+ 	li ax, 23
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 66
+-	li ax, "X"
+-	newstr ax
++
++	li mar, Y25
++	mr ax, mar
+ 	push ax
+ 	li ax, 24
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 67
+-	li ax, "Y"
+-	newstr ax
++
++	li mar, Z26
++	mr ax, mar
+ 	push ax
+ 	li ax, 25
+-	assertlte ax, 27
++	assertlte ax, 26
+ 	mr dx, ax
+ 	pop ax
+-	li mar, Alphabet1
++	ptrstack 116
+ 	muli dx, 4
+ 	add mar, dx
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+-	sourceline 68
+-	li ax, "Z"
+-	newstr ax
++
++; Original init stuff...
++
++	sourceline 6
++	li ax, 100
++	mr bx, ax
++	li mar, cN
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Character::set_Transparency
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 7
++	li ax, 0
++	farpush ax
++	li ax, 0
++	farpush ax
++	li ax, 0
++	farpush ax
++	setfuncargs 3
++	li ax, MusicC::Play^3
++	farcall ax
++	farsubsp 3
++	sourceline 9
++	li ax, 1
++	mr bx, ax
++	li mar, gCodegui
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, GUI::set_Visible
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 11
++	li ax, 4
++	farpush ax
++	setfuncargs 1
++	li ax, GetGlobalInt
++	farcall ax
++	farsubsp 1
++	push ax
++	li ax, 4
++	pop bx
++	cmpne bx, ax
++	mr ax, bx
++	jzi label000000002414
++
++	sourceline 12
++	li ax, 1
++	mr bx, ax
++	li mar, gCracker
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, GUI::set_Visible
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 13
++	li ax, 1
++	mr bx, ax
++	li mar, gPhrasenote
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, GUI::set_Visible
++	farcall ax
++	farsubsp 1
++	pop op
++
++; For loop to initialize alphabet
++
++	sourceline 27
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++
++label_for_start:
++	ptrstack 4
++	memread4 ax
++	push ax
++	li ax, 25
++	pop bx
++	lte bx, ax
++	mr ax, bx
++	jzi label_for_end
++
++	sourceline 29
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_lang_latin
++	sourceline 31
++	ptrstack 12
++	push mar
++	pop mar
++	ptrget ax
++	ptrstack 8
++	push mar
++	pop mar
++	ptrset ax
++	sourceline 32
++	jmpi label_set_vars
++label_lang_latin:
++	sourceline 35
++	ptrstack 16
++	push mar
++	pop mar
++	ptrget ax
++	ptrstack 8
++	push mar
++	pop mar
++	ptrset ax
++
++label_set_vars:
++	sourceline 62
++	ptrstack 8
++	push mar
++	pop mar
++	ptrget ax
++	push ax
++	ptrstack 8
++	memread4 ax
++	mr dx, ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	farpush dx
++	setfuncargs 1
++	li ax, String::geti_Chars
++	farcall ax
++	farsubsp 1
++	pop op
++	mr mar, sp
++	memwrite1 ax
++	addi sp, 1
++	sourceline 63
++	ptrstack 1
++	memread1 ax
++	farpush ax
++	li ax, "%c"
++	farpush ax
++	setfuncargs 2
++	li ax, String::Format^101
++	farcall ax
++	farsubsp 2
+ 	push ax
+-	li ax, 26
++	ptrstack 9
++	memread4 ax
++	assertlte ax, 26
++	mr dx, ax
++	pop ax
++	ptrstack 121
++	muli dx, 4
++	add mar, dx
++	push mar
++	pop mar
++	push ax
++	ptrget ax
++	pop bx
++	push ax
++	mr ax, bx
++	mr bx, ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Button::set_Text
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 64
++	ptrstack 5
++	memread4 ax
++	assertlte ax, 26
++	mr dx, ax
++	ptrstack 121
++	muli dx, 4
++	add mar, dx
++	push mar
++	pop mar
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, Button::get_Text
++	farcall ax
++	pop op
++	push ax
++	ptrstack 9
++	memread4 ax
++	push ax
++	li ax, 1
++	pop bx
++	add bx, ax
++	mr ax, bx
+ 	assertlte ax, 27
+ 	mr dx, ax
+ 	pop ax
+@@ -807,6 +623,20 @@ room_a$0: ; 0 args
+ 	push mar
+ 	pop mar
+ 	ptrset ax
++
++	sourceline 65
++	subi sp, 1
++	ptrstack 4
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++	jmpi label_for_start
++  
++label_for_end:
++	subi sp, 4
++
++; Init cypher text
++
+ 	sourceline 70
+ 	setfuncargs 0
+ 	li ax, IsTranslationAvailable
+@@ -976,7 +807,7 @@ label000000002319: ; inside room_a$0, ; referenced by 1 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000002410
++	jzi label_cypher_russian
+ 	sourceline 99
+ 	li ax, "NBJGIOHLFX DF LBVA, KFQVJ DF EOHRQO RSN, JH NOBFKHX J QBEO O QVITO WFX WHIK, [O IRSASWH DF \'FBBB!\', DF EVD XVBIQOTU YFR, JH DOH IKBFIJDG XO RFXFDGTU DVL TUBJHIK, [VAOHTSWH SBVTJGITOH, JH AHPH NBJHQRODFT IVTJGITOH O NBJGNVXODFT QFXBFKVX TVAGITOH, [NBJHDOLPG DOH JFNVXDOHRO, JH NOBFK DOH SJDFWH QFNOHRO O ERVIVE E DVIOH DOH TOHRO."
+ 	newstr ax
+@@ -1004,6 +835,47 @@ label000000002319: ; inside room_a$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
++
++label_cypher_russian: ; inside room_a$0, ; referenced by 1 spots
++	sourceline 94
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000002410
++	sourceline 99
++	li ax, "”Ã»≈—¬Œ » ¿œ ‹≈—‘ ﬁÕ’¬”Õƒ,[” √Õ¬”Ã“–¡ﬁ ¿—‹≈»ﬁ ≈œ√ –Õ –’∆√∆,[”Õ’∆¿ÃŒ –œ’≈¡ƒ, ÀÃœ¬√”“ƒ ”≈—√[¬—‹Œ¿∆ ﬁÕ» “ €“ ≈Œ …“’∆√∆.[…Õ’—”Õƒ ¬√∆≈—√ ≈œ¿œ¬∆,[‹Õ¿—‹— »  ∆–œ√≈¡ƒ ”Ã∆‹,[≈œ ¿—‹— ¿’“√Œ¬» ≈“”Õ«‹∆[Õ√≈¡≈œ » …“’∆√!"
++	newstr ax
++	mr bx, ax
++	li mar, Code
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Label::set_Text
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 100
++	li ax, 2236
++	mr bx, ax
++	li mar, gPhrasenote
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, GUI::set_BackgroundGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++
+ label000000002410: ; inside room_a$0, ; referenced by 5 spots
+ 	sourceline 105
+ 	jmpi label000000002447
+@@ -1025,6 +899,67 @@ label000000002414: ; inside room_a$0, ; referenced by 1 spots
+ label000000002447: ; inside room_a$0, ; referenced by 1 spots
+ 	sourceline 114
+ 	li ax, 0
++
++; Cleanup the stack
++	ptrstack 116
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	addi mar, 4
++	ptrzerond 
++	ptrstack 12
++	ptrzerond 
++	ptrstack 8
++	ptrzerond 
++	ptrstack 4
++	ptrzerond 
++	subi sp, 116
+ 	ret 
+ 
+ hotspot1_a$0: ; 0 args

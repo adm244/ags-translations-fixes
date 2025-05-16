@@ -1,0 +1,3416 @@
+diff --git a/globalscript.s.backup b/globalscript.s
+index 95697b7..d7b5041 100755
+--- a/globalscript.s.backup
++++ b/globalscript.s
+@@ -3755,53 +3755,33 @@ label000000008302: ; inside repeatedly_execute_always$0, ; referenced by 2 spots
+ 	li ax, 0
+ 	ret 
+ 
+-setPolishFont$0: ; 0 args
+-	sourceline 479
+-	thisaddr 8308
+-	sourceline 480
+-	li ax, 6
++setLanguageFont$3:
++	sourceline 529
++	thisaddr 9404
++	sourceline 531
++	ptrstack 16
++	memread4 ax
+ 	farpush ax
+ 	setfuncargs 1
+ 	li ax, SetSpeechFont
+ 	farcall ax
+ 	farsubsp 1
+-	sourceline 481
+-	li ax, 6
++	sourceline 532
++	ptrstack 16
++	memread4 ax
+ 	farpush ax
+ 	setfuncargs 1
+ 	li ax, SetNormalFont
+ 	farcall ax
+ 	farsubsp 1
+-	sourceline 482
+-	li ax, 6
+-	mr bx, ax
+-	li mar, SpeechLabel
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Label::set_Font
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 484
+-	li ax, 5
+-	mr bx, ax
+-	li mar, overHot
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Label::set_Font
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 486
+-	li ax, 4
++
++; NOTE(adm244): did they really just forgot about "Load" and "Save" window titles?
++
++	sourceline 533
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, MapLoc
++	li mar, Label4
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -3811,10 +3791,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 487
+-	li ax, 6
++	sourceline 533
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, MapLabel
++	li mar, Label5
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -3824,49 +3805,13 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 489
+-	li ax, 6
+-	mr bx, ax
+-	li mar, LoadList
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, ListBox::set_Font
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 490
+-	li ax, 6
+-	mr bx, ax
+-	li mar, SaveInput
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, TextBox::set_Font
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 491
+-	li ax, 6
+-	mr bx, ax
+-	li mar, SaveList
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, ListBox::set_Font
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 493
+-	li ax, 5
++
++; NOTE(adm244): ...and about alphabet buttons...
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, CheckCode
++	li mar, A1
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -3876,127 +3821,123 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 494
+-	li ax, 3
+-	mr bx, ax
+-	li mar, Code
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Label::set_Font
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 496
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, CreditsLabel
++	li mar, B2
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 498
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, ConfgTitle
++	li mar, C3
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 499
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, SetInfo
++	li mar, D4
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 500
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, MusicVolDisplay
++	li mar, E5
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 501
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, SoundVolDisplay
++	li mar, F6
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 502
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, SkipTextDisplay
++	li mar, G7
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 503
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, voxDisplay
++	li mar, H8
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 504
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, LangDisplay
++	li mar, I9
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 505
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, SkipText
++	li mar, J10
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4006,10 +3947,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 506
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, voxToggle
++	li mar, K11
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4019,10 +3961,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 507
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, langButton
++	li mar, L12
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4032,10 +3975,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 508
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, Reset
++	li mar, M13
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4045,10 +3989,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 509
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, Return
++	li mar, N14
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4058,23 +4003,25 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 510
+-	li ax, 6
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, SkipTextDisplay
++	li mar, O15
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 512
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, New
++	li mar, P16
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4084,10 +4031,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 513
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, Load
++	li mar, Q17
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4097,10 +4045,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 514
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, Save
++	li mar, R18
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4110,10 +4059,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 515
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, Settings
++	li mar, S19
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4123,10 +4073,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 516
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, QuitButton
++	li mar, T20
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4136,10 +4087,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 517
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, Map
++	li mar, U21
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4149,10 +4101,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 518
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, HintButton
++	li mar, V22
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4162,10 +4115,11 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 519
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, InventoryButton
++	li mar, W23
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -4175,68 +4129,52 @@ setPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 521
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, QUITlabel
++	li mar, X24
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 523
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, InvLabel
++	li mar, Y25
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 525
+-	li ax, 4
++
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+-	li mar, saveOverLabel
++	li mar, Z26
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Label::set_Font
++	li ax, Button::set_Font
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 527
+-	li ax, 0
+-	ret 
+ 
+-setNotPolishFont$0: ; 0 args
+-	sourceline 529
+-	thisaddr 9404
+-	sourceline 531
+-	li ax, 3
+-	farpush ax
+-	setfuncargs 1
+-	li ax, SetSpeechFont
+-	farcall ax
+-	farsubsp 1
+-	sourceline 532
+-	li ax, 3
+-	farpush ax
+-	setfuncargs 1
+-	li ax, SetNormalFont
+-	farcall ax
+-	farsubsp 1
+ 	sourceline 533
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, SpeechLabel
+ 	mr ax, mar
+@@ -4249,7 +4187,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 535
+-	li ax, 2
++	ptrstack 12
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, overHot
+ 	mr ax, mar
+@@ -4262,7 +4201,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 537
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, MapLoc
+ 	mr ax, mar
+@@ -4275,7 +4215,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 538
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, MapLabel
+ 	mr ax, mar
+@@ -4288,7 +4229,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 540
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, LoadList
+ 	mr ax, mar
+@@ -4301,7 +4243,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 541
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, SaveInput
+ 	mr ax, mar
+@@ -4314,7 +4257,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 542
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, SaveList
+ 	mr ax, mar
+@@ -4327,7 +4271,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 544
+-	li ax, 2
++	ptrstack 12
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, CheckCode
+ 	mr ax, mar
+@@ -4340,7 +4285,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 545
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, Code
+ 	mr ax, mar
+@@ -4353,7 +4299,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 547
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, CreditsLabel
+ 	mr ax, mar
+@@ -4366,7 +4313,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 549
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, ConfgTitle
+ 	mr ax, mar
+@@ -4379,7 +4327,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 550
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, SetInfo
+ 	mr ax, mar
+@@ -4392,7 +4341,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 551
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, MusicVolDisplay
+ 	mr ax, mar
+@@ -4405,7 +4355,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 552
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, SoundVolDisplay
+ 	mr ax, mar
+@@ -4418,7 +4369,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 553
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, SkipTextDisplay
+ 	mr ax, mar
+@@ -4431,7 +4383,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 554
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, voxDisplay
+ 	mr ax, mar
+@@ -4444,7 +4397,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 555
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, LangDisplay
+ 	mr ax, mar
+@@ -4457,7 +4411,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 556
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, SkipText
+ 	mr ax, mar
+@@ -4470,7 +4425,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 557
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, voxToggle
+ 	mr ax, mar
+@@ -4483,7 +4439,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 558
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, langButton
+ 	mr ax, mar
+@@ -4496,7 +4453,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 559
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, Reset
+ 	mr ax, mar
+@@ -4509,7 +4467,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 560
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, Return
+ 	mr ax, mar
+@@ -4522,7 +4481,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 561
+-	li ax, 3
++	ptrstack 16
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, SkipTextDisplay
+ 	mr ax, mar
+@@ -4535,7 +4495,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 563
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, New
+ 	mr ax, mar
+@@ -4548,7 +4509,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 564
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, Load
+ 	mr ax, mar
+@@ -4561,7 +4523,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 565
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, Save
+ 	mr ax, mar
+@@ -4574,7 +4537,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 566
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, Settings
+ 	mr ax, mar
+@@ -4587,7 +4551,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 567
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, QuitButton
+ 	mr ax, mar
+@@ -4600,7 +4565,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 568
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, Map
+ 	mr ax, mar
+@@ -4613,7 +4579,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 569
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, HintButton
+ 	mr ax, mar
+@@ -4626,7 +4593,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 570
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, InventoryButton
+ 	mr ax, mar
+@@ -4639,7 +4607,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 572
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, QUITlabel
+ 	mr ax, mar
+@@ -4652,7 +4621,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 574
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, InvLabel
+ 	mr ax, mar
+@@ -4665,7 +4635,8 @@ setNotPolishFont$0: ; 0 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 576
+-	li ax, 1
++	ptrstack 8
++	memread4 ax
+ 	mr bx, ax
+ 	li mar, saveOverLabel
+ 	mr ax, mar
+@@ -4677,10 +4648,86 @@ setNotPolishFont$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
++; enter serial number label
++	sourceline 576
++	ptrstack 16
++	memread4 ax
++	mr bx, ax
++	li mar, Label8
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Label::set_Font
++	farcall ax
++	farsubsp 1
++	pop op
+ 	sourceline 578
+ 	li ax, 0
+ 	ret 
+ 
++setPolishFont$0: ; 0 args
++	sourceline 77
++	li ax, 6
++	push ax
++	li ax, 5
++	push ax
++	li ax, 4
++	push ax
++	li ax, setLanguageFont$3
++	call ax
++	subi sp, 12
++
++; NOTE(adm244): bug? or they just decided to not use polish font for piraglyphic code?
++	sourceline 494
++	li ax, 3
++	mr bx, ax
++	li mar, Code
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Label::set_Font
++	farcall ax
++	farsubsp 1
++	pop op
++
++	sourceline 78
++	li ax, 0
++	ret 
++
++setNotPolishFont$0: ; 0 args
++	sourceline 82
++	li ax, 3
++	push ax
++	li ax, 2
++	push ax
++	li ax, 1
++	push ax
++	li ax, setLanguageFont$3
++	call ax
++	subi sp, 12
++	sourceline 83
++	li ax, 0
++	ret 
++
++setRussianFont$0: ; 0 args
++	sourceline 87
++	li ax, 9
++	push ax
++	li ax, 8
++	push ax
++	li ax, 7
++	push ax
++	li ax, setLanguageFont$3
++	call ax
++	subi sp, 12
++	sourceline 88
++	li ax, 0
++	ret 
++
+ interface_click$2: ; 2 args
+ 	sourceline 581
+ 	thisaddr 10500
+@@ -4688,6 +4735,432 @@ interface_click$2: ; 2 args
+ 	li ax, 0
+ 	ret 
+ 
++setSignedPostcardTranslation$0:
++	sourceline 10
++	push op
++	li ax, 1
++	farpush ax
++	li ax, "Signed Postcard"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
++	li mar, iPostcard
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, InventoryItem::get_Name
++	farcall ax
++	pop op
++	callobj ax
++	setfuncargs 2
++	li ax, String::CompareTo^2
++	farcall ax
++	farsubsp 2
++	pop op
++	jnzi label_postcard_lang_end
++
++	setfuncargs 0
++	li ax, IsTranslationAvailable
++	farcall ax
++	jzi label_postcard_default_lang
++
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_postcard_default_lang
++
++	li ax, 2221
++	mr bx, ax
++	li mar, iPostcard
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++
++	jmpi label_postcard_lang_end
++
++label_postcard_default_lang:
++	sourceline 5229
++	li ax, 852
++	mr bx, ax
++	li mar, iPostcard
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++
++label_postcard_lang_end:
++	li ax, 0
++	ret 
++
++setItemTranslation$0:
++	sourceline 706
++	li ax, 1317
++	mr bx, ax
++	li mar, iT4
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_CursorGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 707
++	li ax, 1317
++	mr bx, ax
++	li mar, iT4
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 708
++	li ax, 1319
++	mr bx, ax
++	li mar, iT6
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_CursorGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 709
++	li ax, 1319
++	mr bx, ax
++	li mar, iT6
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 710
++	li ax, 10
++	li mar, game
++	addi mar, 244
++	memwrite4 ax
++
++; widebeard record item (default)
++	sourceline 722
++	li ax, 1665
++	mr bx, ax
++	li mar, iRecord
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_CursorGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 723
++	li ax, 1665
++	mr bx, ax
++	li mar, iRecord
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++
++	sourceline 699
++	setfuncargs 0
++	li ax, IsTranslationAvailable
++	farcall ax
++	jzi label_set_lang_end
++
++; I guess it's "game.text_speed" variable...
++	sourceline 724
++	li ax, 8
++	li mar, game
++	addi mar, 244
++	memwrite4 ax
++
++	sourceline 713
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Spanish"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000013815
++
++	sourceline 720
++	li ax, 2010
++	mr bx, ax
++	li mar, iT4
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_CursorGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 721
++	li ax, 2010
++	mr bx, ax
++	li mar, iT4
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 722
++	li ax, 2011
++	mr bx, ax
++	li mar, iT6
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_CursorGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 723
++	li ax, 2011
++	mr bx, ax
++	li mar, iT6
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++
++	sourceline 725
++	jmpi label_set_lang_end
++
++label000000013815: ; inside game_start$0, ; referenced by 1 spots
++	sourceline 726
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_French"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000013921
++
++	sourceline 733
++	li ax, 2033
++	mr bx, ax
++	li mar, iT6
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_CursorGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 734
++	li ax, 2033
++	mr bx, ax
++	li mar, iT6
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 736
++	jmpi label_set_lang_end
++
++label000000013921: ; inside game_start$0, ; referenced by 1 spots
++	sourceline 737
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_German"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000013965
++
++	sourceline 747
++	jmpi label_set_lang_end
++
++label000000013965: ; inside game_start$0, ; referenced by 1 spots
++	sourceline 748
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Polish"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_set_russian_lang
++
++	jmpi label_set_lang_end
++
++label_set_russian_lang:
++	sourceline 713
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_restore_var244
++
++	sourceline 720
++	li ax, 2218
++	mr bx, ax
++	li mar, iT4
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_CursorGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 721
++	li ax, 2218
++	mr bx, ax
++	li mar, iT4
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 722
++	li ax, 2219
++	mr bx, ax
++	li mar, iT6
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_CursorGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 723
++	li ax, 2219
++	mr bx, ax
++	li mar, iT6
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++
++; widebeard record item
++	sourceline 722
++	li ax, 2220
++	mr bx, ax
++	li mar, iRecord
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_CursorGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 723
++	li ax, 2220
++	mr bx, ax
++	li mar, iRecord
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, InventoryItem::set_Graphic
++	farcall ax
++	farsubsp 1
++	pop op
++
++	jmpi label_set_lang_end
++
++label_restore_var244:
++	sourceline 724
++	li ax, 8
++	li mar, game
++	addi mar, 244
++	memwrite4 ax
++
++label_set_lang_end:
++	li ax, 0
++	ret 
++
+ game_start$0: ; 0 args
+ 	sourceline 588
+ 	thisaddr 10510
+@@ -4880,6 +5353,57 @@ game_start$0: ; 0 args
+ 	pop mar
+ 	ptrset ax
+ label000000010959: ; inside game_start$0, ; referenced by 1 spots
++
++	sourceline 616
++	ptrstack 4
++	push mar
++	pop mar
++	ptrget ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_check_spanish
++	sourceline 617
++	li ax, "Nelly_Russian"
++	farpush ax
++	setfuncargs 1
++	li ax, Game::ChangeTranslation^1
++	farcall ax
++	farsubsp 1
++	sourceline 618
++	li ax, "ﬂÁ˚Í"
++	newstr ax
++	mr bx, ax
++	li mar, LangDisplay
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Label::set_Text
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 619
++	li ax, "–ÛÒÒÍËÈ"
++	newstr ax
++	mr bx, ax
++	li mar, langButton
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Button::set_Text
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 620
++	jmpi label000000011479
++
++label_check_spanish:
+ 	sourceline 616
+ 	ptrstack 4
+ 	push mar
+@@ -5364,10 +5889,29 @@ label000000011479: ; inside game_start$0, ; referenced by 4 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000012080
++	jzi label_font_russian
++
+ 	li ax, setPolishFont$0
+ 	call ax
+ 	jmpi label000000012087
++
++label_font_russian:
++	sourceline 648
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000012080
++
++	li ax, setRussianFont$0
++	call ax
++	jmpi label000000012087
++
+ label000000012080: ; inside game_start$0, ; referenced by 1 spots
+ 	sourceline 649
+ 	li ax, setNotPolishFont$0
+@@ -5943,224 +6489,10 @@ label000000012087: ; inside game_start$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 699
+-	setfuncargs 0
+-	li ax, IsTranslationAvailable
+-	farcall ax
+-	not ax
+-	jzi label000000013647
+-	sourceline 706
+-	li ax, 1317
+-	mr bx, ax
+-	li mar, iT4
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, InventoryItem::set_CursorGraphic
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 707
+-	li ax, 1317
+-	mr bx, ax
+-	li mar, iT4
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, InventoryItem::set_Graphic
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 708
+-	li ax, 1319
+-	mr bx, ax
+-	li mar, iT6
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, InventoryItem::set_CursorGraphic
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 709
+-	li ax, 1319
+-	mr bx, ax
+-	li mar, iT6
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, InventoryItem::set_Graphic
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 710
+-	li ax, 10
+-	li mar, game
+-	addi mar, 244
+-	memwrite4 ax
+-	sourceline 711
+-	jmpi label000000014005
+-label000000013647: ; inside game_start$0, ; referenced by 1 spots
+-	sourceline 713
+-	li ax, 0
+-	setfuncargs 0
+-	li ax, Game::get_TranslationFilename
+-	farcall ax
+-	push ax
+-	li ax, "Nelly_Spanish"
+-	pop bx
+-	streq bx, ax
+-	mr ax, bx
+-	jzi label000000013815
+-	sourceline 720
+-	li ax, 2010
+-	mr bx, ax
+-	li mar, iT4
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, InventoryItem::set_CursorGraphic
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 721
+-	li ax, 2010
+-	mr bx, ax
+-	li mar, iT4
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, InventoryItem::set_Graphic
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 722
+-	li ax, 2011
+-	mr bx, ax
+-	li mar, iT6
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, InventoryItem::set_CursorGraphic
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 723
+-	li ax, 2011
+-	mr bx, ax
+-	li mar, iT6
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, InventoryItem::set_Graphic
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 724
+-	li ax, 8
+-	li mar, game
+-	addi mar, 244
+-	memwrite4 ax
+-	sourceline 725
+-	jmpi label000000014005
+-label000000013815: ; inside game_start$0, ; referenced by 1 spots
+-	sourceline 726
+-	li ax, 0
+-	setfuncargs 0
+-	li ax, Game::get_TranslationFilename
+-	farcall ax
+-	push ax
+-	li ax, "Nelly_French"
+-	pop bx
+-	streq bx, ax
+-	mr ax, bx
+-	jzi label000000013921
+-	sourceline 733
+-	li ax, 2033
+-	mr bx, ax
+-	li mar, iT6
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, InventoryItem::set_CursorGraphic
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 734
+-	li ax, 2033
+-	mr bx, ax
+-	li mar, iT6
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, InventoryItem::set_Graphic
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 735
+-	li ax, 8
+-	li mar, game
+-	addi mar, 244
+-	memwrite4 ax
+-	sourceline 736
+-	jmpi label000000014005
+-label000000013921: ; inside game_start$0, ; referenced by 1 spots
+-	sourceline 737
+-	li ax, 0
+-	setfuncargs 0
+-	li ax, Game::get_TranslationFilename
+-	farcall ax
+-	push ax
+-	li ax, "Nelly_German"
+-	pop bx
+-	streq bx, ax
+-	mr ax, bx
+-	jzi label000000013965
+-	sourceline 746
+-	li ax, 8
+-	li mar, game
+-	addi mar, 244
+-	memwrite4 ax
+-	sourceline 747
+-	jmpi label000000014005
+-label000000013965: ; inside game_start$0, ; referenced by 1 spots
+-	sourceline 748
+-	li ax, 0
+-	setfuncargs 0
+-	li ax, Game::get_TranslationFilename
+-	farcall ax
+-	push ax
+-	li ax, "Nelly_Polish"
+-	pop bx
+-	streq bx, ax
+-	mr ax, bx
+-	jzi label000000014005
+-	sourceline 757
+-	li ax, 8
+-	li mar, game
+-	addi mar, 244
+-	memwrite4 ax
+-label000000014005: ; inside game_start$0, ; referenced by 5 spots
++
++	li ax, setItemTranslation$0
++	call ax
++
+ 	sourceline 761
+ 	li ax, 0
+ 	ptrstack 8
+@@ -8702,7 +9035,7 @@ label000000019821: ; inside on_key_press$1, ; referenced by 3 spots
+ 	pop bx
+ 	cmpeq bx, ax
+ 	mr ax, bx
+-	jzi label000000019861
++	jzi label_check_debug_invitems
+ 	li ax, 0
+ 	farpush ax
+ 	li ax, 3
+@@ -8711,6 +9044,26 @@ label000000019821: ; inside on_key_press$1, ; referenced by 3 spots
+ 	li ax, Debug
+ 	farcall ax
+ 	farsubsp 2
++
++label_check_debug_invitems:
++	sourceline 1051
++	ptrstack 8
++	memread4 ax
++	push ax
++	li ax, 19
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label000000019861
++	li ax, 0
++	farpush ax
++	li ax, 0
++	farpush ax
++	setfuncargs 2
++	li ax, Debug
++	farcall ax
++	farsubsp 2
++
+ label000000019861: ; inside on_key_press$1, ; referenced by 1 spots
+ 	sourceline 1052
+ 	li ax, 0
+@@ -19112,6 +19465,39 @@ label000000043524: ; inside New_Click$2, ; referenced by 1 spots
+ 	li ax, Wait
+ 	farcall ax
+ 	farsubsp 1
++
++	sourceline 32
++	setfuncargs 0
++	li ax, IsTranslationAvailable
++	farcall ax
++	jzi label_play_default_video
++
++	sourceline 38
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_play_default_video
++
++	sourceline 2291
++	li ax, 0
++	farpush ax
++	li ax, 1
++	farpush ax
++	li ax, "Intro-frame-russian.ogv"
++	farpush ax
++	setfuncargs 3
++	li ax, PlayVideo
++	farcall ax
++	farsubsp 3
++	jmpi label_play_video_end
++
++label_play_default_video:
+ 	sourceline 2291
+ 	li ax, 0
+ 	farpush ax
+@@ -19123,6 +19509,8 @@ label000000043524: ; inside New_Click$2, ; referenced by 1 spots
+ 	li ax, PlayVideo
+ 	farcall ax
+ 	farsubsp 3
++
++label_play_video_end:
+ 	sourceline 2293
+ 	li ax, 40
+ 	farpush ax
+@@ -33190,7 +33578,7 @@ label000000076254: ; inside inventory13_a$0, ; referenced by 1 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000076312
++	jzi label_cypher_russian
+ 	sourceline 3604
+ 	li ax, 2117
+ 	mr bx, ax
+@@ -33204,6 +33592,34 @@ label000000076254: ; inside inventory13_a$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
++	jmpi label000000076312
++
++label_cypher_russian:
++	sourceline 5354
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000076312
++	sourceline 5355
++	li ax, 2235
++	mr bx, ax
++	li mar, gMessage
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, GUI::set_BackgroundGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++
+ label000000076312: ; inside inventory13_a$0, ; referenced by 5 spots
+ 	sourceline 3606
+ 	li ax, 10
+@@ -33331,243 +33747,8 @@ CheckCode_Click$2: ; 2 args
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000077149
++	jnzi label_crack_success
+   
+-	sourceline 3635
+-	push op
+-	li ax, -1
+-	farpush ax
+-	li ax, 270
+-	farpush ax
+-	li ax, 480
+-	farpush ax
+-	li ax, 741
+-	farpush ax
+-	li ax, "Aha, I\'ve cracked it!"
+-	newstr ax
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 5
+-	li ax, Character::SayBubbleAt
+-	farcall ax
+-	farsubsp 5
+-	pop op
+-	sourceline 3637
+-	li ax, 4
+-	farpush ax
+-	li ax, 4
+-	farpush ax
+-	setfuncargs 2
+-	li ax, SetGlobalInt
+-	farcall ax
+-	farsubsp 2
+-	sourceline 3638
+-	li ax, 4
+-	farpush ax
+-	setfuncargs 1
+-	li ax, FadeOut
+-	farcall ax
+-	farsubsp 1
+-	sourceline 3639
+-	li ax, 0
+-	mr bx, ax
+-	li mar, gCracker
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, GUI::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 3640
+-	li ax, 0
+-	mr bx, ax
+-	li mar, gCodegui
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, GUI::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 3641
+-	push op
+-	li ax, 31998
+-	farpush ax
+-	li ax, 31998
+-	farpush ax
+-	li ax, 31998
+-	farpush ax
+-	li ax, 2
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 4
+-	li ax, Character::ChangeRoom^4
+-	farcall ax
+-	farsubsp 4
+-	pop op
+-	sourceline 3642
+-	push op
+-	li ax, 1
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3643
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 4
+-	farpush ax
+-	li mar, dFridayRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3644
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 5
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3645
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 10
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3646
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dBORoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3647
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 8
+-	farpush ax
+-	li mar, dBORoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3648
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 6
+-	farpush ax
+-	li mar, dCootRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3649
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dCootRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3650
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 8
+-	farpush ax
+-	li mar, dCootRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3651
+-	push op
+-	li ax, 919
+-	farpush ax
+-	li mar, cN
+-	addi mar, 24
+-	memread4 ax
+-	push ax
+-	li ax, 10
+-	pop bx
+-	add bx, ax
+-	mr ax, bx
+-	farpush ax
+-	li mar, cN
+-	addi mar, 20
+-	memread4 ax
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 3
+-	li ax, Character::FaceLocation^3
+-	farcall ax
+-	farsubsp 3
+-	pop op
+-	sourceline 3652
+-	jmpi label000000079559
+-label000000077149: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	sourceline 3653
+ 	li mar, Code
+ 	mr ax, mar
+@@ -33582,243 +33763,25 @@ label000000077149: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000077739
+-	sourceline 3654
+-	push op
+-	li ax, -1
+-	farpush ax
+-	li ax, 270
+-	farpush ax
+-	li ax, 480
+-	farpush ax
+-	li ax, 741
+-	farpush ax
+-	li ax, "Aha, I\'ve cracked it!"
+-	newstr ax
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 5
+-	li ax, Character::SayBubbleAt
+-	farcall ax
+-	farsubsp 5
+-	pop op
+-	sourceline 3655
+-	li ax, 4
+-	farpush ax
+-	li ax, 4
+-	farpush ax
+-	setfuncargs 2
+-	li ax, SetGlobalInt
+-	farcall ax
+-	farsubsp 2
+-	sourceline 3656
+-	li ax, 4
+-	farpush ax
+-	setfuncargs 1
+-	li ax, FadeOut
+-	farcall ax
+-	farsubsp 1
+-	sourceline 3657
+-	li ax, 0
+-	mr bx, ax
+-	li mar, gCracker
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, GUI::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 3658
+-	li ax, 0
+-	mr bx, ax
+-	li mar, gCodegui
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, GUI::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 3659
+-	push op
+-	li ax, 31998
+-	farpush ax
+-	li ax, 31998
+-	farpush ax
+-	li ax, 31998
+-	farpush ax
+-	li ax, 2
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 4
+-	li ax, Character::ChangeRoom^4
+-	farcall ax
+-	farsubsp 4
+-	pop op
+-	sourceline 3660
+-	push op
+-	li ax, 1
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3661
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 4
+-	farpush ax
+-	li mar, dFridayRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3662
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 5
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3663
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 10
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3664
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dBORoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3665
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 8
+-	farpush ax
+-	li mar, dBORoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3666
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 6
+-	farpush ax
+-	li mar, dCootRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3667
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dCootRoot
++	jnzi label_crack_success
++
++	sourceline 3671
++	li mar, Code
+ 	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3668
+ 	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 8
+-	farpush ax
+-	li mar, dCootRoot
+-	mr ax, mar
+ 	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
++	setfuncargs 0
++	li ax, Label::get_Text
+ 	farcall ax
+-	farsubsp 2
+ 	pop op
+-	sourceline 3669
+-	push op
+-	li ax, 919
+-	farpush ax
+-	li mar, cN
+-	addi mar, 24
+-	memread4 ax
+ 	push ax
+-	li ax, 10
++	li ax, "JE JURE SUR LES TOMBEAUX QUI GISENT DESSOUS LES FLOTS,[QUE JE SUIS UN PIRATE, C\'EST VRAI.[JE JURE SUR MES VAISSEAUX ET LE FOUET DU BOSCO,[QUE CE QUE FONT PIRATES, FERAI.[POSANT MON OEIL VALIDE SUR L\'HORIZON LIMPIDE,[JE JURE DE TROUVER MAINTS TRESORS,[ET QUE SOUFFLENT LES VENTS DESSUS LES OCEANS,[PUISSENT MES POILS POUSSER LONGS ET FORTS."
+ 	pop bx
+-	add bx, ax
++	streq bx, ax
+ 	mr ax, bx
+-	farpush ax
+-	li mar, cN
+-	addi mar, 20
+-	memread4 ax
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 3
+-	li ax, Character::FaceLocation^3
+-	farcall ax
+-	farsubsp 3
+-	pop op
+-	sourceline 3670
+-	jmpi label000000079559
+-label000000077739: ; inside CheckCode_Click$2, ; referenced by 1 spots
+-	sourceline 3671
++	jnzi label_crack_success
++  
++	sourceline 3689
+ 	li mar, Code
+ 	mr ax, mar
+ 	push op
+@@ -33828,247 +33791,29 @@ label000000077739: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	pop op
+ 	push ax
+-	li ax, "JE JURE SUR LES TOMBEAUX QUI GISENT DESSOUS LES FLOTS,[QUE JE SUIS UN PIRATE, C\'EST VRAI.[JE JURE SUR MES VAISSEAUX ET LE FOUET DU BOSCO,[QUE CE QUE FONT PIRATES, FERAI.[POSANT MON OEIL VALIDE SUR L\'HORIZON LIMPIDE,[JE JURE DE TROUVER MAINTS TRESORS,[ET QUE SOUFFLENT LES VENTS DESSUS LES OCEANS,[PUISSENT MES POILS POUSSER LONGS ET FORTS."
++	li ax, "ICH SCHWOERE BEI DEN GRAEBERN UNTER DEM SCHAUM DER WELLEN,[OH ICH BIN EIN WAHRHAFTIGER PIRAT IN ALLEN FAELLEN,[UND ICH SCHWOERE AUF MEINE SCHIFFE UND DIE NEUNSCHWAENZIGE KATZ,[ICH BIN EIN PIRAT AN SEINEM RECHTMAESSIGEN PLATZ,[UND ICH SAGE BEIM HIMMEL UND MEINEM GUTEN AUGE,[ICH FIND MEINEN SCHATZ, DAS KANNST DU GLAUBE,[UND ICH SAGE ZUR BRISE UND DEM SIEBTEN HOH\'N MEERE,[DASS ICH MEINE KOERPERHAAR NICHT SCHNEIDEN WERDE!"
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000078329
+-	sourceline 3672
+-	push op
+-	li ax, -1
+-	farpush ax
+-	li ax, 270
+-	farpush ax
+-	li ax, 480
+-	farpush ax
+-	li ax, 741
+-	farpush ax
+-	li ax, "Aha, I\'ve cracked it!"
+-	newstr ax
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 5
+-	li ax, Character::SayBubbleAt
+-	farcall ax
+-	farsubsp 5
+-	pop op
+-	sourceline 3673
+-	li ax, 4
+-	farpush ax
+-	li ax, 4
+-	farpush ax
+-	setfuncargs 2
+-	li ax, SetGlobalInt
+-	farcall ax
+-	farsubsp 2
+-	sourceline 3674
+-	li ax, 4
+-	farpush ax
+-	setfuncargs 1
+-	li ax, FadeOut
+-	farcall ax
+-	farsubsp 1
+-	sourceline 3675
+-	li ax, 0
+-	mr bx, ax
+-	li mar, gCracker
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, GUI::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 3676
+-	li ax, 0
+-	mr bx, ax
+-	li mar, gCodegui
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, GUI::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 3677
+-	push op
+-	li ax, 31998
+-	farpush ax
+-	li ax, 31998
+-	farpush ax
+-	li ax, 31998
+-	farpush ax
+-	li ax, 2
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 4
+-	li ax, Character::ChangeRoom^4
+-	farcall ax
+-	farsubsp 4
+-	pop op
+-	sourceline 3678
+-	push op
+-	li ax, 1
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3679
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 4
+-	farpush ax
+-	li mar, dFridayRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3680
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 5
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3681
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 10
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3682
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dBORoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3683
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 8
+-	farpush ax
+-	li mar, dBORoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3684
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 6
+-	farpush ax
+-	li mar, dCootRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3685
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dCootRoot
++	jnzi label_crack_success
++  
++	sourceline 3708
++	li mar, Code
+ 	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3686
+ 	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 8
+-	farpush ax
+-	li mar, dCootRoot
+-	mr ax, mar
+ 	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
++	setfuncargs 0
++	li ax, Label::get_Text
+ 	farcall ax
+-	farsubsp 2
+ 	pop op
+-	sourceline 3687
+-	push op
+-	li ax, 919
+-	farpush ax
+-	li mar, cN
+-	addi mar, 24
+-	memread4 ax
+ 	push ax
+-	li ax, 10
++	li ax, "PRZYSIEGAM NA GROB, TAKOZ NA WIELKI LUP, ZE PIRATEM Z KRWI I KOSCI JAM JEST, [I SLUBUJE NA \'ARRR!\', NA WON MORSKICH FAL, ZE NIE STRASZNY MI LAMANYCH NOG CHRZEST, [OBIECUJE UROCZYSCIE, ZE BEDE PRZEKLINAC SOCZYSCIE I PRZYPOMINAC KAMRATOM COBYSCIE, [PRZENIGDY NIE ZAPOMNIELI, ZE PIRAT NIE UZNAJE KAPIELI I WLOSOW W NOSIE NIE CIELI."
+ 	pop bx
+-	add bx, ax
++	streq bx, ax
+ 	mr ax, bx
+-	farpush ax
+-	li mar, cN
+-	addi mar, 20
+-	memread4 ax
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 3
+-	li ax, Character::FaceLocation^3
+-	farcall ax
+-	farsubsp 3
+-	pop op
+-	sourceline 3688
+-	jmpi label000000079559
+-label000000078329: ; inside CheckCode_Click$2, ; referenced by 1 spots
+-	sourceline 3689
++	jnzi label_crack_success
++  
++	sourceline 3709
+ 	li mar, Code
+ 	mr ax, mar
+ 	push op
+@@ -34078,12 +33823,14 @@ label000000078329: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	pop op
+ 	push ax
+-	li ax, "ICH SCHWOERE BEI DEN GRAEBERN UNTER DEM SCHAUM DER WELLEN,[OH ICH BIN EIN WAHRHAFTIGER PIRAT IN ALLEN FAELLEN,[UND ICH SCHWOERE AUF MEINE SCHIFFE UND DIE NEUNSCHWAENZIGE KATZ,[ICH BIN EIN PIRAT AN SEINEM RECHTMAESSIGEN PLATZ,[UND ICH SAGE BEIM HIMMEL UND MEINEM GUTEN AUGE,[ICH FIND MEINEN SCHATZ, DAS KANNST DU GLAUBE,[UND ICH SAGE ZUR BRISE UND DEM SIEBTEN HOH\'N MEERE,[DASS ICH MEINE KOERPERHAAR NICHT SCHNEIDEN WERDE!"
++	li ax, " ÀﬂÕ”—‹ ﬂ ¡≈«ƒÕ”ﬁ ÃŒ–— Œ…,[  “Œ— À»¬€Ã ¡”ƒÕﬂÃ Õ≈“ ¬Œ«¬–¿“¿,[ Œ–¿¡À‹ ¬≈–Õ€…, ’À≈—“ »…  Õ”“[—”ƒ‹¡¿ ÃŒﬂ » ∆»«Õ‹ œ»–¿“¿.[œŒ–” Œ… —“¿Õ”“ Õ≈¡≈—¿,[ƒŒ¡”ƒ” ﬂ «¿¬≈“Õ€…  À¿ƒ,[Õ≈ ¡”ƒ” ¡–»“‹—ﬂ Õ» Œ√ƒ¿[Œ“Õ€Õ≈ ﬂ œ»–¿“!"
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000078919
+-	sourceline 3690
++	jnzi label_crack_success
++  
++;label_crack_failure: ; inside CheckCode_Click$2, ; referenced by 1 spots
++	sourceline 3727
+ 	push op
+ 	li ax, -1
+ 	farpush ax
+@@ -34091,9 +33838,9 @@ label000000078329: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farpush ax
+ 	li ax, 480
+ 	farpush ax
+-	li ax, 741
++	li ax, 746
+ 	farpush ax
+-	li ax, "Aha, I\'ve cracked it!"
++	li ax, "Um... I don\'t think that\'s it."
+ 	newstr ax
+ 	farpush ax
+ 	li mar, cN
+@@ -34104,236 +33851,10 @@ label000000078329: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 5
+ 	pop op
+-	sourceline 3691
+-	li ax, 4
+-	farpush ax
+-	li ax, 4
+-	farpush ax
+-	setfuncargs 2
+-	li ax, SetGlobalInt
+-	farcall ax
+-	farsubsp 2
+-	sourceline 3692
+-	li ax, 4
+-	farpush ax
+-	setfuncargs 1
+-	li ax, FadeOut
+-	farcall ax
+-	farsubsp 1
+-	sourceline 3693
+-	li ax, 0
+-	mr bx, ax
+-	li mar, gCracker
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, GUI::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 3694
+-	li ax, 0
+-	mr bx, ax
+-	li mar, gCodegui
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, GUI::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 3695
+-	push op
+-	li ax, 31998
+-	farpush ax
+-	li ax, 31998
+-	farpush ax
+-	li ax, 31998
+-	farpush ax
+-	li ax, 2
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 4
+-	li ax, Character::ChangeRoom^4
+-	farcall ax
+-	farsubsp 4
+-	pop op
+-	sourceline 3696
+-	push op
+-	li ax, 1
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3697
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 4
+-	farpush ax
+-	li mar, dFridayRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3698
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 5
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3699
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 10
+-	farpush ax
+-	li mar, dRehabRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3700
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dBORoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3701
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 8
+-	farpush ax
+-	li mar, dBORoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3702
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 6
+-	farpush ax
+-	li mar, dCootRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3703
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 7
+-	farpush ax
+-	li mar, dCootRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3704
+-	push op
+-	li ax, 2
+-	farpush ax
+-	li ax, 8
+-	farpush ax
+-	li mar, dCootRoot
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 2
+-	li ax, Dialog::SetOptionState^2
+-	farcall ax
+-	farsubsp 2
+-	pop op
+-	sourceline 3705
+-	push op
+-	li ax, 919
+-	farpush ax
+-	li mar, cN
+-	addi mar, 24
+-	memread4 ax
+-	push ax
+-	li ax, 10
+-	pop bx
+-	add bx, ax
+-	mr ax, bx
+-	farpush ax
+-	li mar, cN
+-	addi mar, 20
+-	memread4 ax
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 3
+-	li ax, Character::FaceLocation^3
+-	farcall ax
+-	farsubsp 3
+-	pop op
+-	sourceline 3706
+ 	jmpi label000000079559
+-label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+-	sourceline 3708
+-	li mar, Code
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	setfuncargs 0
+-	li ax, Label::get_Text
+-	farcall ax
+-	pop op
+-	push ax
+-	li ax, "PRZYSIEGAM NA GROB, TAKOZ NA WIELKI LUP, ZE PIRATEM Z KRWI I KOSCI JAM JEST, [I SLUBUJE NA \'ARRR!\', NA WON MORSKICH FAL, ZE NIE STRASZNY MI LAMANYCH NOG CHRZEST, [OBIECUJE UROCZYSCIE, ZE BEDE PRZEKLINAC SOCZYSCIE I PRZYPOMINAC KAMRATOM COBYSCIE, [PRZENIGDY NIE ZAPOMNIELI, ZE PIRAT NIE UZNAJE KAPIELI I WLOSOW W NOSIE NIE CIELI."
+-	pop bx
+-	streq bx, ax
+-	mr ax, bx
+-	jzi label000000079509
+-	sourceline 3709
++  
++label_crack_success:
++	sourceline 3635
+ 	push op
+ 	li ax, -1
+ 	farpush ax
+@@ -34354,7 +33875,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 5
+ 	pop op
+-	sourceline 3710
++	sourceline 3637
+ 	li ax, 4
+ 	farpush ax
+ 	li ax, 4
+@@ -34363,14 +33884,14 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	li ax, SetGlobalInt
+ 	farcall ax
+ 	farsubsp 2
+-	sourceline 3711
++	sourceline 3638
+ 	li ax, 4
+ 	farpush ax
+ 	setfuncargs 1
+ 	li ax, FadeOut
+ 	farcall ax
+ 	farsubsp 1
+-	sourceline 3712
++	sourceline 3639
+ 	li ax, 0
+ 	mr bx, ax
+ 	li mar, gCracker
+@@ -34383,7 +33904,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 3713
++	sourceline 3640
+ 	li ax, 0
+ 	mr bx, ax
+ 	li mar, gCodegui
+@@ -34396,7 +33917,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 3714
++	sourceline 3641
+ 	push op
+ 	li ax, 31998
+ 	farpush ax
+@@ -34414,7 +33935,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 4
+ 	pop op
+-	sourceline 3715
++	sourceline 3642
+ 	push op
+ 	li ax, 1
+ 	farpush ax
+@@ -34428,7 +33949,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
+-	sourceline 3716
++	sourceline 3643
+ 	push op
+ 	li ax, 2
+ 	farpush ax
+@@ -34442,7 +33963,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
+-	sourceline 3717
++	sourceline 3644
+ 	push op
+ 	li ax, 2
+ 	farpush ax
+@@ -34456,7 +33977,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
+-	sourceline 3718
++	sourceline 3645
+ 	push op
+ 	li ax, 2
+ 	farpush ax
+@@ -34470,7 +33991,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
+-	sourceline 3719
++	sourceline 3646
+ 	push op
+ 	li ax, 2
+ 	farpush ax
+@@ -34484,7 +34005,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
+-	sourceline 3720
++	sourceline 3647
+ 	push op
+ 	li ax, 2
+ 	farpush ax
+@@ -34498,7 +34019,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
+-	sourceline 3721
++	sourceline 3648
+ 	push op
+ 	li ax, 2
+ 	farpush ax
+@@ -34512,7 +34033,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
+-	sourceline 3722
++	sourceline 3649
+ 	push op
+ 	li ax, 2
+ 	farpush ax
+@@ -34526,7 +34047,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
+-	sourceline 3723
++	sourceline 3650
+ 	push op
+ 	li ax, 2
+ 	farpush ax
+@@ -34540,7 +34061,7 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	pop op
+-	sourceline 3724
++	sourceline 3651
+ 	push op
+ 	li ax, 919
+ 	farpush ax
+@@ -34565,30 +34086,6 @@ label000000078919: ; inside CheckCode_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 3
+ 	pop op
+-	sourceline 3725
+-	jmpi label000000079559
+-label000000079509: ; inside CheckCode_Click$2, ; referenced by 1 spots
+-	sourceline 3727
+-	push op
+-	li ax, -1
+-	farpush ax
+-	li ax, 270
+-	farpush ax
+-	li ax, 480
+-	farpush ax
+-	li ax, 746
+-	farpush ax
+-	li ax, "Um... I don\'t think that\'s it."
+-	newstr ax
+-	farpush ax
+-	li mar, cN
+-	mr ax, mar
+-	callobj ax
+-	setfuncargs 5
+-	li ax, Character::SayBubbleAt
+-	farcall ax
+-	farsubsp 5
+-	pop op
+ label000000079559: ; inside CheckCode_Click$2, ; referenced by 5 spots
+ 	sourceline 3731
+ 	li ax, 0
+@@ -42366,7 +41863,7 @@ label000000097480: ; inside inventory27_a$0, ; referenced by 1 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000097538
++	jzi label_inv27a_russian
+ 	sourceline 4577
+ 	li ax, 2158
+ 	mr bx, ax
+@@ -42380,6 +41877,34 @@ label000000097480: ; inside inventory27_a$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
++	jmpi label000000097538
++
++label_inv27a_russian:
++	sourceline 5505
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000097538
++	sourceline 5506
++	li ax, 2231
++	mr bx, ax
++	li mar, gMessage
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, GUI::set_BackgroundGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++
+ label000000097538: ; inside inventory27_a$0, ; referenced by 5 spots
+ 	sourceline 4580
+ 	li ax, 10
+@@ -43046,7 +42571,7 @@ label000000099083: ; inside character21_b$0, ; referenced by 1 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000099163
++	jzi label_flag_view_rus
+ 	sourceline 4651
+ 	push op
+ 	li ax, -1
+@@ -43068,6 +42593,42 @@ label000000099083: ; inside character21_b$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 3
+ 	pop op
++	jmpi label000000099163
++
++label_flag_view_rus:
++	sourceline 4650
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000099163
++	sourceline 4651
++	push op
++	li ax, -1
++	farpush ax
++	li ax, -1
++	farpush ax
++	li ax, 100
++	farpush ax
++	li ax, 0
++	assertlte ax, 40
++	muli ax, 8
++	mr cx, ax
++	li mar, object
++	add mar, cx
++	mr ax, mar
++	callobj ax
++	setfuncargs 3
++	li ax, Object::SetView^3
++	farcall ax
++	farsubsp 3
++	pop op
++
+ label000000099163: ; inside character21_b$0, ; referenced by 5 spots
+ 	sourceline 4654
+ 	li ax, 1
+@@ -47736,19 +47298,10 @@ inventory16_b$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 5229
+-	li ax, 852
+-	mr bx, ax
+-	li mar, iPostcard
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, InventoryItem::set_Graphic
+-	farcall ax
+-	farsubsp 1
+-	pop op
++
++	li ax, setSignedPostcardTranslation$0
++	call ax
++
+ 	sourceline 5230
+ 	li ax, 0
+ 	mr bx, ax
+@@ -48593,7 +48146,7 @@ label000000111953: ; inside inventory13_b$0, ; referenced by 1 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000112011
++	jzi label_cypher_russian
+ 	sourceline 5355
+ 	li ax, 2117
+ 	mr bx, ax
+@@ -48607,6 +48160,34 @@ label000000111953: ; inside inventory13_b$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
++	jmpi label000000112011
++
++label_cypher_russian:
++	sourceline 5354
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000112011
++	sourceline 5355
++	li ax, 2235
++	mr bx, ax
++	li mar, gMessage
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, GUI::set_BackgroundGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++
+ label000000112011: ; inside inventory13_b$0, ; referenced by 5 spots
+ 	sourceline 5357
+ 	li ax, 10
+@@ -49299,7 +48880,7 @@ label000000113528: ; inside inventory27_b$0, ; referenced by 1 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000113586
++	jzi label_inv27b_russian
+ 	sourceline 5506
+ 	li ax, 2158
+ 	mr bx, ax
+@@ -49313,6 +48894,34 @@ label000000113528: ; inside inventory27_b$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
++	jmpi label000000113586
++
++label_inv27b_russian:
++	sourceline 5505
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label000000113586
++	sourceline 5506
++	li ax, 2231
++	mr bx, ax
++	li mar, gMessage
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, GUI::set_BackgroundGraphic
++	farcall ax
++	farsubsp 1
++	pop op
++
+ label000000113586: ; inside inventory27_b$0, ; referenced by 5 spots
+ 	sourceline 5508
+ 	li ax, 10
+@@ -51634,6 +51245,68 @@ ChangeLanguage_Click$2: ; 2 args
+ 	streq bx, ax
+ 	mr ax, bx
+ 	jzi label000000118815
++
++; Changing from English...
++
++	sourceline 5943
++	li ax, "Nelly_Russian"
++	farpush ax
++	setfuncargs 1
++	li ax, Game::ChangeTranslation^1
++	farcall ax
++	farsubsp 1
++	sourceline 5944
++	li ax, "Nelly_Russian"
++	newstr ax
++	ptrstack 4
++	push mar
++	pop mar
++	ptrset ax
++	sourceline 5945
++	li ax, "ﬂÁ˚Í"
++	newstr ax
++	mr bx, ax
++	li mar, LangDisplay
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Label::set_Text
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 5946
++	li ax, "–ÛÒÒÍËÈ"
++	newstr ax
++	mr bx, ax
++	li mar, langButton
++	mr ax, mar
++	push op
++	callobj ax
++	farpush bx
++	setfuncargs 1
++	li ax, Button::set_Text
++	farcall ax
++	farsubsp 1
++	pop op
++	sourceline 5947
++	li ax, setRussianFont$0
++	call ax
++	jmpi label000000119329
++
++label000000118815: ; inside ChangeLanguage_Click$2, ; referenced by 1 spots
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_change_from_german
++
+ 	sourceline 5943
+ 	li ax, "Nelly_German"
+ 	farpush ax
+@@ -51677,8 +51350,11 @@ ChangeLanguage_Click$2: ; 2 args
+ 	farsubsp 1
+ 	pop op
+ 	sourceline 5947
++	li ax, setNotPolishFont$0
++	call ax
+ 	jmpi label000000119329
+-label000000118815: ; inside ChangeLanguage_Click$2, ; referenced by 1 spots
++
++label_change_from_german: ; inside ChangeLanguage_Click$2, ; referenced by 1 spots
+ 	li ax, 0
+ 	setfuncargs 0
+ 	li ax, Game::get_TranslationFilename
+@@ -51902,7 +51580,11 @@ label000000119200: ; inside ChangeLanguage_Click$2, ; referenced by 1 spots
+ 	sourceline 5968
+ 	li ax, setNotPolishFont$0
+ 	call ax
++
+ label000000119329: ; inside ChangeLanguage_Click$2, ; referenced by 5 spots
++	li ax, setSignedPostcardTranslation$0
++	call ax
++
+ 	sourceline 5972
+ 	li ax, 2
+ 	farpush ax
+@@ -52999,7 +52681,20 @@ label000000121194: ; inside ChangeLanguage_Click$2, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
++
+ label000000121916: ; inside ChangeLanguage_Click$2, ; referenced by 1 spots
++
++; always call room script 244
++	li ax, 244
++	farpush ax
++	setfuncargs 1
++	li ax, CallRoomScript
++	farcall ax
++	farsubsp 1
++
++	li ax, setItemTranslation$0
++	call ax
++
+ 	sourceline 6025
+ 	li ax, 0
+ 	ptrstack 16

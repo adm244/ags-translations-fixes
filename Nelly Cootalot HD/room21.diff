@@ -1,0 +1,53 @@
+diff --git a/room21.s b/../modified/room21.s
+index 1929e38..a22fa98
+--- a/room21.s
++++ b/../modified/room21.s
+@@ -10,6 +10,39 @@ room_AfterFadeIn$0: ; 0 args
+ 	li ax, Wait
+ 	farcall ax
+ 	farsubsp 1
++
++	sourceline 32
++	setfuncargs 0
++	li ax, IsTranslationAvailable
++	farcall ax
++	jzi label_play_default_video
++
++	sourceline 38
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	push ax
++	li ax, "Nelly_Russian"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_play_default_video
++
++	sourceline 2291
++	li ax, 0
++	farpush ax
++	li ax, 1
++	farpush ax
++	li ax, "Outro-frame-russian.ogv"
++	farpush ax
++	setfuncargs 3
++	li ax, PlayVideo
++	farcall ax
++	farsubsp 3
++	jmpi label_play_video_end
++
++label_play_default_video:
+ 	sourceline 9
+ 	li ax, 0
+ 	farpush ax
+@@ -21,6 +54,8 @@ room_AfterFadeIn$0: ; 0 args
+ 	li ax, PlayVideo
+ 	farcall ax
+ 	farsubsp 3
++
++label_play_video_end:
+ 	sourceline 11
+ 	li ax, 20
+ 	farpush ax

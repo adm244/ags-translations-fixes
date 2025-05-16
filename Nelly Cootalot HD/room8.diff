@@ -1,0 +1,488 @@
+diff --git a/room8.s b/../modified/room8.s
+index 5489089..b57aa7f
+--- a/room8.s
++++ b/../modified/room8.s
+@@ -913,23 +913,8 @@ label000000002106: ; inside room_a$0, ; referenced by 1 spots
+ 	li ax, 0
+ 	ret 
+ 
+-room_b$0: ; 0 args
+-	sourceline 105
+-	thisaddr 2112
+-	sourceline 108
+-	li ax, 0
+-	mr bx, ax
+-	li mar, oSp1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Clickable
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 109
++setObjectTranslation$0:
++	sourceline 251
+ 	li ax, 0
+ 	mr bx, ax
+ 	li mar, oFr1
+@@ -938,11 +923,11 @@ room_b$0: ; 0 args
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Object::set_Clickable
++	li ax, Object::set_Visible
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 110
++	sourceline 252
+ 	li ax, 0
+ 	mr bx, ax
+ 	li mar, oDe1
+@@ -951,11 +936,11 @@ room_b$0: ; 0 args
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Object::set_Clickable
++	li ax, Object::set_Visible
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 111
++	sourceline 253
+ 	li ax, 0
+ 	mr bx, ax
+ 	li mar, oPo1
+@@ -964,46 +949,27 @@ room_b$0: ; 0 args
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Object::set_Clickable
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 113
+-	setfuncargs 0
+-	li ax, IsTranslationAvailable
+-	farcall ax
+-	not ax
+-	jzi label000000002381
+-	sourceline 114
+-	li ax, 0
+-	mr bx, ax
+-	li mar, oSp1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+ 	li ax, Object::set_Visible
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 115
++
++	sourceline 254
+ 	li ax, 0
+ 	mr bx, ax
+-	li mar, oFr1
++	li mar, oSp1
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Object::set_Visible
++	li ax, Object::set_Clickable
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 116
+-	li ax, 0
++	li ax, 1
+ 	mr bx, ax
+-	li mar, oDe1
++	li mar, oSp1
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -1013,23 +979,14 @@ room_b$0: ; 0 args
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 117
+-	li ax, 0
+-	mr bx, ax
+-	li mar, oPo1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Visible
++
++	sourceline 256
++	setfuncargs 0
++	li ax, IsTranslationAvailable
+ 	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 118
+-	jmpi label000000002997
+-label000000002381: ; inside room_b$0, ; referenced by 1 spots
+-	sourceline 120
++	jzi label_set_default_lang
++
++	sourceline 264
+ 	li ax, 0
+ 	setfuncargs 0
+ 	li ax, Game::get_TranslationFilename
+@@ -1039,9 +996,10 @@ label000000002381: ; inside room_b$0, ; referenced by 1 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000002536
+-	sourceline 121
+-	li ax, 1
++	jzi label000000006429
++
++	sourceline 269
++	li ax, 1802
+ 	mr bx, ax
+ 	li mar, oSp1
+ 	mr ax, mar
+@@ -1049,53 +1007,15 @@ label000000002381: ; inside room_b$0, ; referenced by 1 spots
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Object::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 122
+-	li ax, 0
+-	mr bx, ax
+-	li mar, oFr1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 123
+-	li ax, 0
+-	mr bx, ax
+-	li mar, oDe1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 124
+-	li ax, 0
+-	mr bx, ax
+-	li mar, oPo1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Visible
++	li ax, Object::set_Graphic
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 126
+-	jmpi label000000002997
+-label000000002536: ; inside room_b$0, ; referenced by 1 spots
+-	sourceline 127
++	sourceline 270
++	jmpi label_set_lang_end
++
++label000000006429: ; inside room_b$0, ; referenced by 1 spots
++	sourceline 271
+ 	li ax, 0
+ 	setfuncargs 0
+ 	li ax, Game::get_TranslationFilename
+@@ -1105,9 +1025,10 @@ label000000002536: ; inside room_b$0, ; referenced by 1 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000002691
+-	sourceline 128
+-	li ax, 0
++	jzi label000000006615
++
++	sourceline 276
++	li ax, 2032
+ 	mr bx, ax
+ 	li mar, oSp1
+ 	mr ax, mar
+@@ -1115,53 +1036,15 @@ label000000002536: ; inside room_b$0, ; referenced by 1 spots
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Object::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 129
+-	li ax, 1
+-	mr bx, ax
+-	li mar, oFr1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 130
+-	li ax, 0
+-	mr bx, ax
+-	li mar, oDe1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 131
+-	li ax, 0
+-	mr bx, ax
+-	li mar, oPo1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Visible
++	li ax, Object::set_Graphic
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 132
+-	jmpi label000000002997
+-label000000002691: ; inside room_b$0, ; referenced by 1 spots
+-	sourceline 133
++	sourceline 277
++	jmpi label_set_lang_end
++
++label000000006615: ; inside room_b$0, ; referenced by 1 spots
++	sourceline 278
+ 	li ax, 0
+ 	setfuncargs 0
+ 	li ax, Game::get_TranslationFilename
+@@ -1171,9 +1054,10 @@ label000000002691: ; inside room_b$0, ; referenced by 1 spots
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000002846
+-	sourceline 134
+-	li ax, 0
++	jzi label000000006801
++
++	sourceline 283
++	li ax, 2105
+ 	mr bx, ax
+ 	li mar, oSp1
+ 	mr ax, mar
+@@ -1181,65 +1065,56 @@ label000000002691: ; inside room_b$0, ; referenced by 1 spots
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Object::set_Visible
++	li ax, Object::set_Graphic
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 135
++	sourceline 284
++	jmpi label_set_lang_end
++
++label000000006801: ; inside room_b$0, ; referenced by 1 spots
++	sourceline 285
+ 	li ax, 0
+-	mr bx, ax
+-	li mar, oFr1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 136
+-	li ax, 1
+-	mr bx, ax
+-	li mar, oDe1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Visible
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
+ 	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 137
+-	li ax, 0
++	push ax
++	li ax, "Nelly_Polish"
++	pop bx
++	streq bx, ax
++	mr ax, bx
++	jzi label_set_russian_lang
++
++	sourceline 290
++	li ax, 2151
+ 	mr bx, ax
+-	li mar, oPo1
++	li mar, oSp1
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Object::set_Visible
++	li ax, Object::set_Graphic
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 138
+-	jmpi label000000002997
+-label000000002846: ; inside room_b$0, ; referenced by 1 spots
+-	sourceline 139
++	jzi label_set_lang_end
++
++label_set_russian_lang:
++	sourceline 285
+ 	li ax, 0
+ 	setfuncargs 0
+ 	li ax, Game::get_TranslationFilename
+ 	farcall ax
+ 	push ax
+-	li ax, "Nelly_Polish"
++	li ax, "Nelly_Russian"
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+-	jzi label000000002997
+-	sourceline 140
+-	li ax, 0
++	jzi label_set_default_lang
++
++	sourceline 290
++	li ax, 2232
+ 	mr bx, ax
+ 	li mar, oSp1
+ 	mr ax, mar
+@@ -1247,14 +1122,16 @@ label000000002846: ; inside room_b$0, ; referenced by 1 spots
+ 	callobj ax
+ 	farpush bx
+ 	setfuncargs 1
+-	li ax, Object::set_Visible
++	li ax, Object::set_Graphic
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 141
++	jzi label_set_lang_end
++
++label_set_default_lang:
+ 	li ax, 0
+ 	mr bx, ax
+-	li mar, oFr1
++	li mar, oSp1
+ 	mr ax, mar
+ 	push op
+ 	callobj ax
+@@ -1264,33 +1141,18 @@ label000000002846: ; inside room_b$0, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 1
+ 	pop op
+-	sourceline 142
++
++label_set_lang_end:
+ 	li ax, 0
+-	mr bx, ax
+-	li mar, oDe1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-	sourceline 143
+-	li ax, 1
+-	mr bx, ax
+-	li mar, oPo1
+-	mr ax, mar
+-	push op
+-	callobj ax
+-	farpush bx
+-	setfuncargs 1
+-	li ax, Object::set_Visible
+-	farcall ax
+-	farsubsp 1
+-	pop op
+-label000000002997: ; inside room_b$0, ; referenced by 5 spots
++	ret 
++
++room_b$0: ; 0 args
++	sourceline 105
++	thisaddr 2112
++
++	li ax, setObjectTranslation$0
++	call ax
++
+ 	sourceline 146
+ 	li ax, 100
+ 	mr bx, ax
+@@ -3272,10 +3134,43 @@ room_d$0: ; 0 args
+ 	sourceline 398
+ 	li ax, 0
+ 	ret 
++
++on_call$1: ; 1 args
++	ptrstack 8
++	memread4 ax
++	push ax
++	li ax, 244
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label_on_call_end
++	sourceline 27
++	li ax, setObjectTranslation$0
++	call ax
++
++label_on_call_end:
++	li ax, 0
++	ret 
++
+ .strings
+ "..and that\'s Hook-a-Duck!"
+ "Magnetic Hook"
