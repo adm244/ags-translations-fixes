@@ -1,0 +1,1674 @@
+diff --git a/FutureSearch.s b/../FutureSearch.s
+index baf8f0b..07fc534 100644
+--- a/FutureSearch.s
++++ b/../FutureSearch.s
+@@ -1039,7 +1039,7 @@ getNoteString$1: ; 1 args
+ 	jzi label000000002168
+ 	li ax, "Joseph"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002168: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 167
+ 	ptrstack 8
+@@ -1052,7 +1052,7 @@ label000000002168: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002195
+ 	li ax, "Anderson"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002195: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 168
+ 	ptrstack 8
+@@ -1065,7 +1065,7 @@ label000000002195: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002222
+ 	li ax, "Celia"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002222: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 169
+ 	ptrstack 8
+@@ -1078,7 +1078,7 @@ label000000002222: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002249
+ 	li ax, "Rastar"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002249: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 170
+ 	ptrstack 8
+@@ -1091,7 +1091,7 @@ label000000002249: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002276
+ 	li ax, "Lisa"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002276: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 171
+ 	ptrstack 8
+@@ -1104,7 +1104,7 @@ label000000002276: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002303
+ 	li ax, "Sandman"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002303: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 172
+ 	ptrstack 8
+@@ -1117,7 +1117,7 @@ label000000002303: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002330
+ 	li ax, "RLS-332"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002330: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 173
+ 	ptrstack 8
+@@ -1130,7 +1130,7 @@ label000000002330: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002357
+ 	li ax, "Rhona"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002357: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 174
+ 	ptrstack 8
+@@ -1143,7 +1143,7 @@ label000000002357: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002384
+ 	li ax, "Foster"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002384: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 175
+ 	ptrstack 8
+@@ -1156,7 +1156,7 @@ label000000002384: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002411
+ 	li ax, "Oliver"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002411: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 177
+ 	ptrstack 8
+@@ -1169,7 +1169,7 @@ label000000002411: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002438
+ 	li ax, "Jackson"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002438: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 178
+ 	ptrstack 8
+@@ -1182,7 +1182,7 @@ label000000002438: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002465
+ 	li ax, "Grant"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002465: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 179
+ 	ptrstack 8
+@@ -1195,7 +1195,7 @@ label000000002465: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002492
+ 	li ax, "Elizabeth"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002492: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 180
+ 	ptrstack 8
+@@ -1208,7 +1208,7 @@ label000000002492: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002519
+ 	li ax, "Arthur"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002519: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 181
+ 	ptrstack 8
+@@ -1221,7 +1221,7 @@ label000000002519: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002546
+ 	li ax, "Camron"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002546: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 182
+ 	ptrstack 8
+@@ -1234,7 +1234,7 @@ label000000002546: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002573
+ 	li ax, "Olivia"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002573: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 183
+ 	ptrstack 8
+@@ -1247,7 +1247,7 @@ label000000002573: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002600
+ 	li ax, "Elizabeth"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002600: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 184
+ 	ptrstack 8
+@@ -1260,7 +1260,7 @@ label000000002600: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002627
+ 	li ax, "NYPD"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002627: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 185
+ 	ptrstack 8
+@@ -1273,7 +1273,7 @@ label000000002627: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002654
+ 	li ax, "6-304"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002654: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 186
+ 	ptrstack 8
+@@ -1286,7 +1286,7 @@ label000000002654: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002681
+ 	li ax, "Mitchell"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002681: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 187
+ 	ptrstack 8
+@@ -1299,7 +1299,7 @@ label000000002681: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002708
+ 	li ax, "Santina"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002708: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 188
+ 	ptrstack 8
+@@ -1312,7 +1312,7 @@ label000000002708: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002735
+ 	li ax, "Murial"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002735: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 189
+ 	ptrstack 8
+@@ -1325,7 +1325,7 @@ label000000002735: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002762
+ 	li ax, "Pie Sycamore"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002762: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 191
+ 	ptrstack 8
+@@ -1338,7 +1338,7 @@ label000000002762: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002789
+ 	li ax, "Eddie"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002789: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 192
+ 	ptrstack 8
+@@ -1351,7 +1351,7 @@ label000000002789: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002816
+ 	li ax, "Ida"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002816: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 193
+ 	ptrstack 8
+@@ -1364,7 +1364,7 @@ label000000002816: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002843
+ 	li ax, "Paula"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002843: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 194
+ 	ptrstack 8
+@@ -1377,7 +1377,7 @@ label000000002843: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002870
+ 	li ax, "Patrick"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002870: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 195
+ 	ptrstack 8
+@@ -1390,7 +1390,7 @@ label000000002870: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002897
+ 	li ax, "Brian"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002897: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 196
+ 	ptrstack 8
+@@ -1403,7 +1403,7 @@ label000000002897: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002924
+ 	li ax, "Inman"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002924: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 197
+ 	ptrstack 8
+@@ -1416,7 +1416,7 @@ label000000002924: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002951
+ 	li ax, "Simon"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002951: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 198
+ 	ptrstack 8
+@@ -1429,7 +1429,7 @@ label000000002951: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000002978
+ 	li ax, "Clancy"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000002978: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 199
+ 	ptrstack 8
+@@ -1442,7 +1442,7 @@ label000000002978: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003005
+ 	li ax, "Sieveri"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003005: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 200
+ 	ptrstack 8
+@@ -1455,7 +1455,7 @@ label000000003005: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003032
+ 	li ax, "Breakdown Boys"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003032: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 201
+ 	ptrstack 8
+@@ -1468,7 +1468,7 @@ label000000003032: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003059
+ 	li ax, "Brian"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003059: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 202
+ 	ptrstack 8
+@@ -1481,7 +1481,7 @@ label000000003059: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003086
+ 	li ax, "Mason"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003086: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 203
+ 	ptrstack 8
+@@ -1494,7 +1494,7 @@ label000000003086: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003113
+ 	li ax, "Chloe"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003113: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 204
+ 	ptrstack 8
+@@ -1507,7 +1507,7 @@ label000000003113: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003140
+ 	li ax, "Sadar"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003140: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 206
+ 	ptrstack 8
+@@ -1520,7 +1520,7 @@ label000000003140: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003167
+ 	li ax, "Sam"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003167: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 207
+ 	ptrstack 8
+@@ -1533,7 +1533,7 @@ label000000003167: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003194
+ 	li ax, "Deane"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003194: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 208
+ 	ptrstack 8
+@@ -1546,7 +1546,7 @@ label000000003194: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003221
+ 	li ax, "Sterling Agency"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003221: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 210
+ 	ptrstack 8
+@@ -1559,7 +1559,7 @@ label000000003221: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003248
+ 	li ax, "Winera"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003248: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 211
+ 	ptrstack 8
+@@ -1572,7 +1572,7 @@ label000000003248: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003275
+ 	li ax, "Hanna"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003275: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 212
+ 	ptrstack 8
+@@ -1585,7 +1585,7 @@ label000000003275: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003302
+ 	li ax, "Imani"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003302: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 213
+ 	ptrstack 8
+@@ -1607,7 +1607,7 @@ label000000003302: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003350
+ 	li ax, "Nash"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003350: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 216
+ 	ptrstack 8
+@@ -1620,7 +1620,7 @@ label000000003350: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003377
+ 	li ax, "Finley"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003377: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 217
+ 	ptrstack 8
+@@ -1633,7 +1633,7 @@ label000000003377: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003404
+ 	li ax, "Quentin"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003404: ; inside getNoteString$1, ; referenced by 2 spots
+ 	sourceline 219
+ 	ptrstack 8
+@@ -1646,7 +1646,7 @@ label000000003404: ; inside getNoteString$1, ; referenced by 2 spots
+ 	jzi label000000003431
+ 	li ax, "Yvonne"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003431: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 220
+ 	ptrstack 8
+@@ -1659,7 +1659,7 @@ label000000003431: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003458
+ 	li ax, "Dion"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003458: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 221
+ 	ptrstack 8
+@@ -1672,7 +1672,7 @@ label000000003458: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003485
+ 	li ax, "Lozzotti"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003485: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 222
+ 	ptrstack 8
+@@ -1685,7 +1685,7 @@ label000000003485: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003512
+ 	li ax, "Winera"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003512: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 223
+ 	ptrstack 8
+@@ -1698,7 +1698,7 @@ label000000003512: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003539
+ 	li ax, "Tanaka"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003539: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 224
+ 	ptrstack 8
+@@ -1711,7 +1711,7 @@ label000000003539: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003566
+ 	li ax, "Hanna"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003566: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 225
+ 	ptrstack 8
+@@ -1724,7 +1724,7 @@ label000000003566: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003593
+ 	li ax, "Nicholas"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003593: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 226
+ 	ptrstack 8
+@@ -1737,7 +1737,7 @@ label000000003593: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003620
+ 	li ax, "Chord"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003620: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 228
+ 	ptrstack 8
+@@ -1750,7 +1750,7 @@ label000000003620: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003647
+ 	li ax, "Adam"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003647: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 229
+ 	ptrstack 8
+@@ -1763,7 +1763,7 @@ label000000003647: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003674
+ 	li ax, "Cole"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003674: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 230
+ 	ptrstack 8
+@@ -1776,7 +1776,7 @@ label000000003674: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003701
+ 	li ax, "Otis"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003701: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 231
+ 	ptrstack 8
+@@ -1789,7 +1789,7 @@ label000000003701: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003728
+ 	li ax, "Knox"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003728: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 232
+ 	ptrstack 8
+@@ -1802,7 +1802,7 @@ label000000003728: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003755
+ 	li ax, "Marla"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003755: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 233
+ 	ptrstack 8
+@@ -1815,7 +1815,7 @@ label000000003755: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003782
+ 	li ax, "Liam"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003782: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 234
+ 	ptrstack 8
+@@ -1828,7 +1828,7 @@ label000000003782: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003809
+ 	li ax, "Whiteman"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003809: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 235
+ 	ptrstack 8
+@@ -1841,7 +1841,7 @@ label000000003809: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003836
+ 	li ax, "Hotel Commonwealth"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003836: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 236
+ 	ptrstack 8
+@@ -1854,7 +1854,7 @@ label000000003836: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003863
+ 	li ax, "Quanmexlin"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003863: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 237
+ 	ptrstack 8
+@@ -1867,7 +1867,7 @@ label000000003863: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003890
+ 	li ax, "Evelyn"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003890: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 238
+ 	ptrstack 8
+@@ -1880,7 +1880,7 @@ label000000003890: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003917
+ 	li ax, "Sherman"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003917: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 240
+ 	ptrstack 8
+@@ -1893,7 +1893,7 @@ label000000003917: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003944
+ 	li ax, "Field Manual"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003944: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 241
+ 	ptrstack 8
+@@ -1906,7 +1906,7 @@ label000000003944: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003971
+ 	li ax, "Nash"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003971: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 242
+ 	ptrstack 8
+@@ -1919,7 +1919,7 @@ label000000003971: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000003998
+ 	li ax, "Quentin"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000003998: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 243
+ 	ptrstack 8
+@@ -1932,11 +1932,21 @@ label000000003998: ; inside getNoteString$1, ; referenced by 1 spots
+ 	jzi label000000004025
+ 	li ax, "Finley"
+ 	newstr ax
+-	ret 
++	jmpi label_translate_note
+ label000000004025: ; inside getNoteString$1, ; referenced by 1 spots
+ 	sourceline 244
+ 	li ax, 0
+ 	ret 
++;# call GetTranslation on note string before return
++label_translate_note:
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ret
+ 
+ doFlash$1: ; 1 args
+ 	sourceline 250
+@@ -4710,6 +4720,14 @@ label000000010261: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "field manual"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -4734,6 +4752,14 @@ label000000010348: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "rastar"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -4754,6 +4780,14 @@ label000000010392: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "joseph anderson"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -4765,6 +4799,14 @@ label000000010392: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "anderson joseph"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -4812,6 +4854,14 @@ label000000010524: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "celia anderson"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -4823,6 +4873,14 @@ label000000010524: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "anderson celia"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -4899,6 +4957,14 @@ label000000010722: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "lisa sandman"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -4910,6 +4976,14 @@ label000000010722: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "sandman lisa"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5008,6 +5082,14 @@ label000000010978: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "rhona foster"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5019,6 +5101,14 @@ label000000010978: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "foster rhona"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5094,6 +5184,14 @@ label000000011179: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "oliver foster"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5105,6 +5203,14 @@ label000000011179: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "foster oliver"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5211,6 +5317,14 @@ label000000011444: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "patrick inman"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5222,6 +5336,14 @@ label000000011444: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "inman patrick"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5246,6 +5368,14 @@ label000000011521: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "eddie inman"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5289,6 +5419,14 @@ label000000011618: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "paula inman"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5300,6 +5438,14 @@ label000000011618: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "inman paula"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5386,6 +5532,14 @@ label000000011837: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "simon inman"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5397,6 +5551,14 @@ label000000011837: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "inman simon"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5467,6 +5629,14 @@ label000000012019: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "jackson grant"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5478,6 +5648,14 @@ label000000012019: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "grant jackson"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5614,6 +5792,14 @@ label000000012365: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "olivia grant"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5625,6 +5811,14 @@ label000000012365: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "grant olivia"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5733,6 +5927,14 @@ label000000012642: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "elizabeth grant"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5744,6 +5946,14 @@ label000000012642: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "grant elizabeth"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5830,6 +6040,14 @@ label000000012861: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "elizabeth camron"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5841,6 +6059,14 @@ label000000012861: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "camron elizabeth"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5963,6 +6189,14 @@ label000000013167: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "arthur camron"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -5974,6 +6208,14 @@ label000000013167: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "camron arthur"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -6096,6 +6338,14 @@ label000000013473: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "nypd"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -6311,6 +6561,14 @@ label000000013956: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "murial santina"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -6322,6 +6580,14 @@ label000000013956: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "santina murial"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -6429,6 +6695,14 @@ label000000014230: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "pie sycamore"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -6582,6 +6856,14 @@ label000000014585: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "chloe sadar"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -6593,6 +6875,14 @@ label000000014585: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "sadar chloe"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -6844,6 +7134,14 @@ label000000015189: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "mitchell santina"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -6855,6 +7153,14 @@ label000000015189: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "santina mitchell"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -6879,6 +7185,14 @@ label000000015266: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "clancy sieveri"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -6923,6 +7237,14 @@ label000000015365: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "breakdown boys"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -7040,6 +7362,14 @@ label000000015631: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "brian mason"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -7051,6 +7381,14 @@ label000000015631: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "mason brian"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -7161,6 +7499,14 @@ label000000015915: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "sam deane"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -7172,6 +7518,14 @@ label000000015915: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "deane sam"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -7363,6 +7717,14 @@ label000000016379: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "sterling agency"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -7414,6 +7776,14 @@ label000000016495: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "yvonne lozzotti"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -7425,6 +7795,14 @@ label000000016495: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "lozzotti yvonne"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -7673,6 +8051,14 @@ label000000017104: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "dion lozzotti"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -7684,6 +8070,14 @@ label000000017104: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "lozzotti dion"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -7852,6 +8246,14 @@ label000000017519: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "nicholas chord"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -7863,6 +8265,14 @@ label000000017519: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "chord nicholas"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8015,6 +8425,14 @@ label000000017900: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "hanna tanaka"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8026,6 +8444,14 @@ label000000017900: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "tanaka hanna"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8232,6 +8658,14 @@ label000000018402: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "winera"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8273,6 +8707,14 @@ label000000018495: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "adam cole"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8399,6 +8841,14 @@ label000000018793: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "liam whiteman"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8472,6 +8922,14 @@ label000000018956: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "marla knox"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8483,6 +8941,14 @@ label000000018956: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "marla cole"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8498,6 +8964,14 @@ label000000019012: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "marla whiteman"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8513,6 +8987,14 @@ label000000019045: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "marla knox"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8531,6 +9013,14 @@ label000000019087: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "marla Cole"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8549,6 +9039,14 @@ label000000019127: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "marla Whiteman"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8586,6 +9084,14 @@ label000000019208: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "evelyn sherman"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8712,6 +9218,14 @@ label000000019491: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "hotel commonwealth"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8776,6 +9290,14 @@ label000000019640: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "otis knox"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -8796,6 +9318,14 @@ label000000019684: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "quanmexlin"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -9013,6 +9543,14 @@ label000000020195: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "imani nash"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -9024,6 +9562,14 @@ label000000020195: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "imani quentin"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -9039,6 +9585,14 @@ label000000020251: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "imani finley"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx
+@@ -9054,6 +9608,14 @@ label000000020284: ; inside futureSearch$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	push ax
+ 	li ax, "imani camron"
++
++;# call GetTranslation for search entry comparison
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++
+ 	pop bx
+ 	streq bx, ax
+ 	mr ax, bx

@@ -1,0 +1,27 @@
+diff --git a/BackgroundDialog.s b/../BackgroundDialog.s
+index 589a6b6..cf90374 100644
+--- a/BackgroundDialog.s
++++ b/../BackgroundDialog.s
+@@ -726,6 +726,22 @@ Character::BGSay$6: ; 6 args
+ 	mr mar, sp
+ 	memcpy 4, 0
+ 	addi sp, 4
++
++;# call GetTranslation for text argument;
++;# beware, text can contain special "control" text like "NOZZOAPPEAR"
++;# do NOT translate these, otherwise holographic animations won't play
++	ptrstack 12
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrstack 12
++	ptrset ax
++
+ 	sourceline 93
+ 	mr mar, sp
+ 	zeromem 4

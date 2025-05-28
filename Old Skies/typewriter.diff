@@ -1,12 +1,34 @@
-diff --git a/typewriter.s b/../modified/typewriter.s
-index c1492d8..1bbd0f0 100644
+diff --git a/typewriter.s b/../typewriter.s
+index c1492d8..823b74d 100644
 --- a/typewriter.s
-+++ b/../modified/typewriter.s
-@@ -2053,6 +2053,19 @@ mySlate$1: ; 1 args
++++ b/../typewriter.s
+@@ -14,6 +14,20 @@ Typewriter::Type$11: ; 11 args
+ 	ptrstack 48
+ 	memread4 ax
+ 	ptrinit ax
++
++;# call GetTranslation for text argument
++	ptrstack 28
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrstack 28
++	ptrset ax
++
+ 	sourceline 8
+ 	li ax, ""
+ 	newstr ax
+@@ -2053,6 +2067,20 @@ mySlate$1: ; 1 args
  	ptrstack 8
  	memread4 ax
  	ptrinit ax
 +
++;# call GetTranslation for text argument
 +	ptrstack 8
 +	ptrget ax
 +	assert ax

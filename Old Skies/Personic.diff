@@ -1,12 +1,13 @@
-diff --git a/Personic.s b/../modified/Personic.s
-index 69a3e3e..b2f694a 100644
+diff --git a/Personic.s b/../Personic.s
+index 69a3e3e..46130f4 100644
 --- a/Personic.s
-+++ b/../modified/Personic.s
-@@ -191,6 +191,14 @@ label000000000375: ; inside personicDisplay$1, ; referenced by 1 spots
++++ b/../Personic.s
+@@ -191,6 +191,15 @@ label000000000375: ; inside personicDisplay$1, ; referenced by 1 spots
  	pop mar
  	add mar, cx
  	ptrget ax
 +
++;# call GetTranslation for argument into String::Format
 +	assert ax
 +	farpush ax
 +	setfuncargs 1
@@ -17,11 +18,12 @@ index 69a3e3e..b2f694a 100644
  	farpush ax
  	li ax, "Employed at: %s"
  	farpush ax
-@@ -220,6 +228,14 @@ label000000000375: ; inside personicDisplay$1, ; referenced by 1 spots
+@@ -220,6 +229,15 @@ label000000000375: ; inside personicDisplay$1, ; referenced by 1 spots
  	pop mar
  	add mar, cx
  	ptrget ax
 +
++;# call GetTranslation for argument into String::Format
 +	assert ax
 +	farpush ax
 +	setfuncargs 1
@@ -32,11 +34,12 @@ index 69a3e3e..b2f694a 100644
  	farpush ax
  	li ax, "Location: %s"
  	farpush ax
-@@ -249,6 +265,14 @@ label000000000375: ; inside personicDisplay$1, ; referenced by 1 spots
- 	pop mar
+@@ -250,6 +268,15 @@ label000000000375: ; inside personicDisplay$1, ; referenced by 1 spots
  	add mar, cx
  	ptrget ax
+ 	farpush ax
 +
++;# call GetTranslation for argument into String::Format
 +	assert ax
 +	farpush ax
 +	setfuncargs 1
@@ -44,14 +47,15 @@ index 69a3e3e..b2f694a 100644
 +	farcall ax
 +	farsubsp 1
 +
- 	farpush ax
  	li ax, "Cluster status: %s"
  	farpush ax
-@@ -278,6 +302,14 @@ label000000000375: ; inside personicDisplay$1, ; referenced by 1 spots
+ 	setfuncargs 2
+@@ -278,6 +305,15 @@ label000000000375: ; inside personicDisplay$1, ; referenced by 1 spots
  	pop mar
  	add mar, cx
  	ptrget ax
 +
++;# call GetTranslation for argument into String::Format
 +	assert ax
 +	farpush ax
 +	setfuncargs 1
