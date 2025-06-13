@@ -1,0 +1,1625 @@
+diff --git a/GlobalScript.s b/../GlobalScript.s
+--- a/GlobalScript.s
++++ b/../GlobalScript.s
+@@ -1,8 +1,1346 @@
+ .data
+ int var000000 = -1
+ int var000004 = 0
++int newfont = 18344
++int mappings = 0
+ .text
+ 
++IsWhitespace$1: ; 1 args
++	thisaddr 0
++	ptrstack 8
++	memread4 ax
++	mr bx, ax
++	li ax, 9
++	cmpne ax, bx
++	jzi label000000000017
++	li ax, 32
++	cmpne ax, bx
++	jzi label000000000017
++	li ax, 0
++	ret 
++label000000000017: ; inside IsWhitespace$1, ; referenced by 2 spots
++	li ax, 1
++	ret 
++
++Trim$1: ; 1 args
++	thisaddr 0
++	ptrstack 8
++	memread4 ax
++	ptrinit ax
++	ptrstack 8
++	ptrget ax
++	push ax
++	li ax, 0
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label000000000110
++	li ax, 0
++	ptrstack 8
++	ptrzerond 
++	ret 
++label000000000110: ; inside Trim$1, ; referenced by 1 spots
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++label000000000123: ; inside Trim$1, ; referenced by 1 spots
++	ptrstack 4
++	memread4 ax
++	push ax
++	ptrstack 16
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	jzi label000000000257
++	push ax
++	ptrstack 16
++	ptrget ax
++	push ax
++	ptrstack 12
++	memread4 ax
++	mr dx, ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	farpush dx
++	setfuncargs 1
++	li ax, String::geti_Chars
++	farcall ax
++	farsubsp 1
++	pop op
++	push ax
++	li ax, IsWhitespace$1
++	call ax
++	subi sp, 4
++	pop bx
++	land bx, ax
++	mr ax, bx
++	jzi label000000000257
++	ptrstack 4
++	memread4 ax
++	push ax
++	li ax, 1
++	pop bx
++	add bx, ax
++	mr ax, bx
++	ptrstack 4
++	memwrite4 ax
++	jmpi label000000000123
++label000000000257: ; inside Trim$1, ; referenced by 2 spots
++	ptrstack 12
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++label000000000295: ; inside Trim$1, ; referenced by 1 spots
++	ptrstack 4
++	memread4 ax
++	push ax
++	li ax, 0
++	pop bx
++	gt bx, ax
++	mr ax, bx
++	jzi label000000000417
++	push ax
++	ptrstack 20
++	ptrget ax
++	push ax
++	ptrstack 12
++	memread4 ax
++	push ax
++	li ax, 1
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	mr dx, ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	farpush dx
++	setfuncargs 1
++	li ax, String::geti_Chars
++	farcall ax
++	farsubsp 1
++	pop op
++	push ax
++	li ax, IsWhitespace$1
++	call ax
++	subi sp, 4
++	pop bx
++	land bx, ax
++	mr ax, bx
++	jzi label000000000417
++	ptrstack 4
++	memread4 ax
++	push ax
++	li ax, 1
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	ptrstack 4
++	memwrite4 ax
++	jmpi label000000000295
++label000000000417: ; inside Trim$1, ; referenced by 2 spots
++	push op
++	ptrstack 8
++	memread4 ax
++	push ax
++	ptrstack 16
++	memread4 ax
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	farpush ax
++	ptrstack 12
++	memread4 ax
++	farpush ax
++	ptrstack 20
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::Substring^2
++	farcall ax
++	farsubsp 2
++	pop op
++	ptrstack 16
++	ptrzerond 
++	subi sp, 8
++	ret 
++
++ParseEncodingsFile$1: ; 1 args
++	thisaddr 0
++	ptrstack 8
++	memread4 ax
++	ptrinit ax
++	li ax, 0
++	farpush ax
++	li ax, 0
++	farpush ax
++	setfuncargs 2
++	li ax, Dictionary::Create^2
++	farcall ax
++	farsubsp 2
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 4
++	ptrget ax
++	push ax
++	li ax, 0
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label000000000563
++	li ax, 0
++	ptrstack 12
++	ptrzerond 
++	ptrstack 4
++	ptrzerond 
++	subi sp, 4
++	ret 
++label000000000563: ; inside ParseEncodingsFile$1, ; referenced by 1 spots
++	li ax, 1
++	farpush ax
++	ptrstack 12
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 2
++	li ax, File::Open^2
++	farcall ax
++	farsubsp 2
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 4
++	ptrget ax
++	push ax
++	li ax, 0
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label000000000642
++	li ax, 0
++	ptrstack 16
++	ptrzerond 
++	ptrstack 8
++	ptrzerond 
++	ptrstack 4
++	ptrzerond 
++	subi sp, 8
++	ret 
++label000000000642: ; inside ParseEncodingsFile$1, ; referenced by 5 spots
++	ptrstack 4
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, File::get_EOF
++	farcall ax
++	pop op
++	not ax
++	jzi label000000001280
++	push op
++	ptrstack 8
++	ptrget ax
++	callobj ax
++	setfuncargs 0
++	li ax, File::ReadRawLineBack^0
++	farcall ax
++	pop op
++	push ax
++	li ax, Trim$1
++	call ax
++	subi sp, 4
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 4
++	ptrget ax
++	push ax
++	li ax, 0
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jnzi label000000000838
++	push ax
++	ptrstack 8
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	push ax
++	li ax, 3
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	pop bx
++	lor bx, ax
++	mr ax, bx
++	jnzi label000000000838
++	push ax
++	push op
++	li ax, 0
++	farpush ax
++	li ax, "##"
++	farpush ax
++	ptrstack 12
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::StartsWith^2
++	farcall ax
++	farsubsp 2
++	pop op
++	pop bx
++	lor bx, ax
++	mr ax, bx
++	jzi label000000000853
++label000000000838: ; inside ParseEncodingsFile$1, ; referenced by 2 spots
++	ptrstack 4
++	ptrzero 
++	subi sp, 4
++	li ax, 0
++	jmpi label000000000642
++label000000000853: ; inside ParseEncodingsFile$1, ; referenced by 1 spots
++	push op
++	li ax, "="
++	farpush ax
++	ptrstack 8
++	ptrget ax
++	callobj ax
++	setfuncargs 1
++	li ax, String::IndexOf^1
++	farcall ax
++	farsubsp 1
++	pop op
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++	ptrstack 4
++	memread4 ax
++	push ax
++	li ax, 1
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	jzi label000000000925
++	ptrstack 8
++	ptrzero 
++	subi sp, 8
++	li ax, 0
++	jmpi label000000000642
++label000000000925: ; inside ParseEncodingsFile$1, ; referenced by 1 spots
++	push op
++	li ax, 32
++	farpush ax
++	ptrstack 8
++	memread4 ax
++	farpush ax
++	ptrstack 12
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::ReplaceCharAt^2
++	farcall ax
++	farsubsp 2
++	pop op
++	ptrstack 8
++	ptrset ax
++	push op
++	ptrstack 8
++	memread4 ax
++	farpush ax
++	li ax, 0
++	farpush ax
++	ptrstack 12
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::Substring^2
++	farcall ax
++	farsubsp 2
++	pop op
++	push ax
++	li ax, Trim$1
++	call ax
++	subi sp, 4
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	push op
++	ptrstack 16
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	push ax
++	ptrstack 16
++	memread4 ax
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	farpush ax
++	ptrstack 12
++	memread4 ax
++	farpush ax
++	ptrstack 16
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::Substring^2
++	farcall ax
++	farsubsp 2
++	pop op
++	push ax
++	li ax, Trim$1
++	call ax
++	subi sp, 4
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 8
++	ptrget ax
++	farpush ax
++	setfuncargs 1
++	li ax, String::IsNullOrEmpty^1
++	farcall ax
++	farsubsp 1
++	jnzi label000000001168
++	push ax
++	ptrstack 8
++	ptrget ax
++	farpush ax
++	setfuncargs 1
++	li ax, String::IsNullOrEmpty^1
++	farcall ax
++	farsubsp 1
++	pop bx
++	lor bx, ax
++	mr ax, bx
++	jzi label000000001189
++label000000001168: ; inside ParseEncodingsFile$1, ; referenced by 1 spots
++	ptrstack 8
++	ptrzero 
++	ptrstack 4
++	ptrzero 
++	ptrstack 16
++	ptrzero 
++	subi sp, 16
++	li ax, 0
++	jmpi label000000000642
++label000000001189: ; inside ParseEncodingsFile$1, ; referenced by 1 spots
++	push op
++	push op
++	ptrstack 12
++	ptrget ax
++	callobj ax
++	setfuncargs 0
++	li ax, String::LowerCase^0
++	farcall ax
++	pop op
++	assert ax
++	farpush ax
++	push op
++	ptrstack 16
++	ptrget ax
++	callobj ax
++	setfuncargs 0
++	li ax, String::LowerCase^0
++	farcall ax
++	pop op
++	assert ax
++	farpush ax
++	ptrstack 28
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, Dictionary::Set^2
++	farcall ax
++	farsubsp 2
++	pop op
++	ptrstack 8
++	ptrzero 
++	ptrstack 4
++	ptrzero 
++	ptrstack 16
++	ptrzero 
++	subi sp, 16
++	jmpi label000000000642
++label000000001280: ; inside ParseEncodingsFile$1, ; referenced by 1 spots
++	push op
++	ptrstack 8
++	ptrget ax
++	callobj ax
++	setfuncargs 0
++	li ax, File::Close^0
++	farcall ax
++	pop op
++	ptrstack 8
++	ptrget ax
++	ptrstack 16
++	ptrzerond 
++	ptrstack 8
++	ptrzerond 
++	ptrstack 4
++	ptrzerond 
++	subi sp, 8
++	ret 
++
++ReadCharMapping$1: ; 1 args
++	thisaddr 0
++	ptrstack 8
++	memread4 ax
++	ptrinit ax
++	li ax, 1
++	farpush ax
++	ptrstack 8
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 2
++	li ax, File::Open^2
++	farcall ax
++	farsubsp 2
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 4
++	ptrget ax
++	push ax
++	li ax, 0
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label000000001427
++	li ax, 0
++	ptrstack 12
++	ptrzerond 
++	ptrstack 4
++	ptrzerond 
++	subi sp, 4
++	ret 
++label000000001427: ; inside ReadCharMapping$1, ; referenced by 1 spots
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++	li ax, 256
++	newarr ax, 4, 0
++	li mar, @mappings
++	ptrset ax
++label000000001454: ; inside ReadCharMapping$1, ; referenced by 4 spots
++	ptrstack 8
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, File::get_EOF
++	farcall ax
++	pop op
++	not ax
++	jzi label000000003049
++	push ax
++	ptrstack 8
++	memread4 ax
++	push ax
++	li ax, 256
++	push ax
++	li ax, 1
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	pop bx
++	land bx, ax
++	mr ax, bx
++	jzi label000000003049
++	push op
++	ptrstack 12
++	ptrget ax
++	callobj ax
++	setfuncargs 0
++	li ax, File::ReadRawLineBack^0
++	farcall ax
++	pop op
++	push ax
++	li ax, Trim$1
++	call ax
++	subi sp, 4
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 4
++	ptrget ax
++	push ax
++	li ax, 0
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jnzi label000000001692
++	push ax
++	ptrstack 8
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	push ax
++	li ax, 10
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	pop bx
++	lor bx, ax
++	mr ax, bx
++	jnzi label000000001692
++	push ax
++	push op
++	li ax, 0
++	farpush ax
++	li ax, "##"
++	farpush ax
++	ptrstack 12
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::StartsWith^2
++	farcall ax
++	farsubsp 2
++	pop op
++	pop bx
++	lor bx, ax
++	mr ax, bx
++	jzi label000000001707
++label000000001692: ; inside ReadCharMapping$1, ; referenced by 2 spots
++	ptrstack 4
++	ptrzero 
++	subi sp, 4
++	li ax, 0
++	jmpi label000000001454
++label000000001707: ; inside ReadCharMapping$1, ; referenced by 1 spots
++	li ax, 5
++	newarr ax, 4, 1
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	push op
++	li ax, 2
++	farpush ax
++	li ax, 0
++	farpush ax
++	ptrstack 12
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::Substring^2
++	farcall ax
++	farsubsp 2
++	pop op
++	push ax
++	li ax, 0
++	mr dx, ax
++	pop ax
++	ptrstack 4
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrset ax
++	push op
++	ptrstack 12
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	push ax
++	li ax, 3
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	farpush ax
++	li ax, 3
++	farpush ax
++	ptrstack 12
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::Substring^2
++	farcall ax
++	farsubsp 2
++	pop op
++	ptrstack 8
++	ptrset ax
++	li ax, 1
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++label000000001882: ; inside ReadCharMapping$1, ; referenced by 1 spots
++	ptrstack 4
++	memread4 ax
++	push ax
++	li ax, 4
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	jzi label000000002179
++	push op
++	li ax, ","
++	farpush ax
++	ptrstack 16
++	ptrget ax
++	callobj ax
++	setfuncargs 1
++	li ax, String::IndexOf^1
++	farcall ax
++	farsubsp 1
++	pop op
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++	ptrstack 4
++	memread4 ax
++	push ax
++	li ax, 0
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	jzi label000000001970
++	subi sp, 4
++	li ax, 0
++	jmpi label000000002179
++label000000001970: ; inside ReadCharMapping$1, ; referenced by 1 spots
++	push op
++	ptrstack 8
++	memread4 ax
++	farpush ax
++	li ax, 0
++	farpush ax
++	ptrstack 20
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::Substring^2
++	farcall ax
++	farsubsp 2
++	pop op
++	push ax
++	ptrstack 12
++	memread4 ax
++	mr dx, ax
++	pop ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrset ax
++	push op
++	li ax, 32
++	farpush ax
++	ptrstack 8
++	memread4 ax
++	farpush ax
++	ptrstack 20
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::ReplaceCharAt^2
++	farcall ax
++	farsubsp 2
++	pop op
++	ptrstack 16
++	ptrset ax
++	push op
++	ptrstack 20
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	push ax
++	ptrstack 12
++	memread4 ax
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	farpush ax
++	ptrstack 8
++	memread4 ax
++	farpush ax
++	ptrstack 20
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::Substring^2
++	farcall ax
++	farsubsp 2
++	pop op
++	ptrstack 16
++	ptrset ax
++	subi sp, 4
++	ptrstack 4
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++	jmpi label000000001882
++label000000002179: ; inside ReadCharMapping$1, ; referenced by 2 spots
++	subi sp, 4
++	ptrstack 8
++	ptrget ax
++	push ax
++	li ax, 4
++	mr dx, ax
++	pop ax
++	ptrstack 4
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrset ax
++	li ax, 0
++	mr dx, ax
++	ptrstack 4
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	push ax
++	li ax, 0
++	mr dx, ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	farpush dx
++	setfuncargs 1
++	li ax, String::geti_Chars
++	farcall ax
++	farsubsp 1
++	pop op
++	push ax
++	li ax, 58
++	pop bx
++	cmpne bx, ax
++	mr ax, bx
++	jnzi label000000002361
++	push ax
++	li ax, 0
++	mr dx, ax
++	ptrstack 8
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	push ax
++	li ax, 2
++	pop bx
++	cmpne bx, ax
++	mr ax, bx
++	pop bx
++	lor bx, ax
++	mr ax, bx
++	jzi label000000002379
++label000000002361: ; inside ReadCharMapping$1, ; referenced by 1 spots
++	ptrstack 8
++	ptrzero 
++	ptrstack 4
++	ptrzero 
++	subi sp, 8
++	li ax, 0
++	jmpi label000000001454
++label000000002379: ; inside ReadCharMapping$1, ; referenced by 1 spots
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++	li ax, 1
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++label000000002405: ; inside ReadCharMapping$1, ; referenced by 1 spots
++	ptrstack 4
++	memread4 ax
++	push ax
++	li ax, 5
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	jzi label000000002562
++	ptrstack 4
++	memread4 ax
++	mr dx, ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	push ax
++	li ax, Trim$1
++	call ax
++	subi sp, 4
++	push ax
++	ptrstack 8
++	memread4 ax
++	mr dx, ax
++	pop ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrset ax
++	ptrstack 4
++	memread4 ax
++	mr dx, ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	farpush ax
++	setfuncargs 1
++	li ax, String::IsNullOrEmpty^1
++	farcall ax
++	farsubsp 1
++	jzi label000000002549
++	li ax, 1
++	ptrstack 8
++	memwrite4 ax
++	li ax, 0
++	jmpi label000000002562
++label000000002549: ; inside ReadCharMapping$1, ; referenced by 1 spots
++	ptrstack 4
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++	jmpi label000000002405
++label000000002562: ; inside ReadCharMapping$1, ; referenced by 2 spots
++	subi sp, 4
++	ptrstack 4
++	memread4 ax
++	jzi label000000002589
++	ptrstack 12
++	ptrzero 
++	ptrstack 8
++	ptrzero 
++	subi sp, 12
++	li ax, 0
++	jmpi label000000001454
++label000000002589: ; inside ReadCharMapping$1, ; referenced by 1 spots
++	newuserobject ax, 12
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	li ax, 0
++	mr dx, ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	push ax
++	li ax, 1
++	mr dx, ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	farpush dx
++	setfuncargs 1
++	li ax, String::geti_Chars
++	farcall ax
++	farsubsp 1
++	pop op
++	ptrstack 4
++	push ax
++	ptrget ax
++	pop bx
++	push ax
++	mr ax, bx
++	pop mar
++	ptrassert 
++	memwrite1 ax
++	li ax, 1
++	mr dx, ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_AsInt
++	farcall ax
++	pop op
++	ptrstack 4
++	push ax
++	ptrget ax
++	pop bx
++	push ax
++	mr ax, bx
++	pop mar
++	ptrassert 
++	addi mar, 1
++	memwrite2 ax
++	li ax, 2
++	mr dx, ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_AsInt
++	farcall ax
++	pop op
++	ptrstack 4
++	push ax
++	ptrget ax
++	pop bx
++	push ax
++	mr ax, bx
++	pop mar
++	ptrassert 
++	addi mar, 3
++	memwrite2 ax
++	li ax, 3
++	mr dx, ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_AsInt
++	farcall ax
++	pop op
++	ptrstack 4
++	push ax
++	ptrget ax
++	pop bx
++	push ax
++	mr ax, bx
++	pop mar
++	ptrassert 
++	addi mar, 5
++	memwrite2 ax
++	li ax, 4
++	mr dx, ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_AsInt
++	farcall ax
++	pop op
++	ptrstack 4
++	push ax
++	ptrget ax
++	pop bx
++	push ax
++	mr ax, bx
++	pop mar
++	ptrassert 
++	addi mar, 7
++	memwrite2 ax
++	ptrstack 4
++	ptrget ax
++	push ax
++	ptrstack 24
++	memread4 ax
++	muli ax, 4
++	mr cx, ax
++	pop ax
++	li mar, @mappings
++	ptrget mar
++	ptrassert 
++	dynamicbounds cx
++	add mar, cx
++	ptrset ax
++	ptrstack 20
++	memread4 ax
++	push ax
++	li ax, 1
++	pop bx
++	add bx, ax
++	mr ax, bx
++	ptrstack 20
++	memwrite4 ax
++	ptrstack 4
++	ptrzero 
++	ptrstack 16
++	ptrzero 
++	ptrstack 12
++	ptrzero 
++	subi sp, 16
++	jmpi label000000001454
++label000000003049: ; inside ReadCharMapping$1, ; referenced by 1 spots
++	push op
++	ptrstack 12
++	ptrget ax
++	callobj ax
++	setfuncargs 0
++	li ax, File::Close^0
++	farcall ax
++	pop op
++	li ax, 0
++	push ax
++	ptrstack 8
++	memread4 ax
++	muli ax, 4
++	mr cx, ax
++	pop ax
++	li mar, @mappings
++	ptrget mar
++	ptrassert 
++	dynamicbounds cx
++	add mar, cx
++	ptrset ax
++	ptrstack 4
++	memread4 ax
++	push ax
++	li ax, 0
++	pop bx
++	gt bx, ax
++	mr ax, bx
++	ptrstack 16
++	ptrzerond 
++	ptrstack 8
++	ptrzerond 
++	subi sp, 8
++	ret 
++
++SetupVariableFont$3: ; 3 args
++	thisaddr 0
++	ptrstack 12
++	memread4 ax
++	farpush ax
++	ptrstack 8
++	memread4 ax
++	farpush ax
++	setfuncargs 2
++	li ax, SetVariableSpriteFont
++	farcall ax
++	farsubsp 2
++	ptrstack 16
++	memread4 ax
++	farpush ax
++	ptrstack 8
++	memread4 ax
++	farpush ax
++	setfuncargs 2
++	li ax, SetSpacing
++	farcall ax
++	farsubsp 2
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++label000000003212: ; inside SetupVariableFont$3, ; referenced by 1 spots
++	ptrstack 4
++	memread4 ax
++	push ax
++	li ax, 256
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	jzi label000000003439
++	ptrstack 4
++	memread4 ax
++	muli ax, 4
++	mr cx, ax
++	li mar, @mappings
++	ptrget mar
++	ptrassert 
++	dynamicbounds cx
++	add mar, cx
++	ptrget ax
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 4
++	ptrget ax
++	push ax
++	li ax, 0
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label000000003306
++	ptrstack 4
++	ptrzero 
++	subi sp, 4
++	li ax, 0
++	jmpi label000000003439
++label000000003306: ; inside SetupVariableFont$3, ; referenced by 1 spots
++	ptrstack 4
++	ptrget ax
++	push ax
++	pop mar
++	ptrassert 
++	addi mar, 7
++	memread2 ax
++	farpush ax
++	ptrstack 4
++	ptrget ax
++	push ax
++	pop mar
++	ptrassert 
++	addi mar, 5
++	memread2 ax
++	farpush ax
++	ptrstack 4
++	ptrget ax
++	push ax
++	pop mar
++	ptrassert 
++	addi mar, 3
++	memread2 ax
++	farpush ax
++	ptrstack 4
++	ptrget ax
++	push ax
++	pop mar
++	ptrassert 
++	addi mar, 1
++	memread2 ax
++	farpush ax
++	ptrstack 4
++	ptrget ax
++	push ax
++	pop mar
++	ptrassert 
++	memread1 ax
++	farpush ax
++	ptrstack 16
++	memread4 ax
++	farpush ax
++	setfuncargs 6
++	li ax, SetGlyph
++	farcall ax
++	farsubsp 6
++	ptrstack 4
++	ptrzero 
++	subi sp, 4
++	ptrstack 4
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++	jmpi label000000003212
++label000000003439: ; inside SetupVariableFont$3, ; referenced by 2 spots
++	subi sp, 4
++	ret 
++
+ game_start$0: ; 0 args
+ 	sourceline 5
+ 	thisaddr 0
+@@ -187,6 +1525,139 @@ label000000000398: ; inside game_start$0, ; referenced by 1 spots
+ 	farsubsp 1
+ 	pop op
+ label000000000429: ; inside game_start$0, ; referenced by 1 spots
++	setfuncargs 0
++	li ax, IsTranslationAvailable
++	farcall ax
++	jzi label_font_init_original
++	li ax, "$INSTALLDIR$/encoding.txt"
++	newstr ax
++	push ax
++	li ax, ParseEncodingsFile$1
++	call ax
++	subi sp, 4
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 4
++	ptrget ax
++	push ax
++	li ax, 0
++	pop bx
++	cmpne bx, ax
++	mr ax, bx
++	jzi label000000003760
++	push op
++	push op
++	li ax, 0
++	setfuncargs 0
++	li ax, Game::get_TranslationFilename
++	farcall ax
++	callobj ax
++	setfuncargs 0
++	li ax, String::LowerCase^0
++	farcall ax
++	pop op
++	assert ax
++	farpush ax
++	ptrstack 8
++	ptrget ax
++	callobj ax
++	setfuncargs 1
++; will crash on 3.5.0.26, fixed in 3.5.0.27
++; (commit 7167e708f1a00ac069392f2900a72d1c3bd6d6da)
++	li ax, Dictionary::Get^1
++	farcall ax
++	farsubsp 1
++	pop op
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 4
++	ptrget ax
++	farpush ax
++	setfuncargs 1
++	li ax, String::IsNullOrEmpty^1
++	farcall ax
++	farsubsp 1
++	not ax
++	jzi label000000003752
++	ptrstack 4
++	ptrget ax
++	farpush ax
++	li ax, "$INSTALLDIR$/encodings/%s.txt"
++	farpush ax
++	setfuncargs 2
++	li ax, String::Format^101
++	farcall ax
++	farsubsp 2
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 4
++	ptrget ax
++	push ax
++	li ax, ReadCharMapping$1
++	call ax
++	subi sp, 4
++	jzi label000000003744
++	li ax, 1
++	push ax
++	li mar, @newfont
++	memread4 ax
++	push ax
++	li ax, 9
++	push ax
++	li ax, SetupVariableFont$3
++	call ax
++	subi sp, 12
++	li ax, 1
++	push ax
++	li mar, @newfont
++	memread4 ax
++	push ax
++	li ax, 13
++	push ax
++	li ax, SetupVariableFont$3
++	call ax
++	subi sp, 12
++	li ax, 1
++	push ax
++	li mar, @newfont
++	memread4 ax
++	push ax
++	li ax, 14
++	push ax
++	li ax, SetupVariableFont$3
++	call ax
++	subi sp, 12
++	li ax, 0
++	ptrstack 4
++	ptrzerond 
++	ptrstack 12
++	ptrzerond 
++	ptrstack 8
++	ptrzerond 
++	subi sp, 12
++	jmpi label_font_init_finished
++label000000003744:
++	ptrstack 4
++	ptrzero 
++	subi sp, 4
++label000000003752:
++	ptrstack 4
++	ptrzero 
++	subi sp, 4
++label000000003760:
++	ptrstack 4
++	ptrzero 
++	subi sp, 4
++	li ax, ""
++	farpush ax
++	setfuncargs 1
++	li ax, Game::ChangeTranslation^1
++	farcall ax
++	farsubsp 1
++label_font_init_original:
+ 	sourceline 34
+ 	li ax, 1
+ 	farpush ax
+@@ -5206,6 +6677,7 @@ label000000000429: ; inside game_start$0, ; referenced by 1 spots
+ 	li ax, SetGlyph
+ 	farcall ax
+ 	farsubsp 6
++label_font_init_finished:
+ 	sourceline 340
+ 	li ax, 0
+ 	setfuncargs 0
+@@ -17243,6 +18715,31 @@ label000000040614: ; inside repeatedly_execute$0, ; referenced by 2 spots
+ 	memread4 ax
+ 	jzi label000000040960
+ 	sourceline 1379
++; original code sets font sprite each frame (won't fix)
++	setfuncargs 0
++	li ax, IsTranslationAvailable
++	farcall ax
++	jzi label_subtitleon_original
++	li mar, @newfont
++	memread4 ax
++	farpush ax
++	li ax, 13
++	farpush ax
++	setfuncargs 2
++	li ax, SetVariableSpriteFont
++	farcall ax
++	farsubsp 2
++	li mar, @newfont
++	memread4 ax
++	farpush ax
++	li ax, 14
++	farpush ax
++	setfuncargs 2
++	li ax, SetVariableSpriteFont
++	farcall ax
++	farsubsp 2
++	jmpi label_subtitleon_original_end
++label_subtitleon_original:
+ 	li ax, 1
+ 	farpush ax
+ 	li ax, 91
+@@ -17306,6 +18803,7 @@ label000000040614: ; inside repeatedly_execute$0, ; referenced by 2 spots
+ 	li ax, SetVariableSpriteFont
+ 	farcall ax
+ 	farsubsp 2
++label_subtitleon_original_end:
+ 	sourceline 1383
+ 	li ax, 13
+ 	mr bx, ax
+@@ -21701,6 +23199,39 @@ turnoffcommentary$0: ; 0 args
+ 	li mar, transparentfont
+ 	memwrite4 ax
+ 	sourceline 1988
++	setfuncargs 0
++	li ax, IsTranslationAvailable
++	farcall ax
++	jzi label_turnoffcommentary_original
++	li mar, @newfont
++	memread4 ax
++	farpush ax
++	li ax, 9
++	farpush ax
++	setfuncargs 2
++	li ax, SetVariableSpriteFont
++	farcall ax
++	farsubsp 2
++	li mar, @newfont
++	memread4 ax
++	farpush ax
++	li ax, 13
++	farpush ax
++	setfuncargs 2
++	li ax, SetVariableSpriteFont
++	farcall ax
++	farsubsp 2
++	li mar, @newfont
++	memread4 ax
++	farpush ax
++	li ax, 14
++	farpush ax
++	setfuncargs 2
++	li ax, SetVariableSpriteFont
++	farcall ax
++	farsubsp 2
++	jmpi label_turnoffcommentary_original_end
++label_turnoffcommentary_original:
+ 	li ax, 1
+ 	farpush ax
+ 	li ax, 91
+@@ -21796,6 +23327,7 @@ turnoffcommentary$0: ; 0 args
+ 	li ax, SetVariableSpriteFont
+ 	farcall ax
+ 	farsubsp 2
++label_turnoffcommentary_original_end:
+ 	sourceline 1994
+ 	li ax, 0
+ 	mr bx, ax
+@@ -116809,6 +118341,30 @@ bSubs_OnClick$2: ; 2 args
+ 	jmpi label000000268691
+ label000000268348: ; inside bSubs_OnClick$2, ; referenced by 1 spots
+ 	sourceline 14271
++	setfuncargs 0
++	li ax, IsTranslationAvailable
++	farcall ax
++	jzi label_subs_original
++	li mar, @newfont
++	memread4 ax
++	farpush ax
++	li ax, 13
++	farpush ax
++	setfuncargs 2
++	li ax, SetVariableSpriteFont
++	farcall ax
++	farsubsp 2
++	li mar, @newfont
++	memread4 ax
++	farpush ax
++	li ax, 14
++	farpush ax
++	setfuncargs 2
++	li ax, SetVariableSpriteFont
++	farcall ax
++	farsubsp 2
++	jmpi label_subs_original_end
++label_subs_original:
+ 	li ax, 1
+ 	farpush ax
+ 	li ax, 91
+@@ -116872,6 +118428,7 @@ label000000268348: ; inside bSubs_OnClick$2, ; referenced by 1 spots
+ 	li ax, SetVariableSpriteFont
+ 	farcall ax
+ 	farsubsp 2
++label_subs_original_end:
+ 	sourceline 14275
+ 	li ax, 13
+ 	mr bx, ax

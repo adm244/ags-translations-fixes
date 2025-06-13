@@ -1,0 +1,21 @@
+diff --git a/Typer.s b/../Typer.s
+--- a/Typer.s
++++ b/../Typer.s
+@@ -78,6 +78,17 @@ CommentNARRATOR$2: ; 2 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++	ptrstack 8
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrstack 8
++	ptrset ax
+ label000000000154: ; inside CommentNARRATOR$2, ; referenced by 1 spots
+ 	sourceline 19
+ 	li ax, 1

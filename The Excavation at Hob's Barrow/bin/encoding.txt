@@ -1,0 +1,10 @@
+## place language:encoding pairs here
+## make sure this file is saved in ASCII compatable encoding (i.e. windows-1252)
+## <tra_filename> = <encoding>
+czech = windows-1250
+polish = windows-1250
+german = windows-1250
+russian = windows-1251
+french = windows-1252
+italian = windows-1252
+spanish = windows-1252

@@ -1,0 +1,20 @@
+haxdiff/1.0
+font 9 line height (11, otherwise GUI text overlaps)
+@@ 109C,-1,+1
+- 0a
++ 0b
+font 13 line height (0 = AUTO, font height)
+@@ 10EC,-1,+1
+- 0b
++ 00
+font 14 line height (0 = AUTO, font height)
+@@ 1100,-1,+1
+- 0a
++ 00
+increase sprites count by 1
+@@ 1104,-1,+1
+- a8
++ a9
+add new sprite flags (SPF_ALPHACHANNEL)
+@@ 58b0,-0,+1
++ 10
