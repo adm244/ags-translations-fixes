@@ -1,17 +1,21 @@
 diff --git a/TalkyManager.s b/../TalkyManager.s
-index de85db4..4155897 100644
+index de85db4..a652f88 100644
 --- a/TalkyManager.s
 +++ b/../TalkyManager.s
-@@ -26696,6 +26696,20 @@ Character::GSay$5: ; 5 args
+@@ -26696,6 +26696,25 @@ Character::GSay$5: ; 5 args
  	mr mar, sp
  	memcpy 4, 0
  	addi sp, 4
 +
 +;# call GetTranslation for text argument
++;# if it's not NULL
 +	ptrstack 12
-+	ptrget ax
-+	assert ax
-+	farpush ax
++	ptrget bx
++	li ax, 0
++	cmpne ax, bx
++	jzi label_after_gettranslation
++	assert bx
++	farpush bx
 +	setfuncargs 1
 +	li ax, GetTranslation
 +	farcall ax
@@ -20,6 +24,7 @@ index de85db4..4155897 100644
 +	ptrstack 12
 +	ptrset ax
 +
++label_after_gettranslation:
  	sourceline 3294
  	li ax, pauseBGspeech$0
  	call ax
