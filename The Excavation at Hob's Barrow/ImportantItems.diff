@@ -1,0 +1,17 @@
+diff --git a/ImportantItems.s b/../ImportantItems.s
+--- a/ImportantItems.s
++++ b/../ImportantItems.s
+@@ -747,6 +747,13 @@ AddSpot$5: ; 5 args
+ 	push mar
+ 	pop mar
+ 	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
+ 	push ax
+ 	ptrstack 12
+ 	memread4 ax

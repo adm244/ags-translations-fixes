@@ -13,6 +13,7 @@ This game has several issues with translations:
 
 - [x] Bitmap font with only ASCII characters support.
 - [x] Text with "typewriter" effect is not translated during animation.
+- [x] Character names not translated in "show hotspots" overlay.
 
 ## Changes
 
@@ -50,6 +51,9 @@ This game has several issues with translations:
 
 - Typer.scom3:
     - Added call to `GetTranslation` for `CommentNARRATOR` function.
+
+- ImportantItems.scom3:
+    - Added call to `GetTranslation` for `AddSpot` function.
 
 ## Notes
 
