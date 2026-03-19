@@ -2,7 +2,7 @@
 
 This folder contains script fixes for "The Excavation at Hob's Barrow".
 
-Tested on version 1.05 (GOG). Version number taken from main menu.
+Tested on version 1.05 (GOG and Steam). Version number taken from main menu.
 
 > [!NOTE]
 > This patch supports multiple languages.
@@ -85,7 +85,7 @@ Some texts are using non sprite fonts like `ttf` or `wfn` (e.g. version text in 
 1. Add new sprite [spr18344.png](./bin/spr18344.png) into `acsprset.spr` and generate proper `sprindex.dat`.
     > [!NOTE]
     > If you're using AGSUnpacker for this then don't forget to increment last 32-bit integer in `header.bin` file.
-2. Inject `*.scom3` scripts from [bin](./bin/) folder into `game28.dta` using [AGSUnpacker](https://github.com/adm244/AGSUnpacker), [agsutils](https://github.com/rofl0r/agsutils) or manually.
+2. Inject `*.scom3` scripts from [bin/GOG](./bin/GOG) or [bin/Steam](./bin/Steam) folder (depending on your version) into `game28.dta` using [AGSUnpacker](https://github.com/adm244/AGSUnpacker), [agsutils](https://github.com/rofl0r/agsutils) or manually.
 3. Apply [game28.diff](./game28.diff) patch to `game28.dta` manually (using any hexeditor).
     > [!NOTE]
     > While diff file is using [haxdiff](https://github.com/rofl0r/haxdiff) format, haxdiff itself (its reference implementation) cannot be used to patch file properly (it truncates it at last insert hunk).
@@ -93,6 +93,9 @@ Some texts are using non sprite fonts like `ttf` or `wfn` (e.g. version text in 
 
 > [!NOTE]
 > Don't forget to place modified `game28.dta` into root game folder.
+
+> [!NOTE]
+> Patched `game28.dta` will work on both GOG and Steam version.
 
 ### Patch usage
 
