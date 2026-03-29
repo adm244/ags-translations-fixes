@@ -1,0 +1,22 @@
+diff --git a/GlobalScript.s b/../GlobalScript.s
+--- a/GlobalScript.s
++++ b/../GlobalScript.s
+@@ -9693,6 +9693,18 @@ DisplayTop$2: ; 2 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++
++;# call GetTranslation for 'text' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrstack 8
++	ptrset ax
++
+ 	sourceline 1064
+ 	ptrstack 8
+ 	push mar
