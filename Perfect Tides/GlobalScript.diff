@@ -1,0 +1,60 @@
+diff --git a/GlobalScript.s b/../GlobalScript.s
+--- a/GlobalScript.s
++++ b/../GlobalScript.s
+@@ -162,6 +162,18 @@ PTDisplay$1: ; 1 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++
++;# call GetTranslation for 'text' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrstack 8
++	ptrset ax
++
+ 	sourceline 46
+ 	ptrstack 8
+ 	push mar
+@@ -535,6 +547,18 @@ PTDisplayAtY$2: ; 2 args
+ 	ptrstack 12
+ 	memread4 ax
+ 	ptrinit ax
++
++;# call GetTranslation for 'text' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrstack 12
++	ptrset ax
++
+ 	sourceline 85
+ 	ptrstack 12
+ 	push mar
+@@ -921,6 +945,18 @@ PTDisplayAtBottom$1: ; 1 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++
++;# call GetTranslation for 'text' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrstack 8
++	ptrset ax
++
+ 	sourceline 122
+ 	ptrstack 8
+ 	push mar
