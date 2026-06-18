@@ -2,7 +2,7 @@
 
 This folder contains script fixes for "The Excavation at Hob's Barrow".
 
-Tested on version 1.05 (GOG and Steam). Version number taken from main menu.
+Tested on version 1.05 (GOG) and 2.0 (Steam). Version number taken from main menu.
 
 > [!NOTE]
 > This patch supports multiple languages.
@@ -77,6 +77,9 @@ You can change font `line height` in `game28.dta` if you need to have less space
 ### Non sprite fonts
 
 Some texts are using non sprite fonts like `ttf` or `wfn` (e.g. version text in main menu and chapter name). For those you would proceed as normal and replace letters at *extended* ASCII positions according to sprite font.
+
+> [!NOTE]
+> Update 2.0 changed commentary GUI font to agsfnt10.ttf.
 
 ## How to use
 

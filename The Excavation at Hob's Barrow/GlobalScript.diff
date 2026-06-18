@@ -16,13 +16,13 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	mr bx, ax
 +	li ax, 9
 +	cmpne ax, bx
-+	jzi label000000000017
++	jzi label000000000018
 +	li ax, 32
 +	cmpne ax, bx
-+	jzi label000000000017
++	jzi label000000000018
 +	li ax, 0
 +	ret 
-+label000000000017: ; inside IsWhitespace$1, ; referenced by 2 spots
++label000000000018: ; inside IsWhitespace$1, ; referenced by 2 spots
 +	li ax, 1
 +	ret 
 +
@@ -1045,7 +1045,7 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	mr ax, bx
 +	pop mar
 +	ptrassert 
-+	memwrite1 ax
++	memwrite4 ax
 +	li ax, 1
 +	mr dx, ax
 +	ptrstack 12
@@ -1072,7 +1072,7 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	mr ax, bx
 +	pop mar
 +	ptrassert 
-+	addi mar, 1
++	addi mar, 4
 +	memwrite2 ax
 +	li ax, 2
 +	mr dx, ax
@@ -1100,7 +1100,7 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	mr ax, bx
 +	pop mar
 +	ptrassert 
-+	addi mar, 3
++	addi mar, 6
 +	memwrite2 ax
 +	li ax, 3
 +	mr dx, ax
@@ -1128,7 +1128,7 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	mr ax, bx
 +	pop mar
 +	ptrassert 
-+	addi mar, 5
++	addi mar, 8
 +	memwrite2 ax
 +	li ax, 4
 +	mr dx, ax
@@ -1156,7 +1156,7 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	mr ax, bx
 +	pop mar
 +	ptrassert 
-+	addi mar, 7
++	addi mar, 10
 +	memwrite2 ax
 +	ptrstack 4
 +	ptrget ax
@@ -1292,7 +1292,7 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	push ax
 +	pop mar
 +	ptrassert 
-+	addi mar, 7
++	addi mar, 10
 +	memread2 ax
 +	farpush ax
 +	ptrstack 4
@@ -1300,7 +1300,7 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	push ax
 +	pop mar
 +	ptrassert 
-+	addi mar, 5
++	addi mar, 8
 +	memread2 ax
 +	farpush ax
 +	ptrstack 4
@@ -1308,7 +1308,7 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	push ax
 +	pop mar
 +	ptrassert 
-+	addi mar, 3
++	addi mar, 6
 +	memread2 ax
 +	farpush ax
 +	ptrstack 4
@@ -1316,7 +1316,7 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	push ax
 +	pop mar
 +	ptrassert 
-+	addi mar, 1
++	addi mar, 4
 +	memread2 ax
 +	farpush ax
 +	ptrstack 4
@@ -1324,7 +1324,7 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	push ax
 +	pop mar
 +	ptrassert 
-+	memread1 ax
++	memread4 ax
 +	farpush ax
 +	ptrstack 16
 +	memread4 ax
@@ -1348,10 +1348,10 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
  game_start$0: ; 0 args
  	sourceline 5
  	thisaddr 0
-@@ -187,6 +1525,139 @@ label000000000398: ; inside game_start$0, ; referenced by 1 spots
+@@ -246,6 +1584,139 @@ label000000000536: ; inside game_start$0, ; referenced by 1 spots
  	farsubsp 1
  	pop op
- label000000000429: ; inside game_start$0, ; referenced by 1 spots
+ label000000000567: ; inside game_start$0, ; referenced by 1 spots
 +	setfuncargs 0
 +	li ax, IsTranslationAvailable
 +	farcall ax
@@ -1485,21 +1485,21 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	farcall ax
 +	farsubsp 1
 +label_font_init_original:
- 	sourceline 34
+ 	sourceline 38
  	li ax, 1
  	farpush ax
-@@ -5206,6 +6677,7 @@ label000000000429: ; inside game_start$0, ; referenced by 1 spots
+@@ -5265,6 +6736,7 @@ label000000000567: ; inside game_start$0, ; referenced by 1 spots
  	li ax, SetGlyph
  	farcall ax
  	farsubsp 6
 +label_font_init_finished:
- 	sourceline 340
+ 	sourceline 344
  	li ax, 0
  	setfuncargs 0
-@@ -17243,6 +18715,31 @@ label000000040614: ; inside repeatedly_execute$0, ; referenced by 2 spots
+@@ -17314,6 +18786,31 @@ label000000040782: ; inside repeatedly_execute$0, ; referenced by 2 spots
  	memread4 ax
- 	jzi label000000040960
- 	sourceline 1379
+ 	jzi label000000041128
+ 	sourceline 1381
 +; original code sets font sprite each frame (won't fix)
 +	setfuncargs 0
 +	li ax, IsTranslationAvailable
@@ -1528,18 +1528,18 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
  	li ax, 1
  	farpush ax
  	li ax, 91
-@@ -17306,6 +18803,7 @@ label000000040614: ; inside repeatedly_execute$0, ; referenced by 2 spots
+@@ -17377,6 +18874,7 @@ label000000040782: ; inside repeatedly_execute$0, ; referenced by 2 spots
  	li ax, SetVariableSpriteFont
  	farcall ax
  	farsubsp 2
 +label_subtitleon_original_end:
- 	sourceline 1383
+ 	sourceline 1385
  	li ax, 13
  	mr bx, ax
-@@ -21701,6 +23199,39 @@ turnoffcommentary$0: ; 0 args
+@@ -21788,6 +23286,39 @@ turnoffcommentary$0: ; 0 args
  	li mar, transparentfont
  	memwrite4 ax
- 	sourceline 1988
+ 	sourceline 1990
 +	setfuncargs 0
 +	li ax, IsTranslationAvailable
 +	farcall ax
@@ -1576,18 +1576,18 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
  	li ax, 1
  	farpush ax
  	li ax, 91
-@@ -21796,6 +23327,7 @@ turnoffcommentary$0: ; 0 args
+@@ -21883,6 +23414,7 @@ turnoffcommentary$0: ; 0 args
  	li ax, SetVariableSpriteFont
  	farcall ax
  	farsubsp 2
 +label_turnoffcommentary_original_end:
- 	sourceline 1994
+ 	sourceline 1996
  	li ax, 0
  	mr bx, ax
-@@ -116809,6 +118341,30 @@ bSubs_OnClick$2: ; 2 args
- 	jmpi label000000268691
- label000000268348: ; inside bSubs_OnClick$2, ; referenced by 1 spots
- 	sourceline 14271
+@@ -121769,6 +123301,30 @@ bSubs_OnClick$2: ; 2 args
+ 	jmpi label000000280691
+ label000000280348: ; inside bSubs_OnClick$2, ; referenced by 1 spots
+ 	sourceline 14581
 +	setfuncargs 0
 +	li ax, IsTranslationAvailable
 +	farcall ax
@@ -1615,11 +1615,11 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
  	li ax, 1
  	farpush ax
  	li ax, 91
-@@ -116872,6 +118428,7 @@ label000000268348: ; inside bSubs_OnClick$2, ; referenced by 1 spots
+@@ -121832,6 +123388,7 @@ label000000280348: ; inside bSubs_OnClick$2, ; referenced by 1 spots
  	li ax, SetVariableSpriteFont
  	farcall ax
  	farsubsp 2
 +label_subs_original_end:
- 	sourceline 14275
+ 	sourceline 14585
  	li ax, 13
  	mr bx, ax
