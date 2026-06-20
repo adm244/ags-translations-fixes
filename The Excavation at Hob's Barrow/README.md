@@ -2,7 +2,7 @@
 
 This folder contains script fixes for "The Excavation at Hob's Barrow".
 
-Tested on version 1.05 (GOG) and 2.0 (Steam). Version number taken from main menu.
+Tested on version 2.0 (GOG and Steam). Version number taken from main menu.
 
 > [!NOTE]
 > This patch supports multiple languages.
