@@ -2,7 +2,7 @@
 
 This folder contains script fixes for "Perfect Tides: Station to Station".
 
-Tested on Steam build 21971251 (17 February 2026).
+Tested on Steam build 24317713 (21 July 2026), v1.0.13.
 
 > [!NOTE]
 > This patch supports multiple languages.
@@ -18,7 +18,13 @@ This game has following issues with translations:
 ### Script changes
 
 - GlobalScript.scom3:
+    - Added `GetTranslation` call to `DisplayNoBlock` function replacing existing argument.
+    - Added `GetTranslation` call to `ChapterDisplay` function replacing existing argument.
+    - Added `GetTranslation` call to `DisplayAtBottom` function replacing existing argument.
     - Added `GetTranslation` call to `DisplayTop` function replacing existing argument.
+    - Added `GetTranslation` call to `ComputerDisplay` function replacing existing argument.
+    - Added `GetTranslation` call to `DisplayThink` function replacing existing argument.
+    - Added `GetTranslation` call to `DisplayThinkAt` function replacing existing argument.
 
 ## How to use
 

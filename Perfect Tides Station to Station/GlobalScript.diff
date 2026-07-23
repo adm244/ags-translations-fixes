@@ -1,11 +1,9 @@
-diff --git a/GlobalScript.s b/../GlobalScript.s
 --- a/GlobalScript.s
 +++ b/../GlobalScript.s
-@@ -9693,6 +9693,18 @@ DisplayTop$2: ; 2 args
+@@ -6710,6 +6710,15 @@ DisplayNoBlock$2: ; 2 args
  	ptrstack 8
  	memread4 ax
  	ptrinit ax
-+
 +;# call GetTranslation for 'text' argument
 +	assert ax
 +	farpush ax
@@ -14,9 +12,131 @@ diff --git a/GlobalScript.s b/../GlobalScript.s
 +	farcall ax
 +	farsubsp 1
 +	newstr ax
-+	ptrstack 8
 +	ptrset ax
-+
- 	sourceline 1064
+ 	sourceline 772
+ 	li ax, 280
+ 	li mar, game
+@@ -8351,9 +8360,27 @@ ChapterDisplay$2: ; 2 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++;# call GetTranslation for 'book' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	ptrstack 12
+ 	memread4 ax
+ 	ptrinit ax
++;# call GetTranslation for 'day' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 962
+ 	li ax, ""
+ 	newstr ax
+@@ -8479,6 +8506,15 @@ DisplayAtBottom$2: ; 2 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++;# call GetTranslation for 'text' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 978
  	ptrstack 8
  	push mar
+@@ -9693,6 +9729,15 @@ DisplayTop$2: ; 2 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++;# call GetTranslation for 'text' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 1063
+ 	ptrstack 8
+ 	push mar
+@@ -10895,6 +10940,15 @@ ComputerDisplay$2: ; 2 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++;# call GetTranslation for 'text' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 1147
+ 	li ax, 0
+ 	mr bx, ax
+@@ -12065,6 +12119,15 @@ DisplayCustom$5: ; 5 args
+ 	ptrstack 20
+ 	memread4 ax
+ 	ptrinit ax
++;# call GetTranslation for 'text' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 1228
+ 	li ax, 31998
+ 	farpush ax
+@@ -13165,6 +13228,15 @@ Character::DisplayThink$4: ; 4 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++;# call GetTranslation for 'text' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	mr mar, sp
+ 	memcpy 4, 0
+ 	addi sp, 4
+@@ -13563,6 +13635,15 @@ Character::DisplayThinkAt$6: ; 6 args
+ 	ptrstack 16
+ 	memread4 ax
+ 	ptrinit ax
++;# call GetTranslation for 'text' argument
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	mr mar, sp
+ 	memcpy 4, 0
+ 	addi sp, 4
