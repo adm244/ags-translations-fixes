@@ -1,0 +1,17 @@
+--- a/Typewriter.s
++++ b/../Typewriter.s
+@@ -8,6 +8,14 @@ Typewriter::Type$11: ; 11 args
+ 	ptrstack 28
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	ptrstack 40
+ 	memread4 ax
+ 	ptrinit ax

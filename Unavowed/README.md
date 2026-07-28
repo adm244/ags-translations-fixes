@@ -2,7 +2,7 @@
 
 This folder contains script fixes for "Unavowed".
 
-Tested on version 1.1.1 (Steam). Version number taken from in-game main menu (string in `GlobalScript.scom3`).
+Tested on version 2.0.0, Steam build 23529477. Version number taken from in-game main menu (string in `GlobalScript.scom3`).
 
 ## Issues
 
@@ -12,6 +12,7 @@ This game has several issues with translations:
 - [x] Missing translation of flashing text when picking items.
 - [x] Missing translation for background speech texts because of inserted line breaks.
 - [x] Missing translation for diary texts.
+- [x] Missing translation for typewriter text.
 
 ## Changes
 
@@ -26,3 +27,6 @@ This game has several issues with translations:
 
 - LineBreak_200.scom3:
     - Added `GetTranslation` into `InsertLineBreaks` function.
+
+- Typewriter.scom3:
+    - Added `GetTranslation` into `Type` function.
