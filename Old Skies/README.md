@@ -2,7 +2,7 @@
 
 This folder contains script fixes for "Old Skies".
 
-Tested on version 2.0 (GOG). Version number taken from "vernum.osk" file.
+Tested on version 2.0 (Steam, GOG). Version number taken from "vernum.osk" file.
 
 ## Issues
 
@@ -12,23 +12,60 @@ This game has several issues with translations:
 - [x] Incorrect speech bubble size if translated text is much longer or shorter than original.
 - [x] Missing translation for text displayed with "Character::GSay" function because line breaks were inserted.
 - [x] Missing translation for background speech text.
-- [x] Missing translation for "Personic", "News" and "E-mail" GUIs (see [Notes](#news-and-emails)).
+- [x] Missing translation for "Personic", "News" and "E-mail" GUIs.
 - [x] Missing\broken translation of historic archive search (see [Notes](#historic-archive)).
+- [x] "Stuck on repeat" button hover sound effect for translated top panel buttons.
 
 ## Changes
 
 - BackgroundDialog.scom3:
     - Added `GetTranslation` call to `Character::BGSay` function replacing existing argument.
 
+- Emails.scom3:
+    - Added `GetTranslation` calls to `generateVillageEyeMail` function for email sender\recipient, title, date and body.
+    - Added `GetTranslation` calls to `generateImaniMail` function for email sender\recipient, title, date and body.
+    - Added `GetTranslation` calls to `GenerateAndyMail` function for email sender\recipient, title, date and body.
+
+- FiaEmailManager.scom3:
+    - Added `GetTranslation` calls to `generateFiaEmails` function for chat name and content.
+
 - FutureSearch.scom3:
+    - Added `GetTranslation` call to `addInfo` function for string parameter.
+    - Added `GetTranslation` calls to `addRanking` function for string parameters.
+    - Added `GetTranslation` calls to `addDates` function for string parameters.
+    - Added `GetTranslation` call to `addEmployment` function for string parameter.
+    - Added `GetTranslation` calls to `addCauseOfDeath` function for string parameters.
+    - Added `GetTranslation` calls to `addSpouse` function for string parameters.
+    - Added `GetTranslation` calls to `addKids` function for string parameters.
+    - Added `GetTranslation` calls to `addHomes` function for string parameters.
+    - Added `GetTranslation` call to `addButton` function for string parameter.
     - Added `GetTranslation` call to `getNoteString` function on return string.
+    - Added `GetTranslation` call to `raGetMitchellRecord` function for string append parameter.
     - Added `GetTranslation` calls to `futureSearch` function for each string comparison.
+    - Added `GetTranslation` calls to `fieldGuideSet` function for each string append parameter.
+    - Added `GetTranslation` calls to `historyGuideSet` function for each string append parameter.
+    - Added `GetTranslation` calls to `processNozzoButton` function for some string parameters.
+
+- GlobalScript.scom3:
+    - Added `GetTranslation` call to `doTutorial` function for string parameter.
+    - Added `GetTranslation` calls to `doTutorial` function for some strings.
+
+- NewsManager.scom3:
+    - Added `GetTranslation` calls to `setFiaNewsItem` function for news title and content.
 
 - Personic.scom3:
     - Added `GetTranslation` call into `personicDisplay` function for each argument into `String::Format`.
 
 - TalkyManager.scom3:
+    - Added `GetTranslation` call to `talkNozzo` function for string parameter.
+    - Added `GetTranslation` call to `talkImani` function for string parameter.
+    - Added `GetTranslation` call to `Character::talkHolo` function for string parameter.
+    - Added `GetTranslation` call to `Character::talkFake` function for string parameter.
     - Added `GetTranslation` call to `Character::GSay` function replacing existing argument.
+    - Added `GetTranslation` call to `Character::subVocal` function for string parameter.
+
+- TwoClickHandler.scom3:
+    - Added `GetTranslation` calls to `changeLblText` function for string parameter and some strings. "Stuck" sound fix.
 
 - typewriter.scom3:
     - Added `GetTranslation` call to `Typewriter::Type` function replacing existing argument.
@@ -36,34 +73,52 @@ This game has several issues with translations:
 
 ## Notes
 
-In main menu you can press `ctrl+b` (twice) and type `oldbugs` to access debug menu that will allow you to skip to certain chapters.\
+In main menu you can press `Ctrl+B` (twice) and type `oldbugs` to access debug menu that will allow you to skip to certain chapters.
+In this menu you can press `Ctrl+N` to get access to more options (like accessing sub-chapters and additional debug menus). Also, by pressing `Ctrl+X` you can teleport to a specific room.\
 Use this instead of save files to test translation.
 
-### News and Emails
-
-For `FiaEmailManager.asc` email content strings you have to manually concatenate them in *.trs for translation to work.\
-For example this
-```
-<Rosha> Hi everyone! My name is Rosha. I was recruited a few months ago. I'm originally from Spain and just got assigned to the London branch.[[
-<Rohn> Hey.[[
-<Duffy> Welcome! Ten year veteran of time wrangling here. Based in New York.[[
-<Balee> Hong Kong field agent here. Been involved with CZ from the start.[[
-<Nozzo> I also joined at the start, but spent the last ten years as a chrono-monitor for the New York office.[[
-<Horris> Former field agent, now a freshly minted chrono-monitor in Oslo.[[
-<Rosha> Nice to meet you all!![[
-```
-would become
-```
-<Rosha> Hi everyone! My name is Rosha. I was recruited a few months ago. I'm originally from Spain and just got assigned to the London branch.[[<Rohn> Hey.[[<Duffy> Welcome! Ten year veteran of time wrangling here. Based in New York.[[<Balee> Hong Kong field agent here. Been involved with CZ from the start.[[<Nozzo> I also joined at the start, but spent the last ten years as a chrono-monitor for the New York office.[[<Horris> Former field agent, now a freshly minted chrono-monitor in Oslo.[[<Rosha> Nice to meet you all!![[
-```
-
-> [!NOTE]
-> I could've patched `FiaEmailManager.scom3`, but then translated strings would be stored in save files.
-
-Same applies to `NewsManager.asc` content strings.
-
 > [!WARNING]
-> Save files store news and emails (as part of a script state), so test translation only on fresh "new game".
+> When you start chapters\sub-chapters from a debug menu some initial state differs from normal walkthrough. In this case your best bet is to start from the last sub-chapter of previous chapter.
+
+Do **NOT** translate **any** strings from these scripts:
+```
+IniFile.asc
+fancy.asc
+rellax.asc
+TotalLipSync-0.5.asc
+SpeechBubble.asc
+LineBreak_200.asc
+MultiResponse.asc
+RainModule.asc
+CustomDialogGui.asc
+TalkyManager.asc
+Animations.asc
+PauseModule.asc
+suitChanger.asc
+BackgroundDialog.asc
+rewind.asc
+```
+
+### Emails
+
+Some emails (like in Winera) have duplicate senders\recipients visually, but are technically different strings with added trailing spaces. These strings affect which message body will be displayed when clicked on email, so **make sure** to match any trailing spaces otherwise emails will be duplicated!
+
+Example strings (trailing spaces were replaced with `*`):
+```
+Yvonne Lozzotti
+Yvonne Lozzotti*
+Yvonne Lozzotti**
+Yvonne Lozzotti*****
+// <...>
+Me
+Me**
+Me***
+// <...>
+Joe Demarco
+Joe Demarco*
+Joe Demarco**
+// etc...
+```
 
 ### Historic archive
 
@@ -78,9 +133,20 @@ when combined and lowercased must be equal to one of these queries
 joseph anderson
 anderson joseph
 ```
-Both can be translated as long as this rule applies.
+Both can be translated as long as this rule applies.\
+Simply put, make sure to match original strings case and keep names consistent.
+
+For example:
+```
+Joseph
+Джозеф
+Anderson
+Андерсон
+joseph anderson
+джозеф андерсон
+anderson joseph
+андерсон джозеф
+```
 
 > [!WARNING]
 > Save files store search entries (as listbox items), so test translation only on fresh "new game".
-
-Some search results are concatenated using `String::Append` before displaying (like `breakdown boys`), so you would have to concatenate them in *.trs file similar to "News and Emails" strings.

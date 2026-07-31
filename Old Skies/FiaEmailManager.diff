@@ -1,0 +1,1624 @@
+diff --git a/FiaEmailManager.s b/../FiaEmailManager.s
+index 08373dc..20df636 100644
+--- a/FiaEmailManager.s
++++ b/../FiaEmailManager.s
+@@ -676,6 +676,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	subi sp, 12
+ 	sourceline 79
+ 	li ax, "Hello!! I\'m Rosha!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 0
+@@ -690,6 +695,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 80
+ 	li ax, "<Rosha> Hi everyone! My name is Rosha. I was recruited a few months ago. I\'m originally from Spain and just got assigned to the London branch.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 0
+@@ -706,6 +716,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> Hey.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 0
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -736,6 +751,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Duffy> Welcome! Ten year veteran of time wrangling here. Based in New York.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 0
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -766,6 +786,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Hong Kong field agent here. Been involved with CZ from the start.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 0
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -796,6 +821,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Nozzo> I also joined at the start, but spent the last ten years as a chrono-monitor for the New York office.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 0
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -826,6 +856,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> Former field agent, now a freshly minted chrono-monitor in Oslo.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 0
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -856,6 +891,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Nice to meet you all!![["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 0
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -895,6 +935,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	memwrite4 ax
+ 	sourceline 89
+ 	li ax, "Regretting this promotion"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 1
+@@ -909,6 +954,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 90
+ 	li ax, "<Horris> Starting to regret this promotion to chrono-monitor. How do you manage it, Nozzo\?[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 1
+@@ -925,6 +975,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Nozzo> It\'s a demanding job, but it\'s vital and there are only a handful of people in the world who can do it.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 1
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -955,6 +1010,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Nozzo> So be proud of that.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 1
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -985,6 +1045,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> I\'m trying, man. I just miss being out there, you know\? Out THEN.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 1
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1015,6 +1080,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Nozzo> It gets easier."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 1
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1054,6 +1124,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	memwrite4 ax
+ 	sourceline 97
+ 	li ax, "Announcing chrono-shifts\?\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 2
+@@ -1068,6 +1143,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 98
+ 	li ax, "<Rohn> Can chrono-shifts be announced more than five seconds in advance, please\?\?\?[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 2
+@@ -1084,6 +1164,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Nozzo> It\'s not an exact science. There\'s no way to predict when they will occur.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 2
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1114,6 +1199,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> I nearly cracked my skull on a lamppost that wasn\'t there before.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 2
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1144,6 +1234,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Nozzo> You know you\'re supposed to remain in place during a chrono-shift.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 2
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1174,6 +1269,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> That\'s not the point![["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 2
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1204,6 +1304,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Nozzo> It\'s in the protocol guide. I suggest you read it again.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 2
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1243,6 +1348,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	memwrite4 ax
+ 	sourceline 109
+ 	li ax, "Can\'t go home again"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 3
+@@ -1257,6 +1367,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 110
+ 	li ax, "<Rohn> Well, they say you can\'t go home again. Just learned that my whole home town never existed.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 3
+@@ -1273,6 +1388,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> I\'m sorry.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 3
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1303,6 +1423,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> I\'m not. The place was a craphole. I was happy to leave it.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 3
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1333,6 +1458,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Still. If you feel malaised, don\'t hesitate to reach out.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 3
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1363,6 +1493,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> That\'s what this groupchat is for."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 3
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1391,6 +1526,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 117
+ 	li ax, "Best thing about this job\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 4
+@@ -1405,6 +1545,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 118
+ 	li ax, "<Rosha> Best thing about this job\? Watching different versions of my favorite movies.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 4
+@@ -1421,6 +1566,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Just saw \"The River Wall Returns\". Frank Lyons stars in it this time. FRANK LYONS.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 4
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1451,6 +1601,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Did anyone see it\? I HAVE to talk about this with someone. Nobody else would get it.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 4
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1481,6 +1636,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Well, too late. The movie now stars Jacques Bates. Yawn. I\'ll watch it again when it shifts again."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 4
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1509,6 +1669,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 123
+ 	li ax, "Got the malaise bad today."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 5
+@@ -1523,6 +1688,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 124
+ 	li ax, "<Balee> Got the malaise BAD today. Saw two of my old cluster-mates again in Victoria Park.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 5
+@@ -1539,6 +1709,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Duffy> Did they recognize you\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 5
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1569,6 +1744,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> No. Not this time.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 5
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1599,6 +1779,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Duffy> Have they ever recognized you\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 5
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1629,6 +1814,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Just the once. The only time in twenty years.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 5
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1659,6 +1849,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Duffy> My advice is to stop torturing yourself.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 5
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1689,6 +1884,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> We all need a hobby."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 5
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1717,6 +1917,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 134
+ 	li ax, "Locked out of the ERP\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 6
+@@ -1731,6 +1936,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 135
+ 	li ax, "<Horris> One of my agents twisted his ankle on the last job.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 6
+@@ -1747,6 +1957,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> I tried using the ERP to erase it, but I was locked out. Why\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 6
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1777,6 +1992,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Nozzo> It only becomes active in the event of an agent\'s death.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 6
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1807,6 +2027,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> That rule is so blasting dumb.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 6
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1837,6 +2062,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> It\'s really not. The rewind process is traumatic enough when you\'re brain dead. Let alone when you\'re awake.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 6
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1867,6 +2097,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> I was one of the first rewind guinea pigs. Trust me. I know.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 6
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1897,6 +2132,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> This is a situation where you are literally better off dead."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 6
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1925,6 +2165,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 143
+ 	li ax, "DON\'T READ YOUR PERSONIC PROFILE!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 7
+@@ -1939,6 +2184,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 144
+ 	li ax, "<Duffy> You know how we always say not to look at our Personic profiles\?[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 7
+@@ -1955,6 +2205,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Blast it, Duffy.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 7
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -1985,6 +2240,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Duffy> You\'re not the first to say that.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 7
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2015,6 +2275,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> You okay\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 7
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2045,6 +2310,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Duffy> I\'m fine. Talked it out with my fellow partner-in-time. [["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 7
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2075,6 +2345,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Duffy> Anyway. Don\'t look at your Personic Profiles.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 7
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2105,6 +2380,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Duffy> Bad bad idea."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 7
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2133,6 +2413,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 152
+ 	li ax, "Ripple monitor spiking to 30\?\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 8
+@@ -2147,6 +2432,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 153
+ 	li ax, "<Horris> Nozzo\? Should I be concerned if the ripple monitor spikes to 30\?[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 8
+@@ -2163,6 +2453,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Nozzo> Is it consistent\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 8
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2193,6 +2488,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> No. It\'s mostly flat. But every few minutes it jumps.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 8
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2223,6 +2523,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Nozzo> That\'s normal. It\'s just the system recalibrating as changes in the past occur.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 8
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2253,6 +2558,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> How do you not go cross-eyed from staring at this thing all day\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 8
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2283,6 +2593,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Nozzo> I think about what would happen if I didn\'t.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 8
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2313,6 +2628,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> Right. Back to work."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 8
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2341,6 +2661,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 164
+ 	li ax, "ChronoZen Agent at the Park Gallery\?\?\?\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 9
+@@ -2355,6 +2680,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 165
+ 	li ax, "<Rohn> Just heard about a painting at the Park Gallery where the subject is a CHRONOZEN AGENT\?\?[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 9
+@@ -2371,6 +2701,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Duffy\? Nozzo\? You\'re in NY. Is it true\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 9
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2401,6 +2736,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Duffy> Yes.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 9
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2431,6 +2771,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Blasting LUCKY.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 9
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2461,6 +2806,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> How did it happen\? Who is it\? Is this even allowed\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 9
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2491,6 +2841,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Is she on this groupchat\? HELLO FAMOUS LADY.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 9
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2521,6 +2876,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Duffy> Just leave it. It\'s all under control."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 9
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2549,6 +2909,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 175
+ 	li ax, "Duffy has died..."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 10
+@@ -2563,6 +2928,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 176
+ 	li ax, "<Horris> Duffy died.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 10
+@@ -2579,6 +2949,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> I heard.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 10
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2609,6 +2984,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Blast it...[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 10
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2639,6 +3019,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Has anyone heard from Nozzo yet\? Is he okay\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 10
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2669,6 +3054,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> Not me. Not yet.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 10
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2699,6 +3089,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Nozzo\? Don\'t hesitate to reach out.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 10
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2729,6 +3124,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> That\'s why this groupchat exists."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 10
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2757,6 +3157,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 184
+ 	li ax, "Field agents scared to go on jumps."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 11
+@@ -2771,6 +3176,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 185
+ 	li ax, "<Horris> I admit, I\'m glad I don\'t go on jumps anymore. Even my field agents are scared.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 11
+@@ -2787,6 +3197,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> They\'re worried that what happened to Duffy will happen to them.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 11
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2817,6 +3232,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> Don\'t worry. I read the report. It wasn\'t the system\'s fault.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 11
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2847,6 +3267,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> Duffy didn\'t engage his chrono-suit.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 11
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2877,6 +3302,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> So make sure they don\'t do that and they\'ll be fine.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 11
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2907,6 +3337,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> I see.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 11
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2937,6 +3372,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> Thanks. I\'ll let my field agents know."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 11
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -2965,6 +3405,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 196
+ 	li ax, "FESS UP!!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 12
+@@ -2979,6 +3424,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 197
+ 	li ax, "<Rosha> Okay fess up. Which one of you shifted BatesTech out of existence\?[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 12
+@@ -2995,6 +3445,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> I just bought a top-of-the-line BT crystalline display cube for streaming films, and now it was never even made. [["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 12
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3025,6 +3480,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> I assume the New York office\? That\'s where BatesTech was based.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 12
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3055,6 +3515,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Who\'s the agent there\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 12
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3085,6 +3550,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> That was Duffy\'s beat.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 12
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3115,6 +3585,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Oh.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 12
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3145,6 +3620,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Never mind. [["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 12
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3175,6 +3655,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> I\'ll read my Otis Knox collection again instead."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 12
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3203,6 +3688,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 208
+ 	li ax, "It\'s back!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 13
+@@ -3217,6 +3707,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 209
+ 	li ax, "<Rosha> Good news! My BatesTech display cube is back![["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 13
+@@ -3233,6 +3728,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Bad news. It\'s called a \"LeavesCube\" now. And the quality is TERRIBLE. [["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 13
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3263,6 +3763,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> The lesson is to never buy anything that isn\'t chrono-locked.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 13
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3293,6 +3798,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Less disappointment that way.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 13
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3323,6 +3833,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> I hope I never get that jaded.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 13
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3353,6 +3868,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Give it time."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 13
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3381,6 +3901,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 218
+ 	li ax, "Energy drainage from NY\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 14
+@@ -3395,6 +3920,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 219
+ 	li ax, "<Horris> Nozzo\? We picked up some enormous energy drainage from your branch.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 14
+@@ -3411,6 +3941,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> It\'s stabilized now, but is everything okay over there\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 14
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3441,6 +3976,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> Has anyone heard from Nozzo\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 14
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3471,6 +4011,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> If anything bad happened to him, the brass would tell us.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 14
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3501,6 +4046,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Correct. He\'ll touch base if and when he\'s ready.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 14
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3531,6 +4081,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Just leave him be."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 14
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3559,6 +4114,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 228
+ 	li ax, "Wanna meet up\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 15
+@@ -3573,6 +4133,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 229
+ 	li ax, "<Rosha> I have a few days off next week. I\'d like to visit some of you.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 15
+@@ -3589,6 +4154,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> That would be nice, but I\'m booked solid next week.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 15
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3619,6 +4189,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Balee\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 15
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3649,6 +4224,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> Same.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 15
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3679,6 +4259,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Rohn\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 15
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3709,6 +4294,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> If you want to risk a chrono-shift while flying on a plane, sure.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 15
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3739,6 +4329,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Sigh. Nevermind. Maybe I\'ll watch \"The River Wall\" again."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 15
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3767,6 +4362,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 238
+ 	li ax, "Park Gallery chrono-shifted again"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 16
+@@ -3781,6 +4381,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 239
+ 	li ax, "<Rohn> I heard the painting at the Park Gallery has chrono-shifted again.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 16
+@@ -3797,6 +4402,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> Oh well. Easy come; easy go. [["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 16
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3827,6 +4437,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Did anyone ever find out who it was\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 16
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3857,6 +4472,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> No. And it doesn\'t matter. [["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 16
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3887,6 +4507,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> I guess it doesn\'t."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 16
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3915,6 +4540,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 248
+ 	li ax, "Chrono-locked book\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 17
+@@ -3929,6 +4559,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 249
+ 	li ax, "<Horris> Can anyone recommend a good chrono-locked book\?[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 17
+@@ -3945,6 +4580,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> Been trying to read this Nick Chord biography but it keeps chrono-shifting.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 17
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -3975,6 +4615,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> Ever read Otis Knox\? His whole collection is chrono-locked. I\'ve owned it for years.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 17
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -4005,6 +4650,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Horris> No I haven\'t. I\'ll give them a whirl. Thanks."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 17
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -4033,6 +4683,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 254
+ 	li ax, "Bored."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 18
+@@ -4047,6 +4702,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 255
+ 	li ax, "<Rosha> Just finished a job. Bored. Anyone go anywhen fun\?[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 18
+@@ -4063,6 +4723,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rohn> I thought it was your day off\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 18
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -4093,6 +4758,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Rosha> It was. Decided to take a shift anyway. Not much going on.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 18
+ 	assertlte ax, 25
+ 	mr dx, ax
+@@ -4123,6 +4793,11 @@ label000000000926: ; inside generateFiaEmails$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Balee> I get it."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, 18
+ 	assertlte ax, 25
+ 	mr dx, ax

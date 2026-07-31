@@ -1,0 +1,88 @@
+diff --git a/GlobalScript.s b/../GlobalScript.s
+index a3a2998..4879756 100644
+--- a/GlobalScript.s
++++ b/../GlobalScript.s
+@@ -35676,6 +35676,14 @@ doTutorial$3: ; 3 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 4263
+ 	ptrstack 16
+ 	memread4 ax
+@@ -35775,6 +35783,11 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+ 	farpush ax
+ 	li ax, " from your home time period"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 12
+ 	push mar
+ 	pop mar
+@@ -35795,8 +35808,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+ 	farpush ax
+ 	li ax, "to search for him"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "to search for \"Joseph Anderson\""
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 12
+ 	push mar
+ 	pop mar
+@@ -35817,8 +35840,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+ 	farpush ax
+ 	li ax, "You can"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "For example,"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 12
+ 	push mar
+ 	pop mar
+@@ -35839,8 +35872,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+ 	farpush ax
+ 	li ax, " to an info database"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, " to an information database"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 12
+ 	push mar
+ 	pop mar

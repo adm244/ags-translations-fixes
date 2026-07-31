@@ -1,0 +1,50 @@
+diff --git a/TwoClickHandler.s b/../TwoClickHandler.s
+index cb5071a..7f2dce4 100644
+--- a/TwoClickHandler.s
++++ b/../TwoClickHandler.s
+@@ -25,6 +25,14 @@ changeLblText$2: ; 2 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 43
+ 	setfuncargs 0
+ 	li ax, UsingController
+@@ -36,8 +44,18 @@ changeLblText$2: ; 2 args
+ 	farpush ax
+ 	li ax, "<Press A to "
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "<Click to "
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 12
+ 	push mar
+ 	pop mar
+@@ -62,6 +80,11 @@ label000000000069: ; inside changeLblText$2, ; referenced by 1 spots
+ 	li ax, Label::get_Text
+ 	farcall ax
+ 	pop op
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	push ax
+ 	ptrstack 12
+ 	push mar

@@ -1,0 +1,976 @@
+diff --git a/NewsManager.s b/../NewsManager.s
+index 8a9dea4..01ad565 100644
+--- a/NewsManager.s
++++ b/../NewsManager.s
+@@ -499,6 +499,11 @@ setFiaNewsItem$1: ; 1 args
+ 	jzi label000000001167
+ 	sourceline 82
+ 	li ax, "Don\'t forget to schedule your next Anderson Treatment Injection, the trusted treatment that has kept millions looking and feeling their best for over three decades.[[Staying on track with your injections ensures you continue to age gracefully, maintaining your vitality and health. Protect your investment in your future self. Contact your healthcare provider today to book your next appointment and keep the years at bay."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -514,6 +519,11 @@ setFiaNewsItem$1: ; 1 args
+ 	ptrset ax
+ 	sourceline 83
+ 	li ax, "PSA"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -529,6 +539,11 @@ setFiaNewsItem$1: ; 1 args
+ 	ptrset ax
+ 	sourceline 84
+ 	li ax, "The latest Anderson Treatment Injection is now available!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -556,6 +571,11 @@ label000000001167: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000001300
+ 	sourceline 88
+ 	li ax, "Dr. Joseph Anderson, the brilliant mind behind the revolutionary Anderson treatment, passed away yesterday at the age of 56.[[His groundbreaking work in slowing the aging process transformed millions of lives, making him a pioneer in modern medicine. Dr. Anderson\'s contributions extended far beyond the lab, as his legacy lives on in the countless people who have benefited from his life\'s work.[[The medical community mourns the loss of a visionary who reshaped the future of healthcare. Dr. Anderson will be remembered as a true innovator. In lieu of flowers, his family requests donations be made to any Skimein Syndrome research organization."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -571,6 +591,11 @@ label000000001167: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 89
+ 	li ax, "OBITUARY"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -586,6 +611,11 @@ label000000001167: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 90
+ 	li ax, "Dr. Joseph Anderson, medical pioneer, dies at 56"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -613,6 +643,11 @@ label000000001300: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000001433
+ 	sourceline 94
+ 	li ax, "In a surprising move, Chloe Sadar, the unparalleled three-time world champion, has announced her retirement from boxing at the height of her career.[[Despite dominating the sport with no signs of slowing down, Sadar simply stated, \"It\'s time.\"[[While her decision has sparked some speculation, the boxing community and her fans are respecting her privacy, honoring her legacy as one of the greatest fighters of all time.[[Sadar leaves the ring with grace, her unmatched record standing as a testament to her extraordinary career."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -628,6 +663,11 @@ label000000001300: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 95
+ 	li ax, "SPORTS"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -643,6 +683,11 @@ label000000001300: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 96
+ 	li ax, "Chloe Sadar retires, stunning the boxing world"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -670,6 +715,11 @@ label000000001433: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000001566
+ 	sourceline 100
+ 	li ax, "\"Fifty Years Behind the Trigger: The Nick Chord Interview\" offers an accurate and unflinching look into the mind of one of the most notorious assassins in recent memory.[[Through a series of candid interviews conducted with journalist Celia Anderson from his prison cell, Chord reveals the chilling details of his life as a killer-for-hire.[[While the book provides a fascinating glimpse into the underworld, its sensationalist tone and pandering to the morbid curiosity of readers detract from its potential depth. Despite its flaws, the book remains a gripping, albeit salacious, account that is hard to put down."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -685,6 +735,11 @@ label000000001433: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 101
+ 	li ax, "BOOKS"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -700,6 +755,11 @@ label000000001433: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 102
+ 	li ax, "\"Fifty Years Behind the Trigger: The Nick Chord Interview\""
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -727,6 +787,11 @@ label000000001566: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000001699
+ 	sourceline 106
+ 	li ax, "Seventy years after the mysterious disappearance of acclaimed horror writer Otis Knox, a rare edition of his complete works has been sold at auction for $3,500,000.[[The sale was conducted by his estate, with Otis\'s son, Nathan Knox, expressing regret over the necessity of parting with the collection.[[\"It hurts, but I need the money.\" Nathan stated, leaving fans and collectors intrigued. The enigmatic circumstances surrounding Otis Knox\'s disappearance continue to cast a shadow over his legacy, adding an eerie allure to the auctioned volumes."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -742,6 +807,11 @@ label000000001566: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 107
+ 	li ax, "Otis Knox collection auctioned for $3.5M"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -757,6 +827,11 @@ label000000001566: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 108
+ 	li ax, "BOOKS"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -784,6 +859,11 @@ label000000001699: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000001832
+ 	sourceline 112
+ 	li ax, "CassaNetics, a tech industry giant with two decades of market dominance, has solidified its future with the recent acquisition of medical tech company Lazarus.[[This strategic move positions CassaNetics to expand its influence into the booming healthcare sector, ensuring its continued leadership for decades to come.[[The acquisition is seen as a game-changer, merging CassaNetics\' cutting-edge technology with Lazarus\' innovative medical solutions. \"This acquisition marks a pivotal moment for our company,\" stated CassaNetics\' CEO Cassandra Etuka. \"We are excited about the possibilities this brings for the future of both tech and healthcare.\""
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -799,6 +879,11 @@ label000000001699: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 113
+ 	li ax, "FINANCE"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -814,6 +899,11 @@ label000000001699: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 114
+ 	li ax, "CassaNetics continues to dominate!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -841,6 +931,11 @@ label000000001832: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000001965
+ 	sourceline 118
+ 	li ax, "Pasamon Industries, a leading weapons manufacturer with nearly two decades of market dominance, has been named the primary supplier in the ongoing Veloria/Estoria conflict. This contract solidifies Pasamon\'s position as a global powerhouse in defense manufacturing.[[The deal is expected to significantly boost the company\'s earnings, as both nations ramp up their military capabilities. Analysts predict that Pasamon\'s role in this high-stakes conflict will further entrench its market dominance. The company\'s advanced weaponry and strategic positioning make it a critical player in this escalating war."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -856,6 +951,11 @@ label000000001832: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 119
+ 	li ax, "Pasamon Industries continues to dominate global weapons market"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -871,6 +971,11 @@ label000000001832: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 120
+ 	li ax, "FINANCE"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -898,6 +1003,11 @@ label000000001965: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000002098
+ 	sourceline 124
+ 	li ax, "BatesTech, a leading Fortune 500 company specializing in appliances, has once again demonstrated its market dominance with a significant boost in earnings, thanks to their recent advances in cutting-edge appliance technology.[[The company, which has ruled the industry for nearly two decades, reported earnings far exceeding projections this quarter.[[\"We are absolutely thrilled with these results!\" said CEO Madison Bates. \"Our commitment to innovation and quality continues to drive our success, and we are so excited about what the future holds.\"[[BatesTech\'s continued market leadership solidifies its position as a powerhouse in the appliance industry."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -913,6 +1023,11 @@ label000000001965: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 125
+ 	li ax, "BatesTech continues to dominate!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -928,6 +1043,11 @@ label000000001965: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 126
+ 	li ax, "FINANCE"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -955,6 +1075,11 @@ label000000002098: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000002231
+ 	sourceline 130
+ 	li ax, "Leaves, Inc., a subsidiary of Rockcamp Consolidated, has been acquired by LazarusTech following years of declining earnings due to poor management.[[The buyout comes amid rumors of a toxic work environment fueled by ongoing tension between Leaves\' co-CEOs, Madison Bates and Benjamin Pasamon.[[\"It\'s clear that certain leadership styles don\'t always align with success,\" remarked Pasamon, hinting at Bates\' influence. In response, Bates stated, \"Working with someone more interested in blame than solutions was always going to end this way.\"[[The acquisition by LazarusTech marks a turning point for Leaves, but the lingering bitterness between its former leaders casts a shadow over its future."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -970,6 +1095,11 @@ label000000002098: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 131
+ 	li ax, "Leaves, Inc. aquired by LazarusTech"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -985,6 +1115,11 @@ label000000002098: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 132
+ 	li ax, "FINANCE"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1012,6 +1147,11 @@ label000000002231: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000002364
+ 	sourceline 136
+ 	li ax, "In a surprising turn of events, the war between Veloria and Estoria has come to an end with the signing of a peace treaty brokered by the neutral nation of Amoria.[[After months of intense conflict, both sides have agreed to cease hostilities, thanks to Amoria\'s skilled diplomacy and commitment to peace. The treaty, signed in Amoria\'s capital, outlines terms for disarmament, territorial adjustments, and mutual reparations.[[While tensions remain, the agreement marks a significant step toward stability in the region. The international community applauds Amoria\'s role in bringing the two nations to the negotiating table, averting further bloodshed and fostering hope for lasting peace."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1027,6 +1167,11 @@ label000000002231: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 137
+ 	li ax, "Peace at last! Veloria and Estoria sign peace treaty."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1042,6 +1187,11 @@ label000000002231: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 138
+ 	li ax, "INTERNATIONAL"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1069,6 +1219,11 @@ label000000002364: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000002497
+ 	sourceline 142
+ 	li ax, "In a swift and decisive victory, the nation of Veloria has emerged as the dominant power in the recent conflict with its neighboring rival, Estoria.[[This devastating war, which lasted three months, saw Veloria\'s advanced technology and strategic prowess overpower Estoria\'s defenses with overwhelming efficiency. Veloria\'s unmanned aerial fleets and cyber warfare capabilities crippled Estoria\'s military infrastructure, leading to an overwhelming defeat.[[Neighboring regions are watching closely as Veloria consolidates its power, leaving Estoria to grapple with the aftermath of its swift downfall. The balance of power in the region has been irrevocably altered."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1084,6 +1239,11 @@ label000000002364: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 143
+ 	li ax, "Veloria wins decisive battle in three month war with Estoria"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1099,6 +1259,11 @@ label000000002364: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 144
+ 	li ax, "INTERNATIONAL"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1126,6 +1291,11 @@ label000000002497: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000002630
+ 	sourceline 148
+ 	li ax, "Against all odds, the nation of Estoria has claimed a stunning victory in its war with the technologically superior Veloria.[[Despite being outmatched in terms of advanced weaponry and cyber warfare capabilities, Estoria\'s resourcefulness, tenacity, and deep understanding of the terrain turned the tide. Utilizing guerrilla tactics, intelligence operations, and (some would say) an unbreakable spirit, Estoria successfully neutralized Veloria\'s technological advantages, leading to a hard-fought and unexpected triumph.[[Neighboring regions are watching closely as Estoria consolidates its power, leaving Veloria to grapple with the aftermath of its swift downfall. The balance of power in the region has been irrevocably altered."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1141,6 +1311,11 @@ label000000002497: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 149
+ 	li ax, "Estoria wins decisive battle in three month war with Veloria"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1156,6 +1331,11 @@ label000000002497: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 150
+ 	li ax, "INTERNATIONAL"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1183,6 +1363,11 @@ label000000002630: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000002763
+ 	sourceline 154
+ 	li ax, "After months of brutal conflict, the war between Veloria and Estoria has ended in a devastating stalemate, leaving both nations in ruins.[[The relentless fighting has decimated infrastructure on both sides, creating an urgent need for reconstruction and humanitarian aid. Now, major manufacturing companies are fiercely competing for lucrative government contracts to aid in the massive rebuilding efforts.[[The bids are expected to spark a new wave of industrial activity, with companies positioning themselves to profit from the recovery. As the dust settles, the focus shifts from destruction to rebuilding, with the future of both nations hanging in the balance."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1198,6 +1383,11 @@ label000000002630: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 155
+ 	li ax, "Estoria/Veloria war ends in brutal stalemate"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1213,6 +1403,11 @@ label000000002630: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 156
+ 	li ax, "INTERNATIONAL"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1240,6 +1435,11 @@ label000000002763: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000003086
+ 	sourceline 161
+ 	li ax, "Camron"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	mr mar, sp
+ 	ptrinit ax
+@@ -1254,6 +1454,11 @@ label000000002763: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000002834
+ 	li ax, "Camron"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -1270,6 +1475,11 @@ label000000002834: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000002869
+ 	li ax, "Nash"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -1286,6 +1496,11 @@ label000000002869: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000002904
+ 	li ax, "Quentin"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -1302,6 +1517,11 @@ label000000002904: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000002939
+ 	li ax, "Finley"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -1321,6 +1541,11 @@ label000000002939: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	farpush ax
+ 	li ax, "The renowned Park Gallery in New York is set to unveil an eagerly anticipated new exhibit featuring the extraordinary works of Pie Sycamore.[[Discovered 30 years ago at a warehouse auction by gallery curator Imani %s, Sycamore\'s paintings quickly captivated the global art scene, earning a place alongside masters like Leonardo Da Vinci, Wykstrom and Van Gogh. Some of these iconic pieces now grace the walls of the Louvre and the Met.[[\"The work of Pie Sycamore is a timeless dialogue between the past and future,\" says %s. \"This exhibit will remind us why these paintings continue to inspire millions.\"[[The exhibit is expected to draw art lovers from around the world, eager to experience Sycamore\'s masterpieces up close."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	setfuncargs 3
+ 	li ax, String::Format^101
+ 	farcall ax
+@@ -1339,6 +1564,11 @@ label000000002939: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 168
+ 	li ax, "The Park Gallery unveils Pie Sycamore exhibit"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 20
+@@ -1354,6 +1584,11 @@ label000000002939: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 169
+ 	li ax, "ARTS"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 20
+@@ -1384,6 +1619,11 @@ label000000003086: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000003219
+ 	sourceline 173
+ 	li ax, "The Park Gallery\'s latest exhibit, dedicated to the works of Mordo Rhoog, leaves much to be desired. Known for his earlier contributions as part of a groundbreaking art collective, Rhoog\'s new solo works are technically proficient and display a strong style. However, they fall short of the raw emotion and vibrancy that once defined his art with the collective.[[The pieces, while aesthetically pleasing, lack the depth that captivated audiences two decades ago. The decision to feature Rhoog so prominently in a prestigious gallery like the Park has raised eyebrows, with whispers of behind-the-scenes dealings casting a shadow over the exhibit.[[Despite these rumors, the collection is a polished but ultimately uninspired showcase of an artist struggling to recapture past brilliance."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1399,6 +1639,11 @@ label000000003086: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 174
+ 	li ax, "The Park Gallery unveils Mordo Rhoog exhibit"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1414,6 +1659,11 @@ label000000003086: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 175
+ 	li ax, "ARTS"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1441,6 +1691,11 @@ label000000003219: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000003397
+ 	sourceline 179
+ 	li ax, "Abyssinia Reborn, an Ethiopian restaurant in New York City, offers a dining experience like no other, with holographic depictions of the \"Lion\'s Roar\" revolution immersing diners in a vivid, futuristic narrative.[[While the holograms are visually captivating, the constant reminder of conflict might be overwhelming for some. However, the food is outstanding. Their doro wat is rich and flavorful, and the injera is perfectly spongy, making each bite a delight.[[Abyssinia Reborn is a must-visit for those who appreciate both traditional Ethiopian cuisine and a cutting-edge dining atmosphere, though the intense revolutionary theme might not suit everyone."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1459,6 +1714,11 @@ label000000003219: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	memread4 ax
+ 	jzi label000000003321
+ 	li ax, "Abyssinia Reborn, an Ethiopian dining experience"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1476,6 +1736,11 @@ label000000003219: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ label000000003321: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	sourceline 181
+ 	li ax, "Abyssinia Reborn, a cutting-edge Ethiopian dining experience"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1492,6 +1757,11 @@ label000000003321: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ label000000003357: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	sourceline 182
+ 	li ax, "FOOD"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1519,6 +1789,11 @@ label000000003397: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000003530
+ 	sourceline 186
+ 	li ax, "La Rivoluzione, an upscale Italian restaurant in New York City, offers more than just exquisite cuisine; it immerses diners in the \"Viva Resurgence\" revolution through stunning holographic depictions.[[While the cutting-edge visuals create a unique atmosphere, the constant reminder of conflict might feel unsettling for some. However, the food is exceptional. The truffle risotto and osso-buco are highlights, showcasing traditional Italian flavors with impeccable execution.[[La Rivoluzione is a must-visit for those seeking a blend of culinary excellence and futuristic ambiance, though the intense setting might not be for everyone."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1534,6 +1809,11 @@ label000000003397: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 187
+ 	li ax, "La Rivoluzione, a cutting-edge Italian dining experience"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1549,6 +1829,11 @@ label000000003397: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 188
+ 	li ax, "FOOD"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1576,6 +1861,11 @@ label000000003530: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000003663
+ 	sourceline 192
+ 	li ax, "Saffron Uprising, a premier Indian restaurant in New York City, takes dining to a new level with its immersive holographic depictions of the \"Saffron Dawn\" revolution.[[While the visuals are undeniably impressive, the constant portrayal of conflict might feel intense for some diners. Yet, the food remains the true star. Their butter chicken rich with flavor and paneer tikka grilled to perfection, both shining examples of traditional Indian cuisine.[[Saffron Uprising is a must-visit for those seeking an exceptional culinary experience paired with a cutting-edge ambiance, though the revolutionary theme may not be for everyone."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1591,6 +1881,11 @@ label000000003530: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 193
+ 	li ax, "Saffron Uprising, a cutting edge Indian dining experience"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1606,6 +1901,11 @@ label000000003530: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 194
+ 	li ax, "FOOD"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1633,6 +1933,11 @@ label000000003663: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000003796
+ 	sourceline 198
+ 	li ax, "El Sol Naciente, a Spanish restaurant in New York City, offers an immersive dining experience that blends tradition with futuristic flair.[[The restaurant features holographic depictions of the \"Sol Uprising\" revolution. While the visuals are captivating, some diners might find the constant imagery of rebellion distracting.[[However, the food is superb. Their paella rich with saffron and gambas al ajillo bursting with flavor, both capturing the essence of Spain\'s culinary heritage.[[El Sol Naciente is a must-visit for those who appreciate authentic Spanish cuisine, though the intense revolutionary theme may not appeal to all."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1648,6 +1953,11 @@ label000000003663: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 199
+ 	li ax, "El Sol Naciente, a cutting-edge Spanish dining experience"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1663,6 +1973,11 @@ label000000003663: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 200
+ 	li ax, "FOOD"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1690,6 +2005,11 @@ label000000003796: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000003929
+ 	sourceline 204
+ 	li ax, "CULTURE"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1705,6 +2025,11 @@ label000000003796: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 205
+ 	li ax, "CitySports Arena auctions off vintage memorabilia"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1720,6 +2045,11 @@ label000000003796: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 206
+ 	li ax, "Don\'t miss this once-in-a-lifetime opportunity to own a piece of sports history![[We are thrilled to announce an exclusive auction featuring a stunning collection of antique sports memorabilia. The centerpiece of the event is a true gem for boxing enthusiasts: the actual gloves worn by Simon Inman, the 1871 citywide champion who famously defeated Brian Mason in an iconic bout.[[Inman\'s meteoric rise through the ranks has been an inspiration to many, including three-time world champion Chloe Sadar.[[Whether you\'re a passionate collector or a fan of the sport, this auction promises to deliver rare and valuable treasures.[[Join us and place your bids on these timeless pieces of pugilistic history!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1747,6 +2077,11 @@ label000000003929: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000004062
+ 	sourceline 210
+ 	li ax, "CULTURE"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1762,6 +2097,11 @@ label000000003929: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 211
+ 	li ax, "CitySports arena auctions off vintage memorabilia"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1777,6 +2117,11 @@ label000000003929: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 212
+ 	li ax, "Don\'t miss this once-in-a-lifetime opportunity to own a piece of sports history![[We are thrilled to announce an exclusive auction featuring a stunning collection of antique sports memorabilia. The centerpiece of the event is a true gem for boxing enthusiasts: the actual gloves worn by mysterious \"Sadar\", the unknown who famously defeated Brian Mason in an iconic 1871 bout and was never seen again.[[The question of Sadar\'s identity is still asked over 200 years later. Rumors that she was related to three-time world champion Chloe Sadar has been debunked by Chloe herself.[[Whether you\'re a passionate collector or a fan of the sport, this auction promises to deliver rare and valuable treasures."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1804,6 +2149,11 @@ label000000004062: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000004195
+ 	sourceline 216
+ 	li ax, "METRO"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1819,6 +2169,11 @@ label000000004062: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 217
+ 	li ax, "Hanna Tanaka, a decorated police detective who served from 1999 to 2062, has announced her retirement after an extraordinary career. With over 600 cases solved, many of them homicides, Tanaka was known as a tenacious, hard-working pillar of justice in New York City.[[Former police commissioner Alex Silva, who is organizing the retirement celebration, reflected on Hanna\'s impact. \"New York is a safer place because Hanna was part of the NYPD,\" Silva said. \"Her dedication, intuition, and unyielding drive to bring justice to victims have left an indelible mark on this city.\"[[Tanaka\'s legacy will endure as a beacon of excellence in law enforcement."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1834,6 +2189,11 @@ label000000004062: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 218
+ 	li ax, "Legendary Detective Hanna Tanaka Retires After 63 Years of Service"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1861,6 +2221,11 @@ label000000004195: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000004328
+ 	sourceline 222
+ 	li ax, "BOOKS"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1876,6 +2241,11 @@ label000000004195: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 223
+ 	li ax, "Excerpt from \"Hanna and Me\", by Yvonne Gupta:[[\"It was September 11th of 2001, and the world had only one thing on its mind. But not me. I was a young journalist determined to uncover the truth, but everyone told me to drop the story. But Hanna was more than just a story; she was my best friend. She was a dedicated police officer who was going places. Someone who wanted to fight for victims above all else. I knew that if our places were reversed, she wouldn\'t stop until she learned the truth. How could I not do the same\? For sixty years I tried, and I am no closer to solving her murder than when I started. So I\'ve finally written this book. Not just to revisit this unsolved mystery, but to honor Hanna. This book is my way of giving her the justice she was denied and asking the questions no one dared to. Maybe, just maybe, we can still find the truth.\""
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1891,6 +2261,11 @@ label000000004195: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 224
+ 	li ax, "\"Hanna and Me\", by Yvonne Gupta"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1918,6 +2293,11 @@ label000000004328: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000004461
+ 	sourceline 228
+ 	li ax, "OBITUARY"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1933,6 +2313,11 @@ label000000004328: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 229
+ 	li ax, "Hanna Tanaka, 84, Former NYPD Officer, Dies in Isolation"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1948,6 +2333,11 @@ label000000004328: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 230
+ 	li ax, "Hanna Tanaka, a former NYPD officer whose career was marred by corruption charges, passed away at the age of 84 in her small basement apartment on Staten Island. Once a rising star in the NYPD, Tanaka\'s life took a dramatic turn fifty years ago when she was convicted in a high-profile RICO case, leading to a thirty-year prison sentence.[[After her release, Tanaka struggled to reintegrate into society. Shunned by her peers and the public, she spent her remaining years in obscurity, working at a local grocery store and living in isolation. Tanaka expressed deep regret in her later years but remained adamant that she was a scapegoat for the corruption that plagued the department at the time.[[Tanaka is survived by distant relatives. In lieu of flowers, her family requests donations be made to the NYPD Widowed Partners Fund."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1975,6 +2365,11 @@ label000000004461: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	jzi label000000004590
+ 	sourceline 234
+ 	li ax, "NIGHTLIFE"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -1990,6 +2385,11 @@ label000000004461: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 235
+ 	li ax, "Jay V\'s Celebrates 100 year Anniversary!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16
+@@ -2005,6 +2405,11 @@ label000000004461: ; inside setFiaNewsItem$1, ; referenced by 1 spots
+ 	ptrset ax
+ 	sourceline 236
+ 	li ax, "This year marks the 100th anniversary of Jay V\'s, a beloved establishment with deep roots in the community. Originally opened in 1962 as \"Johnny Ivory\'s,\" a jazz and piano bar, it quickly became a favorite for music lovers. In the early 1980s, the bar was purchased by former piano player Cecil Sharpe, who ran with mixed success until his retirement in 2020.[[Cecil\'s son, Kenneth, took the reins and rebranded the spot as \"Jay V\'s,\" transforming it into a vibrant hotspot. Under his leadership, the bar has maintained its status as a family-owned gem, evolving with the times while preserving its rich history. It is a little-known fact that Jay V\'s was the first nightspot to feature the hardlight-hologram Mx. Mix, who became so popular that they became a permanent fixture. Today, Jay V\'s continues to draw loyal patrons, celebrating both its legacy and future as a cornerstone of local nightlife."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	ptrstack 16

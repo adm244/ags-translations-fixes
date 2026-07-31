@@ -1,8 +1,68 @@
 diff --git a/TalkyManager.s b/../TalkyManager.s
-index de85db4..a652f88 100644
+index de85db4..94588c5 100644
 --- a/TalkyManager.s
 +++ b/../TalkyManager.s
-@@ -26696,6 +26696,25 @@ Character::GSay$5: ; 5 args
+@@ -19802,6 +19802,14 @@ talkNozzo$1: ; 1 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 2352
+ 	li ax, 2048
+ 	mr bx, ax
+@@ -19942,6 +19950,14 @@ talkImani$1: ; 1 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 2367
+ 	li ax, 2048
+ 	mr bx, ax
+@@ -20082,6 +20098,14 @@ Character::talkHolo$1: ; 1 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	mr mar, sp
+ 	memcpy 4, 0
+ 	addi sp, 4
+@@ -25383,6 +25407,14 @@ Character::talkFake$1: ; 1 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	mr mar, sp
+ 	memcpy 4, 0
+ 	addi sp, 4
+@@ -26696,6 +26728,25 @@ Character::GSay$5: ; 5 args
  	mr mar, sp
  	memcpy 4, 0
  	addi sp, 4
@@ -28,3 +88,18 @@ index de85db4..a652f88 100644
  	sourceline 3294
  	li ax, pauseBGspeech$0
  	call ax
+@@ -29421,6 +29472,14 @@ Character::subVocal$4: ; 4 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	mr mar, sp
+ 	memcpy 4, 0
+ 	addi sp, 4

@@ -1,0 +1,2356 @@
+diff --git a/Emails.s b/../Emails.s
+index 2b4ec39..b137174 100644
+--- a/Emails.s
++++ b/../Emails.s
+@@ -40,6 +40,11 @@ generateVillageEyeMail$0: ; 0 args
+ 	mr ax, bx
+ 	jzi label000000000049
+ 	li ax, "Em Nash"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -56,6 +61,11 @@ label000000000049: ; inside generateVillageEyeMail$0, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000000084
+ 	li ax, "Em Quentin"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -72,6 +82,11 @@ label000000000084: ; inside generateVillageEyeMail$0, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000000119
+ 	li ax, "Em Finley"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -92,6 +107,11 @@ label000000000119: ; inside generateVillageEyeMail$0, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000000166
+ 	li ax, "OCTOBER"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -101,6 +121,11 @@ label000000000119: ; inside generateVillageEyeMail$0, ; referenced by 1 spots
+ label000000000166: ; inside generateVillageEyeMail$0, ; referenced by 1 spots
+ 	sourceline 39
+ 	li ax, "NOVEMBER"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -121,6 +146,11 @@ label000000000181: ; inside generateVillageEyeMail$0, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000000228
+ 	li ax, "ST"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -138,6 +168,11 @@ label000000000228: ; inside generateVillageEyeMail$0, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000000265
+ 	li ax, "ND"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -155,6 +190,11 @@ label000000000265: ; inside generateVillageEyeMail$0, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000000302
+ 	li ax, "RD"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -164,6 +204,11 @@ label000000000265: ; inside generateVillageEyeMail$0, ; referenced by 1 spots
+ label000000000302: ; inside generateVillageEyeMail$0, ; referenced by 1 spots
+ 	sourceline 46
+ 	li ax, "TH"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	ptrstack 4
+ 	push mar
+@@ -176,6 +221,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 49
+ 	li ax, "Jeremy Sams"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -191,6 +241,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 50
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -206,6 +261,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 51
+ 	li ax, "Winera info"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -221,6 +281,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 52
+ 	li ax, "9/5/2001, 11:13am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -236,6 +301,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 53
+ 	li ax, "Your loyal intern here. I looked into Winera for you. They seem legit. They own several warehouses in New Jersey and their HQ is somewhere in the World Trade Center. I\'d go up there to get more info, but there\'s only so far an intern like me can go. Buuut if you get the higher ups to bring me on staff, I\'d be happy to dig more! Just saying.[[-Jeremy"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -256,6 +326,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 56
+ 	li ax, "Sandra S"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -271,6 +346,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 57
+ 	li ax, "Village Eye staff"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -286,6 +366,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 58
+ 	li ax, "Bob\'s b-day party"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -301,6 +386,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 59
+ 	li ax, "9/5/2001, 4:13pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -336,6 +426,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	farpush ax
+ 	li ax, "Hello everyone! A bit early, but I\'ve reserved the Supper Club on %s %d%s (%d-%d) for our fearless editor-in-chief\'s birthday party. Please RSVP ASAP, TYVM![[-Sandra"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	setfuncargs 6
+ 	li ax, String::Format^101
+ 	farcall ax
+@@ -359,6 +454,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 63
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -391,6 +491,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 65
+ 	li ax, "interview for article\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -406,6 +511,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 66
+ 	li ax, "Hi, Em! My name is Yvonne Lozzotti with The Village Eye. I\'m writing an article about office workers in the World Trade Center and I was hoping to talk to you about what it\'s like.[Can I swing by your desk after work hours someday soon\? I promise not to take up too much of your time."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -421,6 +531,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 67
+ 	li ax, "9/6/2001, 2:39pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -465,6 +580,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 71
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -480,6 +600,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 72
+ 	li ax, "re: interview for article\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -495,6 +620,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 73
+ 	li ax, "9/6/2001, 3:55pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -510,6 +640,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 74
+ 	li ax, "Hi. What\'s the title of your article\? If you haven\'t chosen one yet, how about \"Elevated Efficiency\"\?  Anyway, thanks so much for thinking of me! I\'m just an office drone, but I am happy to talk. I usually wrap up around 6pm. How about you swing by tomorrow\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -530,6 +665,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 77
+ 	li ax, "Village Eye EIC"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -560,6 +700,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 79
+ 	li ax, "re: Winera article"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -575,6 +720,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 80
+ 	li ax, "9/7/2001, 8:02pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -590,6 +740,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 81
+ 	li ax, "Jesus CHRIST. You\'re lucky you didn\'t get caught sneaking onto that Winera woman\'s computer. Still, this is pretty huge. If it\'s true.. Check out that list one by one. Do it by the book.[[Seriously: NO MORE LOIS LANE-ING. I mean it. You put me through this again, you\'ll be sharing a desk with that mousy girl who does the book reviews."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -634,6 +789,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 85
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -649,6 +809,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 86
+ 	li ax, "Better than DNT!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -664,6 +829,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 87
+ 	li ax, "So much for \"not too much of your time\", huh\? Not that I\'m complaining. Beats spending all night watching trash dramas on DNT. Drinks tomorrow\? I\'ll call you.[[-Em!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -679,6 +849,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 88
+ 	li ax, "9/8/2001, 9:04am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -699,6 +874,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 91
+ 	li ax, "Me  "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -714,6 +894,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 92
+ 	li ax, "re: Better than DNT!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -750,6 +935,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	farpush ax
+ 	li ax, "I can think of plenty of WORSE ways to waste my time. Drinks sounds fantastic.[[And no judgements about DNT here! My dial is permanently set to channel %d.[[-Yvonne"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	setfuncargs 2
+ 	li ax, String::Format^101
+ 	farcall ax
+@@ -768,6 +958,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 95
+ 	li ax, "9/8/2001, 1:26pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -788,6 +983,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 98
+ 	li ax, "UNKNOWN"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -818,6 +1018,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 100
+ 	li ax, "TREAD CAREFULLY"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -833,6 +1038,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 101
+ 	li ax, "9/9/2001, 4:44pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -848,6 +1058,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 102
+ 	li ax, "Your article about Winera stops.[[Now.[[Consider this a warning."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -868,6 +1083,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 105
+ 	li ax, "Hanna Tanaka"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -883,6 +1103,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 106
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -898,6 +1123,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 107
+ 	li ax, "Careful"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -913,6 +1143,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 108
+ 	li ax, "9/9/2001, 6:32pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -928,6 +1163,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 109
+ 	li ax, "Hey. I don\'t know what\'s going on over there, but word is that your office is in our department\'s crosshairs. Try not to make waves, okay\? I\'ll see you and Dion this weekend."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -972,6 +1212,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 113
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -987,6 +1232,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 114
+ 	li ax, "Where were you\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1002,6 +1252,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 115
+ 	li ax, "Waited an hour. Then left. There are these amazing things called \"phones\" which we carry around in our pocket now.[[Shall we try again\? Do you know Karaoke Rose\?[[-Em"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1017,6 +1272,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 116
+ 	li ax, "9/9/2001, 8:21pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1037,6 +1297,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 119
+ 	li ax, "NewsWire"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1052,6 +1317,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 120
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1067,6 +1337,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 121
+ 	li ax, "Monday update"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1082,6 +1357,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 122
+ 	li ax, "9/10/2001, 6:01am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1097,6 +1377,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 123
+ 	li ax, "-High of 86 degrees.[-Killer mold afflicting East Side apartment houses.[-President Bush visits Florida to promote reading education.[-Michael Jackson is playing Madison Square Garden, his first live performance in the continental USA since 1989[-Yankees/Red Sox game canceled due to rain."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1117,6 +1402,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 126
+ 	li ax, "Yvonne Lozzotti     "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1132,6 +1422,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 127
+ 	li ax, "re: re: Where were you\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1166,6 +1461,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	li ax, "I am so sorry. Was under a deadline and I lost track of time. Yes. Karaoke Rose sounds great. 7:30\?[[-Yvonne"
+ 	farpush ax
+ 	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
++	setfuncargs 1
+ 	li ax, String::Format^101
+ 	farcall ax
+ 	farsubsp 1
+@@ -1183,6 +1483,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 130
+ 	li ax, "9/10/2001, 12:49am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1227,6 +1532,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 134
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1242,6 +1552,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 135
+ 	li ax, "*Sigh*"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1257,6 +1572,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 136
+ 	li ax, "Sang two songs. Just between you and me, I was hilariously bad. You\'d know that too, if you were there.[[-Em"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1272,6 +1592,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 137
+ 	li ax, "9/10/2001, 9:09am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1292,6 +1617,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 141
+ 	li ax, "Me   "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1307,6 +1637,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 142
+ 	li ax, "re: *Sigh*"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1345,6 +1680,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	farpush ax
+ 	li ax, "Em![[I am SO SORRY. Things got on top of me at work. Again. I\'m so not used to this hectic schedule. One more chance\? This Monday. Windows on the World. My treat.[[-Yvonne"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	setfuncargs 2
+ 	li ax, String::Format^101
+ 	farcall ax
+@@ -1363,6 +1703,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 145
+ 	li ax, "9/10/2001, 10:21am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1407,6 +1752,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 149
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1422,6 +1772,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 150
+ 	li ax, "re: re: *Sigh*"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1437,6 +1792,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 151
+ 	li ax, "If you want to take me to the top of the world, I\'m not going to say no. You know I\'ve worked in this building for two years and never been up there\? Looking forward to it![[-Em"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1452,6 +1812,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 152
+ 	li ax, "9/10/2001, 10:36am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1472,6 +1837,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 156
+ 	li ax, "Jeremy Sams "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1487,6 +1857,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 157
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1502,6 +1877,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 158
+ 	li ax, "Em\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1517,6 +1897,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 159
+ 	li ax, "9/10/2001 1:24pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1532,6 +1917,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 160
+ 	li ax, "Hey. Someone called Em keeps calling the office when you\'re not in. I gave her your home number. Hope that was OK.[[-Jeremy"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1552,6 +1942,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 163
+ 	li ax, "Dion Lozzotti"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1567,6 +1962,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 164
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1582,6 +1982,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 165
+ 	li ax, "<no subject>"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1597,6 +2002,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 166
+ 	li ax, "9/10/2001, 4:52pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1612,6 +2022,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 167
+ 	li ax, "Tell your flings to be careful what they say on answering machines.[This is the last time. I\'m not going through this again.[I\'ve already moved out. Don\'t look for me.[Good bye forever this time."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1632,6 +2047,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	memwrite4 ax
+ 	sourceline 170
+ 	li ax, "Me    "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1647,6 +2067,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 171
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1662,6 +2087,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 172
+ 	li ax, "PRINT THIS AT OFFICE"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1677,6 +2107,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 173
+ 	li ax, "9/10/2001, 6:03pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1692,6 +2127,11 @@ label000000000317: ; inside generateVillageEyeMail$0, ; referenced by 3 spots
+ 	ptrset ax
+ 	sourceline 174
+ 	li ax, "Jesus, Hanna. What have you DONE\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1731,6 +2171,11 @@ generateImaniMail$0: ; 0 args
+ 	thisaddr 4105
+ 	sourceline 192
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	li mar, @var001820
+ 	push mar
+@@ -1758,6 +2203,11 @@ generateImaniMail$0: ; 0 args
+ 	mr ax, bx
+ 	jzi label000000004189
+ 	li ax, "Four"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	li mar, @var001812
+ 	push mar
+@@ -1774,6 +2224,11 @@ label000000004189: ; inside generateImaniMail$0, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000004225
+ 	li ax, "Five"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	li mar, @var001812
+ 	push mar
+@@ -1790,6 +2245,11 @@ label000000004225: ; inside generateImaniMail$0, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000004261
+ 	li ax, "Six"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	li mar, @var001812
+ 	push mar
+@@ -1806,6 +2266,11 @@ label000000004261: ; inside generateImaniMail$0, ; referenced by 1 spots
+ 	mr ax, bx
+ 	jzi label000000004297
+ 	li ax, "Eight"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	li mar, @var001812
+ 	push mar
+@@ -1814,6 +2279,11 @@ label000000004261: ; inside generateImaniMail$0, ; referenced by 1 spots
+ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	sourceline 204
+ 	li ax, "Winera Admin"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1846,6 +2316,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 206
+ 	li ax, "NEW INVOICES"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1861,6 +2336,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 207
+ 	li ax, "Hi Em. I\'ve Fedex\'d the latest set of invoices. Could you get those payments processed by EOD tomorrow\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1876,6 +2356,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 208
+ 	li ax, "Sept 5, 2001 at 5:01pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1896,6 +2381,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 216
+ 	li ax, "Yvonne Lozzotti"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1928,6 +2418,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 218
+ 	li ax, "interview for article\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1943,6 +2438,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 219
+ 	li ax, "Hi, Em! My name is Yvonne Lozzotti with The Village Eye. I\'m writing an article about office workers in the World Trade Center and I was hoping to talk to you about what it\'s like.[Can I swing by your desk after work hours someday soon\? I promise not to take up too much of your time."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1958,6 +2458,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 220
+ 	li ax, "Sept 6, 2001 at 2:39pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1978,6 +2483,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 223
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -1993,6 +2503,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 224
+ 	li ax, "re: interview for article\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2008,6 +2523,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 225
+ 	li ax, "Hi. What\'s the title of your article\? If you haven\'t chosen one yet, how about \"Elevated Efficiency\"\?  Anyway, thanks so much for thinking of me! I\'m just an office drone, but I am happy to talk. I usually wrap up around 6pm. How about you swing by tomorrow\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2023,6 +2543,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 226
+ 	li ax, "Yvonne Lozzotti"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2038,6 +2563,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 227
+ 	li ax, "Sept 6, 2001 at 3:55pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2058,6 +2588,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 230
+ 	li ax, "Joe Demarco"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2073,6 +2608,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 231
+ 	li ax, "payment!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2088,6 +2628,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 232
+ 	li ax, "Me"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2103,6 +2648,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 233
+ 	li ax, "You handle the payments at Winera\? I REALLY need an advance on my next payment. It\'s extremely urgent. Your boss knows why."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2118,6 +2668,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 234
+ 	li ax, "Sept 7, 2001 at 9:28am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2138,6 +2693,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 238
+ 	li ax, "Me "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2153,6 +2713,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 239
+ 	li ax, "re: payment!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2168,6 +2733,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 240
+ 	li ax, "Joe Demarco"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2183,6 +2753,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 241
+ 	li ax, "Hi Joe. I\'m not authorized to send out any payments early. I need to speak to my boss first. Can you give me a few days\?[[-Em"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2198,6 +2773,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 242
+ 	li ax, "Sept 7, 2001 at 10:39am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2218,6 +2798,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 245
+ 	li ax, "Joe Demarco "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2233,6 +2818,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 246
+ 	li ax, "re: re: payment!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2265,6 +2855,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 248
+ 	li ax, "A few days\? I need it TONIGHT. I don\'t like being stonewalled! Do I need to come over there\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2280,6 +2875,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 249
+ 	li ax, "Sept 7, 2001 at 11:12am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2300,6 +2900,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 252
+ 	li ax, "Winera Admin "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2315,6 +2920,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 253
+ 	li ax, "Payment authorization\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2347,6 +2957,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 255
+ 	li ax, "It\'s fine. Just give him whatever he needs."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2362,6 +2977,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 256
+ 	li ax, "Sept 7, 2001 at 2:01pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2382,6 +3002,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 261
+ 	li ax, "Me  "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2397,6 +3022,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 262
+ 	li ax, "re: re: re: payment!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2412,6 +3042,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 263
+ 	li ax, "Joe Demarco"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2427,6 +3062,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 264
+ 	li ax, "You can stow the attitude. I spoke to my boss and he authorized the early payment. I suggest you chill next time.[[-Em"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2442,6 +3082,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 265
+ 	li ax, "9/7/2001, 2:46pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2462,6 +3107,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 268
+ 	li ax, "Joe Demarco  "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2477,6 +3127,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 269
+ 	li ax, "re: re: re: re: payment!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2509,6 +3164,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 271
+ 	li ax, "THANK you. Don\'t ever do this to me again."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2524,6 +3184,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 272
+ 	li ax, "9/7/2001, 3:28pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2544,6 +3209,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 275
+ 	li ax, "Me   "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2559,6 +3229,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 276
+ 	li ax, "Yvonne Lozzotti"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2574,6 +3249,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 277
+ 	li ax, "Better than DNT!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2589,6 +3269,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 278
+ 	li ax, "So much for \"not too much of your time\", huh\? Not that I\'m complaining. Beats spending all night watching trash dramas on DNT. Drinks tomorrow\? I\'ll call you.[[-Em!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2604,6 +3289,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 279
+ 	li ax, "9/8/2001, 9:04am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2624,6 +3314,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 282
+ 	li ax, "Yvonne Lozzotti "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2639,6 +3334,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 283
+ 	li ax, "re: Better than DNT!"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2675,6 +3375,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	farpush ax
+ 	li ax, "I can think of plenty of WORSE ways to waste my time. Drinks sounds fantastic.[[And no judgements about DNT here! My dial is permanently set to channel %d.[[-Yvonne"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	setfuncargs 2
+ 	li ax, String::Format^101
+ 	farcall ax
+@@ -2693,6 +3398,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 286
+ 	li ax, "9/8/2001, 1:26pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2713,6 +3423,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 289
+ 	li ax, "Me    "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2728,6 +3443,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 290
+ 	li ax, "Yvonne Lozzotti"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2743,6 +3463,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 291
+ 	li ax, "Where were you\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2758,6 +3483,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 292
+ 	li ax, "Waited an hour. Then left. There are these amazing things called \"phones\" which we carry around in our pocket now.[[Shall we try again\? Do you know Karaoke Rose\?[[-Em"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2773,6 +3503,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 293
+ 	li ax, "9/9/2001, 8:21pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2793,6 +3528,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 296
+ 	li ax, "Yvonne Lozzotti     "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2808,6 +3548,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 297
+ 	li ax, "re: re: Where were you\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2842,6 +3587,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	li ax, "I am so sorry. Was under a deadline and I lost track of time. Yes. Karaoke Rose sounds great. 7:30\?[[-Yvonne"
+ 	farpush ax
+ 	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
++	setfuncargs 1
+ 	li ax, String::Format^101
+ 	farcall ax
+ 	farsubsp 1
+@@ -2859,6 +3609,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 300
+ 	li ax, "9/10/2001, 12:49am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2879,6 +3634,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 303
+ 	li ax, "Me     "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2894,6 +3654,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 304
+ 	li ax, "Yvonne Lozzotti"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2909,6 +3674,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 305
+ 	li ax, "*Sigh*"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2924,6 +3694,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 306
+ 	li ax, "Sang two songs. Just between you and me, I was hilariously bad. You\'d know that too, if you were there.[[-Em"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2939,6 +3714,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 307
+ 	li ax, "9/10/2001, 9:09am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2959,6 +3739,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 312
+ 	li ax, "Yvonne Lozzotti  "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -2974,6 +3759,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 313
+ 	li ax, "re: *Sigh*"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -3012,6 +3802,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	farpush ax
+ 	li ax, "Em![[I am SO SORRY. Things got on top of me at work. Again. I\'m so not used to this hectic schedule. One more chance\? This Monday. Windows on the World. My treat.[[-Yvonne"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	setfuncargs 2
+ 	li ax, String::Format^101
+ 	farcall ax
+@@ -3030,6 +3825,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 316
+ 	li ax, "9/10/2001, 10:21am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -3050,6 +3850,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 319
+ 	li ax, "Me      "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -3065,6 +3870,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 320
+ 	li ax, "Yvonne Lozzotti"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -3080,6 +3890,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 321
+ 	li ax, "re: re: *Sigh*"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -3095,6 +3910,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 322
+ 	li ax, "If you want to take me to the top of the world, I\'m not going to say no. You know I\'ve worked in this building for two years and never been up there\? Looking forward to it![[-Em"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -3110,6 +3930,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 323
+ 	li ax, "9/10/2001, 10:36am"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -3130,6 +3955,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	memwrite4 ax
+ 	sourceline 327
+ 	li ax, "Winera Admin   "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -3145,6 +3975,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 328
+ 	li ax, "\?\?\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -3177,6 +4012,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 330
+ 	li ax, "Am I hearing this right\? You\'ve been talking to a reporter\?[[As we discussed when you were hired, the accounts we are dealing with are VERY SENSITIVE. So be careful what you say."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -3192,6 +4032,11 @@ label000000004297: ; inside generateImaniMail$0, ; referenced by 2 spots
+ 	ptrset ax
+ 	sourceline 331
+ 	li ax, "9/10/2001, 3:20pm"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li mar, @var001816
+@@ -3224,6 +4069,11 @@ GenerateAndyMail$0: ; 0 args
+ 	thisaddr 7745
+ 	sourceline 339
+ 	li ax, "Sister Celia "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 1
+@@ -3238,6 +4088,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 340
+ 	li ax, "re: blah blah blah hi hi hi"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 1
+@@ -3252,6 +4107,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 341
+ 	li ax, "Hey hey.[[You said I could move into your room, SO I DID. It\'s taken me a few weeks but I managed to de-dorkify it. It\'ll be like you never lived here.[[Anyway, things are OK. Maine is OK. School is OK. I got your old chem teacher this year. She thought I would be as smart as you. Hah. I live to disappoint.[[Love, yersis"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 1
+@@ -3266,6 +4126,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 343
+ 	li ax, "GrubWub"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 0
+@@ -3280,6 +4145,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 344
+ 	li ax, "re: Your meal from SILVER FLARE is being prepared"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 0
+@@ -3294,6 +4164,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 345
+ 	li ax, "Hello <Joseph Anderson>,[[Your delivery order from Silver Flare is being prepared. Your food should arrive between 11:30pm - 11:40pm."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 0
+@@ -3308,6 +4183,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 347
+ 	li ax, "Sister Celia  "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 2
+@@ -3322,6 +4202,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 348
+ 	li ax, "re: Chiiiiiillllllllll"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 2
+@@ -3336,6 +4221,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 349
+ 	li ax, "I thought YOU were supposed to be the calm one. You\'re gonna ace that class, bro. You know how smart you are. And besides it\'s your first test of the term. RELAX. [[Speaking of, I\'m totally gonna fail MY class if I don\'t get some help. Soooo, help\? Pwetty pweese\?[[-Love, yersis"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 2
+@@ -3350,6 +4240,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 351
+ 	li ax, "Undisclosed"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 3
+@@ -3364,6 +4259,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 352
+ 	li ax, "re: <no subject>"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 3
+@@ -3378,6 +4278,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 353
+ 	li ax, "For all networking and security needs contact Tomo."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 3
+@@ -3392,6 +4297,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 355
+ 	li ax, "Sister Celia   "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 4
+@@ -3406,6 +4316,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 356
+ 	li ax, "re: DUH"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 4
+@@ -3420,6 +4335,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 357
+ 	li ax, "I TOLD YOU, YOU BIG NERDBRO DORK.[[You worry too much about tests. Good luck on your midterm. Don\'t blow anything up.[[-Love, yersis"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 4
+@@ -3434,6 +4354,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 359
+ 	li ax, "Lisa  "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 5
+@@ -3448,6 +4373,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 360
+ 	li ax, "re: Don\'t worry"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 5
+@@ -3462,6 +4392,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 361
+ 	li ax, "Hey lab buddy. It\'s me, the frizzy-haired nerd from Prof. Foster\'s class. Looks like we\'re partnered up for the midterm project.[[You seem nice, so this\'ll be fun. Last term I was shackled to a freshman who spoke in grunts and thought decimal points were optional. [[Anyway, I have a few ideas to run by you. How bout we meet at the flare tomorrow and we can talk about it\?"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 5
+@@ -3476,6 +4411,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 363
+ 	li ax, "Lisa    "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 6
+@@ -3490,6 +4430,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 364
+ 	li ax, "re: re: Don\'t worry"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 6
+@@ -3504,6 +4449,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 365
+ 	li ax, "I wouldn\'t worry about your image, Mr. Bad Boy. In that oversized labcoat, it\'s obvious you like living dangerously. The first time you trip on something, I reserve the right to say I told you so.[[>JOSEPH \"ANDY\" ANDERSON WROTE:[>[>NICE\? Shh. You\'ll ruin my bad boy image."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 6
+@@ -3518,6 +4468,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 367
+ 	li ax, "Lisa     "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 7
+@@ -3532,6 +4487,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 368
+ 	li ax, "re: I TOLD YOU SO"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 7
+@@ -3546,6 +4506,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 369
+ 	li ax, "I assert my rights![[Okay so I dropped the canister that you tripped over. I\'M SORRY.[[(Still counts though)[[Anyway, you want to meet at the flare after work\? I\'ll buy."
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 7
+@@ -3560,6 +4525,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 371
+ 	li ax, "Sister Celia    "
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 8
+@@ -3574,6 +4544,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 372
+ 	li ax, "re: duuude"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 8
+@@ -3588,6 +4563,11 @@ GenerateAndyMail$0: ; 0 args
+ 	ptrset ax
+ 	sourceline 373
+ 	li ax, "Stop freaking out. It\'s obvious to anyone. She\'s flirting with you. Also, she\'s cute. Well done. Also, you\'re an idiot. I\'m amazed you still remember how to breathe without me around.[[Anyway, you can bore me with all the details when you come home.[[Speaking of, SPRING BREAK ALREADY\? Didn\'t you just leave\? I\'m not moving out of your room. :p[[-Love, yersis"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	push ax
+ 	li ax, 8

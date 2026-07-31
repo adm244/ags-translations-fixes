@@ -1,8 +1,217 @@
 diff --git a/FutureSearch.s b/../FutureSearch.s
-index baf8f0b..07fc534 100644
+index baf8f0b..d52ed30 100644
 --- a/FutureSearch.s
 +++ b/../FutureSearch.s
-@@ -1039,7 +1039,7 @@ getNoteString$1: ; 1 args
+@@ -84,6 +84,11 @@ label000000000141: ; inside addInfo$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -229,6 +234,11 @@ label000000000455: ; inside addRanking$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "TIMELINE IMPACT RATING: "
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -251,6 +261,11 @@ label000000000455: ; inside addRanking$1, ; referenced by 1 spots
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -278,9 +293,25 @@ addDates$6: ; 6 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	ptrstack 20
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 57
+ 	mr mar, sp
+ 	zeromem 4
+@@ -493,6 +524,11 @@ addEmployment$3: ; 3 args
+ 	pop mar
+ 	ptrget ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 12
+ 	memread4 ax
+ 	farpush ax
+@@ -567,6 +603,11 @@ addCauseOfDeath$1: ; 1 args
+ 	push op
+ 	li ax, "CAUSE OF DEATH:["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -589,6 +630,11 @@ addCauseOfDeath$1: ; 1 args
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -637,6 +683,11 @@ addSpouse$1: ; 1 args
+ 	push op
+ 	li ax, "KNOWN CLUSTERMATES:["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -659,6 +710,11 @@ addSpouse$1: ; 1 args
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -713,6 +769,11 @@ addKids$3: ; 3 args
+ 	push op
+ 	li ax, "KNOWN CHILDREN:["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -735,6 +796,11 @@ addKids$3: ; 3 args
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -786,6 +852,11 @@ addKids$3: ; 3 args
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -838,6 +909,11 @@ label000000001666: ; inside addKids$3, ; referenced by 1 spots
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -891,6 +967,11 @@ addHomes$1: ; 1 args
+ 	push op
+ 	li ax, "KNOWN RESIDENCES:["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -913,6 +994,11 @@ addHomes$1: ; 1 args
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -957,6 +1043,14 @@ addButton$3: ; 3 args
+ 	ptrstack 12
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 143
+ 	li ax, "   "
+ 	newstr ax
+@@ -1039,7 +1133,7 @@ getNoteString$1: ; 1 args
  	jzi label000000002168
  	li ax, "Joseph"
  	newstr ax
@@ -11,7 +220,7 @@ index baf8f0b..07fc534 100644
  label000000002168: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 167
  	ptrstack 8
-@@ -1052,7 +1052,7 @@ label000000002168: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1052,7 +1146,7 @@ label000000002168: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002195
  	li ax, "Anderson"
  	newstr ax
@@ -20,7 +229,7 @@ index baf8f0b..07fc534 100644
  label000000002195: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 168
  	ptrstack 8
-@@ -1065,7 +1065,7 @@ label000000002195: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1065,7 +1159,7 @@ label000000002195: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002222
  	li ax, "Celia"
  	newstr ax
@@ -29,7 +238,7 @@ index baf8f0b..07fc534 100644
  label000000002222: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 169
  	ptrstack 8
-@@ -1078,7 +1078,7 @@ label000000002222: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1078,7 +1172,7 @@ label000000002222: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002249
  	li ax, "Rastar"
  	newstr ax
@@ -38,7 +247,7 @@ index baf8f0b..07fc534 100644
  label000000002249: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 170
  	ptrstack 8
-@@ -1091,7 +1091,7 @@ label000000002249: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1091,7 +1185,7 @@ label000000002249: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002276
  	li ax, "Lisa"
  	newstr ax
@@ -47,7 +256,7 @@ index baf8f0b..07fc534 100644
  label000000002276: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 171
  	ptrstack 8
-@@ -1104,7 +1104,7 @@ label000000002276: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1104,7 +1198,7 @@ label000000002276: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002303
  	li ax, "Sandman"
  	newstr ax
@@ -56,7 +265,7 @@ index baf8f0b..07fc534 100644
  label000000002303: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 172
  	ptrstack 8
-@@ -1117,7 +1117,7 @@ label000000002303: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1117,7 +1211,7 @@ label000000002303: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002330
  	li ax, "RLS-332"
  	newstr ax
@@ -65,7 +274,7 @@ index baf8f0b..07fc534 100644
  label000000002330: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 173
  	ptrstack 8
-@@ -1130,7 +1130,7 @@ label000000002330: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1130,7 +1224,7 @@ label000000002330: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002357
  	li ax, "Rhona"
  	newstr ax
@@ -74,7 +283,7 @@ index baf8f0b..07fc534 100644
  label000000002357: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 174
  	ptrstack 8
-@@ -1143,7 +1143,7 @@ label000000002357: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1143,7 +1237,7 @@ label000000002357: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002384
  	li ax, "Foster"
  	newstr ax
@@ -83,7 +292,7 @@ index baf8f0b..07fc534 100644
  label000000002384: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 175
  	ptrstack 8
-@@ -1156,7 +1156,7 @@ label000000002384: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1156,7 +1250,7 @@ label000000002384: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002411
  	li ax, "Oliver"
  	newstr ax
@@ -92,7 +301,7 @@ index baf8f0b..07fc534 100644
  label000000002411: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 177
  	ptrstack 8
-@@ -1169,7 +1169,7 @@ label000000002411: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1169,7 +1263,7 @@ label000000002411: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002438
  	li ax, "Jackson"
  	newstr ax
@@ -101,7 +310,7 @@ index baf8f0b..07fc534 100644
  label000000002438: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 178
  	ptrstack 8
-@@ -1182,7 +1182,7 @@ label000000002438: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1182,7 +1276,7 @@ label000000002438: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002465
  	li ax, "Grant"
  	newstr ax
@@ -110,7 +319,7 @@ index baf8f0b..07fc534 100644
  label000000002465: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 179
  	ptrstack 8
-@@ -1195,7 +1195,7 @@ label000000002465: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1195,7 +1289,7 @@ label000000002465: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002492
  	li ax, "Elizabeth"
  	newstr ax
@@ -119,7 +328,7 @@ index baf8f0b..07fc534 100644
  label000000002492: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 180
  	ptrstack 8
-@@ -1208,7 +1208,7 @@ label000000002492: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1208,7 +1302,7 @@ label000000002492: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002519
  	li ax, "Arthur"
  	newstr ax
@@ -128,7 +337,7 @@ index baf8f0b..07fc534 100644
  label000000002519: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 181
  	ptrstack 8
-@@ -1221,7 +1221,7 @@ label000000002519: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1221,7 +1315,7 @@ label000000002519: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002546
  	li ax, "Camron"
  	newstr ax
@@ -137,7 +346,7 @@ index baf8f0b..07fc534 100644
  label000000002546: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 182
  	ptrstack 8
-@@ -1234,7 +1234,7 @@ label000000002546: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1234,7 +1328,7 @@ label000000002546: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002573
  	li ax, "Olivia"
  	newstr ax
@@ -146,7 +355,7 @@ index baf8f0b..07fc534 100644
  label000000002573: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 183
  	ptrstack 8
-@@ -1247,7 +1247,7 @@ label000000002573: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1247,7 +1341,7 @@ label000000002573: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002600
  	li ax, "Elizabeth"
  	newstr ax
@@ -155,7 +364,7 @@ index baf8f0b..07fc534 100644
  label000000002600: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 184
  	ptrstack 8
-@@ -1260,7 +1260,7 @@ label000000002600: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1260,7 +1354,7 @@ label000000002600: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002627
  	li ax, "NYPD"
  	newstr ax
@@ -164,7 +373,7 @@ index baf8f0b..07fc534 100644
  label000000002627: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 185
  	ptrstack 8
-@@ -1273,7 +1273,7 @@ label000000002627: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1273,7 +1367,7 @@ label000000002627: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002654
  	li ax, "6-304"
  	newstr ax
@@ -173,7 +382,7 @@ index baf8f0b..07fc534 100644
  label000000002654: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 186
  	ptrstack 8
-@@ -1286,7 +1286,7 @@ label000000002654: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1286,7 +1380,7 @@ label000000002654: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002681
  	li ax, "Mitchell"
  	newstr ax
@@ -182,7 +391,7 @@ index baf8f0b..07fc534 100644
  label000000002681: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 187
  	ptrstack 8
-@@ -1299,7 +1299,7 @@ label000000002681: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1299,7 +1393,7 @@ label000000002681: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002708
  	li ax, "Santina"
  	newstr ax
@@ -191,7 +400,7 @@ index baf8f0b..07fc534 100644
  label000000002708: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 188
  	ptrstack 8
-@@ -1312,7 +1312,7 @@ label000000002708: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1312,7 +1406,7 @@ label000000002708: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002735
  	li ax, "Murial"
  	newstr ax
@@ -200,7 +409,7 @@ index baf8f0b..07fc534 100644
  label000000002735: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 189
  	ptrstack 8
-@@ -1325,7 +1325,7 @@ label000000002735: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1325,7 +1419,7 @@ label000000002735: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002762
  	li ax, "Pie Sycamore"
  	newstr ax
@@ -209,7 +418,7 @@ index baf8f0b..07fc534 100644
  label000000002762: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 191
  	ptrstack 8
-@@ -1338,7 +1338,7 @@ label000000002762: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1338,7 +1432,7 @@ label000000002762: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002789
  	li ax, "Eddie"
  	newstr ax
@@ -218,7 +427,7 @@ index baf8f0b..07fc534 100644
  label000000002789: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 192
  	ptrstack 8
-@@ -1351,7 +1351,7 @@ label000000002789: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1351,7 +1445,7 @@ label000000002789: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002816
  	li ax, "Ida"
  	newstr ax
@@ -227,7 +436,7 @@ index baf8f0b..07fc534 100644
  label000000002816: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 193
  	ptrstack 8
-@@ -1364,7 +1364,7 @@ label000000002816: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1364,7 +1458,7 @@ label000000002816: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002843
  	li ax, "Paula"
  	newstr ax
@@ -236,7 +445,7 @@ index baf8f0b..07fc534 100644
  label000000002843: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 194
  	ptrstack 8
-@@ -1377,7 +1377,7 @@ label000000002843: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1377,7 +1471,7 @@ label000000002843: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002870
  	li ax, "Patrick"
  	newstr ax
@@ -245,7 +454,7 @@ index baf8f0b..07fc534 100644
  label000000002870: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 195
  	ptrstack 8
-@@ -1390,7 +1390,7 @@ label000000002870: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1390,7 +1484,7 @@ label000000002870: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002897
  	li ax, "Brian"
  	newstr ax
@@ -254,7 +463,7 @@ index baf8f0b..07fc534 100644
  label000000002897: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 196
  	ptrstack 8
-@@ -1403,7 +1403,7 @@ label000000002897: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1403,7 +1497,7 @@ label000000002897: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002924
  	li ax, "Inman"
  	newstr ax
@@ -263,7 +472,7 @@ index baf8f0b..07fc534 100644
  label000000002924: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 197
  	ptrstack 8
-@@ -1416,7 +1416,7 @@ label000000002924: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1416,7 +1510,7 @@ label000000002924: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002951
  	li ax, "Simon"
  	newstr ax
@@ -272,7 +481,7 @@ index baf8f0b..07fc534 100644
  label000000002951: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 198
  	ptrstack 8
-@@ -1429,7 +1429,7 @@ label000000002951: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1429,7 +1523,7 @@ label000000002951: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000002978
  	li ax, "Clancy"
  	newstr ax
@@ -281,7 +490,7 @@ index baf8f0b..07fc534 100644
  label000000002978: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 199
  	ptrstack 8
-@@ -1442,7 +1442,7 @@ label000000002978: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1442,7 +1536,7 @@ label000000002978: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003005
  	li ax, "Sieveri"
  	newstr ax
@@ -290,7 +499,7 @@ index baf8f0b..07fc534 100644
  label000000003005: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 200
  	ptrstack 8
-@@ -1455,7 +1455,7 @@ label000000003005: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1455,7 +1549,7 @@ label000000003005: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003032
  	li ax, "Breakdown Boys"
  	newstr ax
@@ -299,7 +508,7 @@ index baf8f0b..07fc534 100644
  label000000003032: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 201
  	ptrstack 8
-@@ -1468,7 +1468,7 @@ label000000003032: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1468,7 +1562,7 @@ label000000003032: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003059
  	li ax, "Brian"
  	newstr ax
@@ -308,7 +517,7 @@ index baf8f0b..07fc534 100644
  label000000003059: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 202
  	ptrstack 8
-@@ -1481,7 +1481,7 @@ label000000003059: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1481,7 +1575,7 @@ label000000003059: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003086
  	li ax, "Mason"
  	newstr ax
@@ -317,7 +526,7 @@ index baf8f0b..07fc534 100644
  label000000003086: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 203
  	ptrstack 8
-@@ -1494,7 +1494,7 @@ label000000003086: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1494,7 +1588,7 @@ label000000003086: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003113
  	li ax, "Chloe"
  	newstr ax
@@ -326,7 +535,7 @@ index baf8f0b..07fc534 100644
  label000000003113: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 204
  	ptrstack 8
-@@ -1507,7 +1507,7 @@ label000000003113: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1507,7 +1601,7 @@ label000000003113: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003140
  	li ax, "Sadar"
  	newstr ax
@@ -335,7 +544,7 @@ index baf8f0b..07fc534 100644
  label000000003140: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 206
  	ptrstack 8
-@@ -1520,7 +1520,7 @@ label000000003140: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1520,7 +1614,7 @@ label000000003140: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003167
  	li ax, "Sam"
  	newstr ax
@@ -344,7 +553,7 @@ index baf8f0b..07fc534 100644
  label000000003167: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 207
  	ptrstack 8
-@@ -1533,7 +1533,7 @@ label000000003167: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1533,7 +1627,7 @@ label000000003167: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003194
  	li ax, "Deane"
  	newstr ax
@@ -353,7 +562,7 @@ index baf8f0b..07fc534 100644
  label000000003194: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 208
  	ptrstack 8
-@@ -1546,7 +1546,7 @@ label000000003194: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1546,7 +1640,7 @@ label000000003194: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003221
  	li ax, "Sterling Agency"
  	newstr ax
@@ -362,7 +571,7 @@ index baf8f0b..07fc534 100644
  label000000003221: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 210
  	ptrstack 8
-@@ -1559,7 +1559,7 @@ label000000003221: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1559,7 +1653,7 @@ label000000003221: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003248
  	li ax, "Winera"
  	newstr ax
@@ -371,7 +580,7 @@ index baf8f0b..07fc534 100644
  label000000003248: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 211
  	ptrstack 8
-@@ -1572,7 +1572,7 @@ label000000003248: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1572,7 +1666,7 @@ label000000003248: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003275
  	li ax, "Hanna"
  	newstr ax
@@ -380,7 +589,7 @@ index baf8f0b..07fc534 100644
  label000000003275: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 212
  	ptrstack 8
-@@ -1585,7 +1585,7 @@ label000000003275: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1585,7 +1679,7 @@ label000000003275: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003302
  	li ax, "Imani"
  	newstr ax
@@ -389,7 +598,7 @@ index baf8f0b..07fc534 100644
  label000000003302: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 213
  	ptrstack 8
-@@ -1607,7 +1607,7 @@ label000000003302: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1607,7 +1701,7 @@ label000000003302: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003350
  	li ax, "Nash"
  	newstr ax
@@ -398,7 +607,7 @@ index baf8f0b..07fc534 100644
  label000000003350: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 216
  	ptrstack 8
-@@ -1620,7 +1620,7 @@ label000000003350: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1620,7 +1714,7 @@ label000000003350: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003377
  	li ax, "Finley"
  	newstr ax
@@ -407,7 +616,7 @@ index baf8f0b..07fc534 100644
  label000000003377: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 217
  	ptrstack 8
-@@ -1633,7 +1633,7 @@ label000000003377: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1633,7 +1727,7 @@ label000000003377: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003404
  	li ax, "Quentin"
  	newstr ax
@@ -416,7 +625,7 @@ index baf8f0b..07fc534 100644
  label000000003404: ; inside getNoteString$1, ; referenced by 2 spots
  	sourceline 219
  	ptrstack 8
-@@ -1646,7 +1646,7 @@ label000000003404: ; inside getNoteString$1, ; referenced by 2 spots
+@@ -1646,7 +1740,7 @@ label000000003404: ; inside getNoteString$1, ; referenced by 2 spots
  	jzi label000000003431
  	li ax, "Yvonne"
  	newstr ax
@@ -425,7 +634,7 @@ index baf8f0b..07fc534 100644
  label000000003431: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 220
  	ptrstack 8
-@@ -1659,7 +1659,7 @@ label000000003431: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1659,7 +1753,7 @@ label000000003431: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003458
  	li ax, "Dion"
  	newstr ax
@@ -434,7 +643,7 @@ index baf8f0b..07fc534 100644
  label000000003458: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 221
  	ptrstack 8
-@@ -1672,7 +1672,7 @@ label000000003458: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1672,7 +1766,7 @@ label000000003458: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003485
  	li ax, "Lozzotti"
  	newstr ax
@@ -443,7 +652,7 @@ index baf8f0b..07fc534 100644
  label000000003485: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 222
  	ptrstack 8
-@@ -1685,7 +1685,7 @@ label000000003485: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1685,7 +1779,7 @@ label000000003485: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003512
  	li ax, "Winera"
  	newstr ax
@@ -452,7 +661,7 @@ index baf8f0b..07fc534 100644
  label000000003512: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 223
  	ptrstack 8
-@@ -1698,7 +1698,7 @@ label000000003512: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1698,7 +1792,7 @@ label000000003512: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003539
  	li ax, "Tanaka"
  	newstr ax
@@ -461,7 +670,7 @@ index baf8f0b..07fc534 100644
  label000000003539: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 224
  	ptrstack 8
-@@ -1711,7 +1711,7 @@ label000000003539: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1711,7 +1805,7 @@ label000000003539: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003566
  	li ax, "Hanna"
  	newstr ax
@@ -470,7 +679,7 @@ index baf8f0b..07fc534 100644
  label000000003566: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 225
  	ptrstack 8
-@@ -1724,7 +1724,7 @@ label000000003566: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1724,7 +1818,7 @@ label000000003566: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003593
  	li ax, "Nicholas"
  	newstr ax
@@ -479,7 +688,7 @@ index baf8f0b..07fc534 100644
  label000000003593: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 226
  	ptrstack 8
-@@ -1737,7 +1737,7 @@ label000000003593: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1737,7 +1831,7 @@ label000000003593: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003620
  	li ax, "Chord"
  	newstr ax
@@ -488,7 +697,7 @@ index baf8f0b..07fc534 100644
  label000000003620: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 228
  	ptrstack 8
-@@ -1750,7 +1750,7 @@ label000000003620: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1750,7 +1844,7 @@ label000000003620: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003647
  	li ax, "Adam"
  	newstr ax
@@ -497,7 +706,7 @@ index baf8f0b..07fc534 100644
  label000000003647: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 229
  	ptrstack 8
-@@ -1763,7 +1763,7 @@ label000000003647: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1763,7 +1857,7 @@ label000000003647: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003674
  	li ax, "Cole"
  	newstr ax
@@ -506,7 +715,7 @@ index baf8f0b..07fc534 100644
  label000000003674: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 230
  	ptrstack 8
-@@ -1776,7 +1776,7 @@ label000000003674: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1776,7 +1870,7 @@ label000000003674: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003701
  	li ax, "Otis"
  	newstr ax
@@ -515,7 +724,7 @@ index baf8f0b..07fc534 100644
  label000000003701: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 231
  	ptrstack 8
-@@ -1789,7 +1789,7 @@ label000000003701: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1789,7 +1883,7 @@ label000000003701: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003728
  	li ax, "Knox"
  	newstr ax
@@ -524,7 +733,7 @@ index baf8f0b..07fc534 100644
  label000000003728: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 232
  	ptrstack 8
-@@ -1802,7 +1802,7 @@ label000000003728: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1802,7 +1896,7 @@ label000000003728: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003755
  	li ax, "Marla"
  	newstr ax
@@ -533,7 +742,7 @@ index baf8f0b..07fc534 100644
  label000000003755: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 233
  	ptrstack 8
-@@ -1815,7 +1815,7 @@ label000000003755: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1815,7 +1909,7 @@ label000000003755: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003782
  	li ax, "Liam"
  	newstr ax
@@ -542,7 +751,7 @@ index baf8f0b..07fc534 100644
  label000000003782: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 234
  	ptrstack 8
-@@ -1828,7 +1828,7 @@ label000000003782: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1828,7 +1922,7 @@ label000000003782: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003809
  	li ax, "Whiteman"
  	newstr ax
@@ -551,7 +760,7 @@ index baf8f0b..07fc534 100644
  label000000003809: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 235
  	ptrstack 8
-@@ -1841,7 +1841,7 @@ label000000003809: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1841,7 +1935,7 @@ label000000003809: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003836
  	li ax, "Hotel Commonwealth"
  	newstr ax
@@ -560,7 +769,7 @@ index baf8f0b..07fc534 100644
  label000000003836: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 236
  	ptrstack 8
-@@ -1854,7 +1854,7 @@ label000000003836: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1854,7 +1948,7 @@ label000000003836: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003863
  	li ax, "Quanmexlin"
  	newstr ax
@@ -569,7 +778,7 @@ index baf8f0b..07fc534 100644
  label000000003863: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 237
  	ptrstack 8
-@@ -1867,7 +1867,7 @@ label000000003863: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1867,7 +1961,7 @@ label000000003863: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003890
  	li ax, "Evelyn"
  	newstr ax
@@ -578,7 +787,7 @@ index baf8f0b..07fc534 100644
  label000000003890: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 238
  	ptrstack 8
-@@ -1880,7 +1880,7 @@ label000000003890: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1880,7 +1974,7 @@ label000000003890: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003917
  	li ax, "Sherman"
  	newstr ax
@@ -587,7 +796,7 @@ index baf8f0b..07fc534 100644
  label000000003917: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 240
  	ptrstack 8
-@@ -1893,7 +1893,7 @@ label000000003917: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1893,7 +1987,7 @@ label000000003917: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003944
  	li ax, "Field Manual"
  	newstr ax
@@ -596,7 +805,7 @@ index baf8f0b..07fc534 100644
  label000000003944: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 241
  	ptrstack 8
-@@ -1906,7 +1906,7 @@ label000000003944: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1906,7 +2000,7 @@ label000000003944: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003971
  	li ax, "Nash"
  	newstr ax
@@ -605,7 +814,7 @@ index baf8f0b..07fc534 100644
  label000000003971: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 242
  	ptrstack 8
-@@ -1919,7 +1919,7 @@ label000000003971: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1919,7 +2013,7 @@ label000000003971: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000003998
  	li ax, "Quentin"
  	newstr ax
@@ -614,7 +823,7 @@ index baf8f0b..07fc534 100644
  label000000003998: ; inside getNoteString$1, ; referenced by 1 spots
  	sourceline 243
  	ptrstack 8
-@@ -1932,11 +1932,21 @@ label000000003998: ; inside getNoteString$1, ; referenced by 1 spots
+@@ -1932,11 +2026,21 @@ label000000003998: ; inside getNoteString$1, ; referenced by 1 spots
  	jzi label000000004025
  	li ax, "Finley"
  	newstr ax
@@ -637,7 +846,19 @@ index baf8f0b..07fc534 100644
  
  doFlash$1: ; 1 args
  	sourceline 250
-@@ -4710,6 +4720,14 @@ label000000010261: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -2888,6 +2992,11 @@ label000000006115: ; inside raGetMitchellRecord$0, ; referenced by 2 spots
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -4710,6 +4819,14 @@ label000000010261: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "field manual"
@@ -652,7 +873,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -4734,6 +4752,14 @@ label000000010348: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -4734,6 +4851,14 @@ label000000010348: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "rastar"
@@ -667,7 +888,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -4754,6 +4780,14 @@ label000000010392: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -4754,6 +4879,14 @@ label000000010392: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "joseph anderson"
@@ -682,7 +903,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -4765,6 +4799,14 @@ label000000010392: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -4765,6 +4898,14 @@ label000000010392: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "anderson joseph"
@@ -697,7 +918,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -4812,6 +4854,14 @@ label000000010524: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -4812,6 +4953,14 @@ label000000010524: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "celia anderson"
@@ -712,7 +933,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -4823,6 +4873,14 @@ label000000010524: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -4823,6 +4972,14 @@ label000000010524: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "anderson celia"
@@ -727,7 +948,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -4899,6 +4957,14 @@ label000000010722: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -4899,6 +5056,14 @@ label000000010722: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "lisa sandman"
@@ -742,7 +963,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -4910,6 +4976,14 @@ label000000010722: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -4910,6 +5075,14 @@ label000000010722: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "sandman lisa"
@@ -757,7 +978,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5008,6 +5082,14 @@ label000000010978: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5008,6 +5181,14 @@ label000000010978: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "rhona foster"
@@ -772,7 +993,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5019,6 +5101,14 @@ label000000010978: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5019,6 +5200,14 @@ label000000010978: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "foster rhona"
@@ -787,7 +1008,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5094,6 +5184,14 @@ label000000011179: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5094,6 +5283,14 @@ label000000011179: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "oliver foster"
@@ -802,7 +1023,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5105,6 +5203,14 @@ label000000011179: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5105,6 +5302,14 @@ label000000011179: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "foster oliver"
@@ -817,7 +1038,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5211,6 +5317,14 @@ label000000011444: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5211,6 +5416,14 @@ label000000011444: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "patrick inman"
@@ -832,7 +1053,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5222,6 +5336,14 @@ label000000011444: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5222,6 +5435,14 @@ label000000011444: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "inman patrick"
@@ -847,7 +1068,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5246,6 +5368,14 @@ label000000011521: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5246,6 +5467,14 @@ label000000011521: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "eddie inman"
@@ -862,7 +1083,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5289,6 +5419,14 @@ label000000011618: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5289,6 +5518,14 @@ label000000011618: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "paula inman"
@@ -877,7 +1098,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5300,6 +5438,14 @@ label000000011618: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5300,6 +5537,14 @@ label000000011618: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "inman paula"
@@ -892,7 +1113,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5386,6 +5532,14 @@ label000000011837: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5386,6 +5631,14 @@ label000000011837: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "simon inman"
@@ -907,7 +1128,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5397,6 +5551,14 @@ label000000011837: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5397,6 +5650,14 @@ label000000011837: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "inman simon"
@@ -922,7 +1143,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5467,6 +5629,14 @@ label000000012019: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5467,6 +5728,14 @@ label000000012019: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "jackson grant"
@@ -937,7 +1158,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5478,6 +5648,14 @@ label000000012019: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5478,6 +5747,14 @@ label000000012019: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "grant jackson"
@@ -952,7 +1173,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5614,6 +5792,14 @@ label000000012365: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5614,6 +5891,14 @@ label000000012365: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "olivia grant"
@@ -967,7 +1188,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5625,6 +5811,14 @@ label000000012365: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5625,6 +5910,14 @@ label000000012365: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "grant olivia"
@@ -982,7 +1203,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5733,6 +5927,14 @@ label000000012642: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5733,6 +6026,14 @@ label000000012642: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "elizabeth grant"
@@ -997,7 +1218,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5744,6 +5946,14 @@ label000000012642: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5744,6 +6045,14 @@ label000000012642: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "grant elizabeth"
@@ -1012,7 +1233,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5830,6 +6040,14 @@ label000000012861: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5830,6 +6139,14 @@ label000000012861: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "elizabeth camron"
@@ -1027,7 +1248,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5841,6 +6059,14 @@ label000000012861: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5841,6 +6158,14 @@ label000000012861: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "camron elizabeth"
@@ -1042,7 +1263,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5963,6 +6189,14 @@ label000000013167: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5963,6 +6288,14 @@ label000000013167: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "arthur camron"
@@ -1057,7 +1278,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -5974,6 +6208,14 @@ label000000013167: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -5974,6 +6307,14 @@ label000000013167: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "camron arthur"
@@ -1072,7 +1293,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -6096,6 +6338,14 @@ label000000013473: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -6096,6 +6437,14 @@ label000000013473: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "nypd"
@@ -1087,7 +1308,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -6311,6 +6561,14 @@ label000000013956: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -6311,6 +6660,14 @@ label000000013956: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "murial santina"
@@ -1102,7 +1323,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -6322,6 +6580,14 @@ label000000013956: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -6322,6 +6679,14 @@ label000000013956: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "santina murial"
@@ -1117,7 +1338,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -6429,6 +6695,14 @@ label000000014230: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -6429,6 +6794,14 @@ label000000014230: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "pie sycamore"
@@ -1132,7 +1353,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -6582,6 +6856,14 @@ label000000014585: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -6582,6 +6955,14 @@ label000000014585: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "chloe sadar"
@@ -1147,7 +1368,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -6593,6 +6875,14 @@ label000000014585: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -6593,6 +6974,14 @@ label000000014585: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "sadar chloe"
@@ -1162,7 +1383,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -6844,6 +7134,14 @@ label000000015189: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -6844,6 +7233,14 @@ label000000015189: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "mitchell santina"
@@ -1177,7 +1398,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -6855,6 +7153,14 @@ label000000015189: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -6855,6 +7252,14 @@ label000000015189: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "santina mitchell"
@@ -1192,7 +1413,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -6879,6 +7185,14 @@ label000000015266: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -6879,6 +7284,14 @@ label000000015266: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "clancy sieveri"
@@ -1207,7 +1428,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -6923,6 +7237,14 @@ label000000015365: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -6923,6 +7336,14 @@ label000000015365: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "breakdown boys"
@@ -1222,7 +1443,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -7040,6 +7362,14 @@ label000000015631: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -7040,6 +7461,14 @@ label000000015631: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "brian mason"
@@ -1237,7 +1458,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -7051,6 +7381,14 @@ label000000015631: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -7051,6 +7480,14 @@ label000000015631: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "mason brian"
@@ -1252,7 +1473,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -7161,6 +7499,14 @@ label000000015915: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -7161,6 +7598,14 @@ label000000015915: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "sam deane"
@@ -1267,7 +1488,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -7172,6 +7518,14 @@ label000000015915: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -7172,6 +7617,14 @@ label000000015915: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "deane sam"
@@ -1282,7 +1503,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -7363,6 +7717,14 @@ label000000016379: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -7363,6 +7816,14 @@ label000000016379: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "sterling agency"
@@ -1297,7 +1518,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -7414,6 +7776,14 @@ label000000016495: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -7414,6 +7875,14 @@ label000000016495: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "yvonne lozzotti"
@@ -1312,7 +1533,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -7425,6 +7795,14 @@ label000000016495: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -7425,6 +7894,14 @@ label000000016495: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "lozzotti yvonne"
@@ -1327,7 +1548,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -7673,6 +8051,14 @@ label000000017104: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -7673,6 +8150,14 @@ label000000017104: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "dion lozzotti"
@@ -1342,7 +1563,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -7684,6 +8070,14 @@ label000000017104: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -7684,6 +8169,14 @@ label000000017104: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "lozzotti dion"
@@ -1357,7 +1578,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -7852,6 +8246,14 @@ label000000017519: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -7852,6 +8345,14 @@ label000000017519: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "nicholas chord"
@@ -1372,7 +1593,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -7863,6 +8265,14 @@ label000000017519: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -7863,6 +8364,14 @@ label000000017519: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "chord nicholas"
@@ -1387,7 +1608,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8015,6 +8425,14 @@ label000000017900: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8015,6 +8524,14 @@ label000000017900: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "hanna tanaka"
@@ -1402,7 +1623,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8026,6 +8444,14 @@ label000000017900: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8026,6 +8543,14 @@ label000000017900: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "tanaka hanna"
@@ -1417,7 +1638,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8232,6 +8658,14 @@ label000000018402: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8232,6 +8757,14 @@ label000000018402: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "winera"
@@ -1432,7 +1653,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8273,6 +8707,14 @@ label000000018495: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8273,6 +8806,14 @@ label000000018495: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "adam cole"
@@ -1447,7 +1668,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8399,6 +8841,14 @@ label000000018793: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8399,6 +8940,14 @@ label000000018793: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "liam whiteman"
@@ -1462,7 +1683,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8472,6 +8922,14 @@ label000000018956: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8472,6 +9021,14 @@ label000000018956: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "marla knox"
@@ -1477,7 +1698,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8483,6 +8941,14 @@ label000000018956: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8483,6 +9040,14 @@ label000000018956: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "marla cole"
@@ -1492,7 +1713,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8498,6 +8964,14 @@ label000000019012: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8498,6 +9063,14 @@ label000000019012: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "marla whiteman"
@@ -1507,7 +1728,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8513,6 +8987,14 @@ label000000019045: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8513,6 +9086,14 @@ label000000019045: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "marla knox"
@@ -1522,7 +1743,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8531,6 +9013,14 @@ label000000019087: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8531,6 +9112,14 @@ label000000019087: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "marla Cole"
@@ -1537,7 +1758,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8549,6 +9039,14 @@ label000000019127: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8549,6 +9138,14 @@ label000000019127: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "marla Whiteman"
@@ -1552,7 +1773,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8586,6 +9084,14 @@ label000000019208: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8586,6 +9183,14 @@ label000000019208: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "evelyn sherman"
@@ -1567,7 +1788,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8712,6 +9218,14 @@ label000000019491: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8712,6 +9317,14 @@ label000000019491: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "hotel commonwealth"
@@ -1582,7 +1803,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8776,6 +9290,14 @@ label000000019640: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8776,6 +9389,14 @@ label000000019640: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "otis knox"
@@ -1597,7 +1818,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -8796,6 +9318,14 @@ label000000019684: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -8796,6 +9417,14 @@ label000000019684: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "quanmexlin"
@@ -1612,7 +1833,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -9013,6 +9543,14 @@ label000000020195: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -9013,6 +9642,14 @@ label000000020195: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "imani nash"
@@ -1627,7 +1848,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -9024,6 +9562,14 @@ label000000020195: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -9024,6 +9661,14 @@ label000000020195: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "imani quentin"
@@ -1642,7 +1863,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -9039,6 +9585,14 @@ label000000020251: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -9039,6 +9684,14 @@ label000000020251: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "imani finley"
@@ -1657,7 +1878,7 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
-@@ -9054,6 +9608,14 @@ label000000020284: ; inside futureSearch$1, ; referenced by 1 spots
+@@ -9054,6 +9707,14 @@ label000000020284: ; inside futureSearch$1, ; referenced by 1 spots
  	ptrget ax
  	push ax
  	li ax, "imani camron"
@@ -1672,3 +1893,771 @@ index baf8f0b..07fc534 100644
  	pop bx
  	streq bx, ax
  	mr ax, bx
+@@ -10430,6 +11091,11 @@ fieldGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "Welcome to ChronoZen, where time travel is not just a service but a responsibility.[[In this manual, we\'ll guide you through the rules, regulations, and intricacies of navigating the temporal landscape. Please read carefully to ensure a smooth journey through time."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10448,6 +11114,11 @@ fieldGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "[[1. About ChronoZen"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10466,6 +11137,11 @@ fieldGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "[------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10484,6 +11160,11 @@ fieldGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "In the current year (2064), time travel is a reality governed by ChronoZen, a corporation established to regulate and control temporal excursions. Due to the potential for abuse, the government entrusted ChronoZen with the authority to oversee all time travel operations."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10502,6 +11183,11 @@ fieldGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "[[2. Booking a Trip"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10520,6 +11206,11 @@ fieldGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "[-----------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10538,6 +11229,11 @@ fieldGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "Private citizens can embark on time travel journeys, accompanied by trained agents to ensure responsible temporal exploration. Both agents and clients are equipped with a Paradox Field Excluder (PFE), safeguarding them from the effects of time paradoxes."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10568,6 +11264,11 @@ label000000023650: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "3. The ChronoZen Team"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10586,6 +11287,11 @@ label000000023650: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[---------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10604,6 +11310,11 @@ label000000023650: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Each time travel expedition is monitored by a dedicated agent and overseen by a Monitor in the present. The Board of Directors, internally known as \"The Brass,\" formulates policies, enforces rules, and handles inquiries. The Brass ensures that each client\'s mission is carefully evaluated to minimize potential damage to the timeline."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10622,6 +11333,11 @@ label000000023650: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[4. Paradox Field Excluder (PFE)"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10640,6 +11356,11 @@ label000000023650: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[-------------------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10658,6 +11379,11 @@ label000000023650: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "The PFE is a crucial piece of equipment for time travelers. It shields them from temporal paradoxes, allowing changes to their personal history without erasing their existence. ChronoZen takes every precaution to prevent damage to the client\'s timeline, and in the event of a mishap, compensation is provided."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10676,6 +11402,11 @@ label000000023650: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[5. Agent Selection and Training"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10694,6 +11425,11 @@ label000000023650: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[-------------------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10712,6 +11448,11 @@ label000000023650: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Becoming a ChronoZen agent is no easy feat. Candidates must possess a specific psychological profile, capable of handling the constant rewriting of personal history. If you are reading this, congratulations on being one of the chosen few!"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10742,6 +11483,11 @@ label000000024017: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "6. Landing Points"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10760,6 +11506,11 @@ label000000024017: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[-----------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10778,6 +11529,11 @@ label000000024017: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Time travel destinations are carefully calculated to meet specific criteria. The landing point must be outdoors, open to the sky, and devoid of any observers or recording devices. Failure to meet these criteria will result in the inability to initiate time travel."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10796,6 +11552,11 @@ label000000024017: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[7. Time Impact Rankings"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10814,6 +11575,11 @@ label000000024017: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[-----------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10832,6 +11598,11 @@ label000000024017: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "To keep the timeline managable and organized; every person, event and location in history has been assigned a Timeline Impact Ranking (TIR). Please consult the TIR section of the field guide for more detailed information about how the rankings govern your interactions while traveling through time."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10850,6 +11621,11 @@ label000000024017: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[8. Emergency Rewind Protocol (ERP)"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10868,6 +11644,11 @@ label000000024017: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[----------------------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10886,6 +11667,11 @@ label000000024017: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "All Monitors have access to the ERP system, which allows them to rewind a field agent\'s personal timeline by up to 30 minutes. To prevent accidental abuse, the ERP system will only become available in the event of an agent\'s death."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10904,6 +11690,11 @@ label000000024017: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[WARNING: Rewinds should only be performed on trained agents with long-term PFE exposure. Do NOT attempt on clients."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10934,6 +11725,11 @@ label000000024422: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[Conclusion"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10952,6 +11748,11 @@ label000000024422: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[----------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -10970,6 +11771,11 @@ label000000024422: ; inside fieldGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "As a ChronoZen time traveler, you are part of a carefully regulated system designed to balance exploration with responsibility. Always adhere to guidelines, respect the timelines, and enjoy your journey through the corridors of time responsibly.[[Safe travels!"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11035,6 +11841,11 @@ historyGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "A Brief History of Time Travel[[NOTE: This guide has been chrono-locked to preserve our history. Should your knowledge of these events not match this chronology, contact your nearest ChronoZen branch immediately.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11053,6 +11864,11 @@ historyGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "1. Discovery of the Quansonic Particle (2041)["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11071,6 +11887,11 @@ historyGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "---------------------------------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11089,6 +11910,11 @@ historyGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "In the year 2041, scientists made a monumental breakthrough with the discovery of the Quansonic particle, a mysterious entity that seemed to defy the laws of physics. Initial research suggested that these particles existed outside of traditional spacetime, opening the door to realms previously thought unreachable.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11107,6 +11933,11 @@ historyGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "2. The Timestream Revelation (2043)["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11125,6 +11956,11 @@ historyGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "-----------------------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11143,6 +11979,11 @@ historyGuideSet$1: ; 1 args
+ 	push op
+ 	li ax, "Further investigation into the Quansonic particles revealed a startling truth: they were leaking from another dimension altogether, a dimension that became known as \"the timestream.\" This revelation sparked a scientific revolution as researchers embarked on a quest to understand and harness the enigmatic properties of this newfound dimension.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11173,6 +12014,11 @@ label000000024926: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "3. The Quest for Time Travel (2044-2045)["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11191,6 +12037,11 @@ label000000024926: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "----------------------------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11209,6 +12060,11 @@ label000000024926: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "With the knowledge of the timestream at their fingertips, scientists worldwide focused their efforts on devising methods to traverse this extradimensional realm. The pursuit of time travel became the holy grail of scientific exploration, with researchers racing against time to unlock the secrets of temporal manipulation.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11227,6 +12083,11 @@ label000000024926: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "4. Breakthrough in Time Travel Technology (2045)["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11245,6 +12106,11 @@ label000000024926: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "------------------------------------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11263,6 +12129,11 @@ label000000024926: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "In a historic moment for humanity, scientists succeeded in developing the first functional time-travel technology. By harnessing the power of the timestream, they created a gateway to the past, allowing for unprecedented journeys through the annals of history.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11281,6 +12152,11 @@ label000000024926: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "5. Government Intervention and Regulations (2047)["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11299,6 +12175,11 @@ label000000024926: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "-------------------------------------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11317,6 +12198,11 @@ label000000024926: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "As the implications of time travel became apparent, governments intervened to regulate its usage and prevent potential abuse. Stricter regulations were implemented to ensure the responsible exploration of the timestream, with oversight from global authorities."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11347,6 +12233,11 @@ label000000025293: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "6. Rise of Irresponsible Use (2048-2051)["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11365,6 +12256,11 @@ label000000025293: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "----------------------------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11383,6 +12279,11 @@ label000000025293: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Despite regulatory efforts, the allure of time travel proved too tempting for some. Wealthy individuals exploited corrupt scientists to satisfy personal desires, leading to chaos and damage across the temporal landscape.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11401,6 +12302,11 @@ label000000025293: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "7. Formation of ChronoZen (2052)["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11419,6 +12325,11 @@ label000000025293: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "--------------------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11437,6 +12348,11 @@ label000000025293: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "In response to the escalating crisis, governments collaborated to establish ChronoZen, a specialized corporation tasked with regulating and overseeing all time travel operations. ChronoZen\'s formation marked a turning point in the chaotic era of temporal exploration, bringing order and structure to the realm of time travel.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11455,6 +12371,11 @@ label000000025293: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "8. Restoring Order and Responsibility (2053-Present)["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11473,6 +12394,11 @@ label000000025293: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "----------------------------------------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11491,6 +12417,11 @@ label000000025293: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Under the guidance of ChronoZen, humanity embarked on a journey of responsible temporal exploration. With strict regulations in place and trained agents ensuring ethical conduct, the dangers of irresponsible time travel were mitigated, allowing for the preservation of history and the protection of the temporal fabric.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11521,6 +12452,11 @@ label000000025660: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "9. Into the Future["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11539,6 +12475,11 @@ label000000025660: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "------------------["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11557,6 +12498,11 @@ label000000025660: ; inside historyGuideSet$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "The discovery of the Quansonic particle and the subsequent revelation of the timestream reshaped the course of human history, opening doors to realms previously thought unreachable. As humanity continues to navigate the complexities of time travel, the lessons learned from the past serve as a beacon guiding us towards a future of responsible exploration and discovery."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -11782,6 +12728,11 @@ label000000026187: ; inside processNozzoButton$1, ; referenced by 1 spots
+ 	pop op
+ 	sourceline 1551
+ 	li ax, "Rastar Locks were the most popular brand of combination padlock from 1992-2043. Rastar Lock combination padlocks were typically found securing lockers, bicycles, gates and many other security applications.[[The manufacturing of these locks was phased out in 2042, when DNA-encoded clamps became commonplace.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	li mar, @var000000
+ 	push mar
+@@ -12035,6 +12986,11 @@ label000000026817: ; inside processNozzoButton$1, ; referenced by 1 spots
+ 	jzi label000000026929
+ 	sourceline 1596
+ 	li ax, "OBITUARY[Elizabeth Camron[Feb 21, 1903 - November 12th, 1980[[Elizabeth Grant Camron, 77, died peacefully in her sleep on November 12th.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	li mar, @var000000
+ 	push mar
+@@ -12044,6 +13000,11 @@ label000000026817: ; inside processNozzoButton$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Mrs. Camron worked for 36 years as a teacher and educator of middle school children, before retiring in 1962.[[In 1923 she married Arthur Camron, and they were together until Arthur\'s death in 1979.[[Elizabeth loved good food, philanthropy and socializing. She was well-known for having a willing ear, a keen mind, and a wide-open heart.[[She is survived by her sons Jack and Sam; six grandchildren; and two great-grandchildren."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -12130,6 +13091,11 @@ label000000027034: ; inside processNozzoButton$1, ; referenced by 1 spots
+ 	jzi label000000027136
+ 	sourceline 1612
+ 	li ax, "OBITUARY[Arthur Camron[April 14, 1900 - July 20th, 1979[[Arthur Edward Camron, a longtime resident of NY, died peacefully on July 20th at the age of 79. Art cherished his family and many friends and he always greeted strangers with warmth and kind words.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	li mar, @var000000
+ 	push mar
+@@ -12139,6 +13105,11 @@ label000000027034: ; inside processNozzoButton$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Camron worked over 50 years in the urban development industry, retiring in 1971 from Seagram Real Estate to dedicate the rest of his life to philanthropy. He was an active member of the Children\'s Aid Society, and relished family time with his wife, children, and grandchildren as he travelled the world.[[Art is survived by his wife Elizabeth; his sons Jack and Sam; six grandchildren; and two great-grandchildren."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
+@@ -12335,6 +13306,11 @@ label000000027513: ; inside processNozzoButton$1, ; referenced by 1 spots
+ 	jzi label000000027673
+ 	sourceline 1641
+ 	li ax, "OBITUARY[Mitchell Santina[March 14, 1890 - Nov 26th, 1961[[Mitchell Santina, a lifetime resident of NY, died peacefully at his Staten Island home on Nov 26th at the age of 71. Mitch was a lifetime member of the NYPD, serving as an officer from the age of 18 until he retired at the age of 52.[["
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	li mar, @var000000
+ 	push mar
+@@ -12344,6 +13320,11 @@ label000000027513: ; inside processNozzoButton$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Since his retirement, he dedicated his life to training the next generation of officers at the Richmond Terrace Police Academy.[[Mitchell is survived by his wife Murial; his three sons (all NYPD officers); three grandchildren; and a lifetime of dedicated service."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, @var000000
+ 	push mar
+ 	pop mar
