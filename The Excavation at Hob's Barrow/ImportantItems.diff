@@ -15,3 +15,21 @@ diff --git a/ImportantItems.s b/../ImportantItems.s
  	push ax
  	ptrstack 12
  	memread4 ax
+@@ -6881,7 +6888,7 @@ label000000015145: ; inside dialog_options_render$1, ; referenced by 1 spots
+ 	farcall ax
+ 	pop op
+ 	push ax
+-	li ax, 5
++	li ax, 10
+ 	pop bx
+ 	sub bx, ax
+ 	mr ax, bx
+@@ -7137,7 +7144,7 @@ label000000015797: ; inside dialog_options_get_dimensions$1, ; referenced by 1 s
+ 	memwrite4 ax
+ label000000015934: ; inside dialog_options_get_dimensions$1, ; referenced by 1 spots
+ 	sourceline 460
+-	li ax, 200
++	li ax, 190
+ 	farpush ax
+ 	li ax, 9
+ 	farpush ax
