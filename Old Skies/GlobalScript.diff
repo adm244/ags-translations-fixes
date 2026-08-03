@@ -1,8 +1,39 @@
 diff --git a/GlobalScript.s b/../GlobalScript.s
-index a3a2998..4879756 100644
+index a3a2998..5151106 100644
 --- a/GlobalScript.s
 +++ b/../GlobalScript.s
-@@ -35676,6 +35676,14 @@ doTutorial$3: ; 3 args
+@@ -18548,6 +18548,15 @@ label000000041345: ; inside show_save_game_dialog$0, ; referenced by 1 spots
+ 	ptrset ax
+ label000000041360: ; inside show_save_game_dialog$0, ; referenced by 10 spots
+ 	sourceline 2267
++	ptrstack 4
++	ptrget ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	li ax, 1
+ 	mr mar, sp
+ 	memwrite4 ax
+@@ -25066,6 +25075,14 @@ makeAutoSave$1: ; 1 args
+ 	ptrstack 8
+ 	memread4 ax
+ 	ptrinit ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	sourceline 3133
+ 	ptrstack 8
+ 	push mar
+@@ -35676,6 +35693,14 @@ doTutorial$3: ; 3 args
  	ptrstack 8
  	memread4 ax
  	ptrinit ax
@@ -17,7 +48,7 @@ index a3a2998..4879756 100644
  	sourceline 4263
  	ptrstack 16
  	memread4 ax
-@@ -35775,6 +35783,11 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+@@ -35775,6 +35800,11 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
  	farpush ax
  	li ax, " from your home time period"
  	farpush ax
@@ -29,7 +60,7 @@ index a3a2998..4879756 100644
  	ptrstack 12
  	push mar
  	pop mar
-@@ -35795,8 +35808,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+@@ -35795,8 +35825,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
  	farpush ax
  	li ax, "to search for him"
  	farpush ax
@@ -48,7 +79,7 @@ index a3a2998..4879756 100644
  	ptrstack 12
  	push mar
  	pop mar
-@@ -35817,8 +35840,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+@@ -35817,8 +35857,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
  	farpush ax
  	li ax, "You can"
  	farpush ax
@@ -67,7 +98,7 @@ index a3a2998..4879756 100644
  	ptrstack 12
  	push mar
  	pop mar
-@@ -35839,8 +35872,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+@@ -35839,8 +35889,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
  	farpush ax
  	li ax, " to an info database"
  	farpush ax
@@ -86,3 +117,25 @@ index a3a2998..4879756 100644
  	ptrstack 12
  	push mar
  	pop mar
+@@ -111132,18 +111192,13 @@ btn_options_auto_OnClick$2: ; 2 args
+ 	farsubsp 2
+ 	pop op
+ 	sourceline 13594
+-	li mar, btn_options_auto
+-	mr ax, mar
+-	push op
+-	callobj ax
+ 	setfuncargs 0
+-	li ax, Button::get_Text
++	li ax, Speech::get_SkipStyle
+ 	farcall ax
+-	pop op
+ 	push ax
+-	li ax, "Off"
++	li ax, 0
+ 	pop bx
+-	streq bx, ax
++	cmpne bx, ax
+ 	mr ax, bx
+ 	jzi label000000252232
+ 	sourceline 13596
