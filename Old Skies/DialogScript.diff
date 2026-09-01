@@ -1,0 +1,30 @@
+diff --git a/DialogScript.s b/../DialogScript.s
+index 7ad9640..a50511b 100644
+--- a/DialogScript.s
++++ b/../DialogScript.s
+@@ -215831,6 +215831,25 @@ label000000498396: ; inside _run_dialog102$1, ; referenced by 1 spots
+ 	strne bx, ax
+ 	mr ax, bx
+ 	jzi label000000499455
++	li mar, lbl_clock
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, Label::get_Text
++	farcall ax
++	pop op
++	push ax
++	li ax, "1:15pm ET"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	pop bx
++	strne bx, ax
++	mr ax, bx
++	jzi label000000499455
+ 	sourceline 83
+ 	push op
+ 	li ax, "&18 ..."

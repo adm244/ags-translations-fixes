@@ -1,5 +1,5 @@
 diff --git a/TwoClickHandler.s b/../TwoClickHandler.s
-index cb5071a..7f2dce4 100644
+index cb5071a..b0e5ebc 100644
 --- a/TwoClickHandler.s
 +++ b/../TwoClickHandler.s
 @@ -25,6 +25,14 @@ changeLblText$2: ; 2 args
@@ -48,3 +48,457 @@ index cb5071a..7f2dce4 100644
  	push ax
  	ptrstack 12
  	push mar
+@@ -716,10 +739,71 @@ label000000001418: ; inside GetInvDesc$1, ; referenced by 1 spots
+ 	jmpi label000000001522
+ label000000001487: ; inside GetInvDesc$1, ; referenced by 1 spots
+ 	sourceline 165
++	li ax, 32
++	push ax
+ 	li mar, sprayName
+-	push mar
+-	pop mar
+ 	ptrget ax
++	push ax
++	li ax, StrSplit$2
++	call ax
++	subi sp, 8
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	li ax, 2
++	mr dx, ax
++	ptrstack 4
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
++	li ax, 1
++	mr dx, ax
++	ptrstack 4
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
++	li ax, 0
++	mr dx, ax
++	ptrstack 4
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
++	li ax, "%s %s %s"
++	farpush ax
++	setfuncargs 4
++	li ax, String::Format^101
++	farcall ax
++	farsubsp 4
+ 	farpush ax
+ 	li ax, "You hear some liquid sloshing around. A digital label on the bottle reads \"PasaGel: %s\""
+ 	farpush ax
+@@ -728,6 +812,9 @@ label000000001487: ; inside GetInvDesc$1, ; referenced by 1 spots
+ 	farcall ax
+ 	farsubsp 2
+ 	ptrstack 4
++	ptrzero 
++	subi sp, 4
++	ptrstack 4
+ 	push mar
+ 	pop mar
+ 	ptrset ax
+@@ -1405,6 +1492,11 @@ label000000002886: ; inside GetInvDesc$1, ; referenced by 1 spots
+ label000000002955: ; inside GetInvDesc$1, ; referenced by 1 spots
+ 	sourceline 290
+ 	li ax, "A plastic syringe with a metal needle. It is half-full of your blood"
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
+ 	newstr ax
+ 	mr mar, sp
+ 	ptrinit ax
+@@ -1421,6 +1513,11 @@ label000000002955: ; inside GetInvDesc$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, ", sodium nitrate crystals"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -1448,6 +1545,11 @@ label000000003028: ; inside GetInvDesc$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, ", buformin hydrochloride"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -1467,6 +1569,11 @@ label000000003086: ; inside GetInvDesc$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, " and the tell-tale sparkles of Quansonic particles."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -1650,8 +1757,18 @@ label000000003432: ; inside GetInvDesc$1, ; referenced by 54 spots
+ 	farpush ax
+ 	li ax, "<Press A to "
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "<Click to "
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -1672,8 +1789,18 @@ label000000003432: ; inside GetInvDesc$1, ; referenced by 54 spots
+ 	farpush ax
+ 	li ax, "<Press A to "
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "<CLICK TO "
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -1906,6 +2033,11 @@ label000000004003: ; inside getMonthSwitchDesc$0, ; referenced by 1 spots
+ 	pop mar
+ 	ptrget ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "Return to Oct 14, 1977[(Estimated time: %s)"
+ 	farpush ax
+ 	setfuncargs 2
+@@ -1934,6 +2066,11 @@ label000000004063: ; inside getMonthSwitchDesc$0, ; referenced by 1 spots
+ 	pop mar
+ 	ptrget ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "Return to July 4, 1994[(Estimated time: %s)"
+ 	farpush ax
+ 	setfuncargs 2
+@@ -2751,6 +2888,13 @@ label000000005805: ; inside GetMapDesc$1, ; referenced by 1 spots
+ 	push mar
+ 	pop mar
+ 	ptrget ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	newstr ax
++	ptrset ax
+ 	callobj ax
+ 	setfuncargs 1
+ 	li ax, String::Append^1
+@@ -9638,6 +9782,245 @@ label000000021380: ; inside repeatedly_execute_always$0, ; referenced by 2 spots
+ 	sourceline 1532
+ 	li ax, 0
+ 	ret 
++
++StrSplit$2: ; 2 args
++	thisaddr 0
++	ptrstack 8
++	memread4 ax
++	ptrinit ax
++	li ax, 1
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++label_00000000047: ; inside StrSplit$2, ; referenced by 1 spots
++	ptrstack 4
++	memread4 ax
++	push ax
++	ptrstack 24
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	jzi label_00000000170
++	ptrstack 20
++	ptrget ax
++	push ax
++	ptrstack 8
++	memread4 ax
++	mr dx, ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	farpush dx
++	setfuncargs 1
++	li ax, String::geti_Chars
++	farcall ax
++	farsubsp 1
++	pop op
++	push ax
++	ptrstack 28
++	memread4 ax
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label_00000000157
++	ptrstack 12
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++label_00000000157: ; inside StrSplit$2, ; referenced by 1 spots
++	ptrstack 4
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++	jmpi label_00000000047
++label_00000000170: ; inside StrSplit$2, ; referenced by 1 spots
++	subi sp, 4
++	ptrstack 8
++	memread4 ax
++	newarr ax, 4, 1
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 12
++	memread4 ax
++	push ax
++	li ax, 0
++	pop bx
++	gt bx, ax
++	mr ax, bx
++	jzi label_00000000566
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++label_00000000236: ; inside StrSplit$2, ; referenced by 1 spots
++	ptrstack 8
++	memread4 ax
++	push ax
++	ptrstack 32
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	jzi label_00000000467
++	ptrstack 28
++	ptrget ax
++	push ax
++	ptrstack 12
++	memread4 ax
++	mr dx, ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	farpush dx
++	setfuncargs 1
++	li ax, String::geti_Chars
++	farcall ax
++	farsubsp 1
++	pop op
++	push ax
++	ptrstack 36
++	memread4 ax
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label_00000000454
++	push op
++	ptrstack 12
++	memread4 ax
++	push ax
++	ptrstack 12
++	memread4 ax
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	farpush ax
++	ptrstack 8
++	memread4 ax
++	farpush ax
++	ptrstack 32
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::Substring^2
++	farcall ax
++	farsubsp 2
++	pop op
++	push ax
++	ptrstack 20
++	memread4 ax
++	mr dx, ax
++	pop ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrset ax
++	ptrstack 16
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++	ptrstack 8
++	memread4 ax
++	push ax
++	li ax, 1
++	pop bx
++	add bx, ax
++	mr ax, bx
++	ptrstack 4
++	memwrite4 ax
++label_00000000454: ; inside StrSplit$2, ; referenced by 1 spots
++	ptrstack 8
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++	jmpi label_00000000236
++label_00000000467: ; inside StrSplit$2, ; referenced by 1 spots
++	push op
++	ptrstack 12
++	memread4 ax
++	push ax
++	ptrstack 12
++	memread4 ax
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	farpush ax
++	ptrstack 8
++	memread4 ax
++	farpush ax
++	ptrstack 32
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::Substring^2
++	farcall ax
++	farsubsp 2
++	pop op
++	push ax
++	ptrstack 24
++	memread4 ax
++	push ax
++	li ax, 1
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	mr dx, ax
++	pop ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrset ax
++	subi sp, 8
++label_00000000566: ; inside StrSplit$2, ; referenced by 1 spots
++	ptrstack 4
++	push mar
++	pop mar
++	ptrget ax
++	ptrstack 20
++	ptrzerond 
++	ptrstack 4
++	ptrzerond 
++	subi sp, 12
++	ret 
+ .strings
+ "<Press A to "
+ "<Click to "

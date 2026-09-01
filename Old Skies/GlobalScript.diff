@@ -1,5 +1,5 @@
 diff --git a/GlobalScript.s b/../GlobalScript.s
-index a3a2998..5151106 100644
+index a3a2998..3bcf35f 100644
 --- a/GlobalScript.s
 +++ b/../GlobalScript.s
 @@ -18548,6 +18548,15 @@ label000000041345: ; inside show_save_game_dialog$0, ; referenced by 1 spots
@@ -33,7 +33,175 @@ index a3a2998..5151106 100644
  	sourceline 3133
  	ptrstack 8
  	push mar
-@@ -35676,6 +35693,14 @@ doTutorial$3: ; 3 args
+@@ -33770,6 +33787,11 @@ label000000075581: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[User: Nozzarelli, Frank["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -33812,6 +33834,11 @@ label000000075581: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Security Clearance Level: B["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -33849,6 +33876,11 @@ label000000075581: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Access Granted![["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -34126,6 +34158,11 @@ label000000076667: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[Combination found: 32-4-24"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -34171,6 +34208,11 @@ label000000076667: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[WARNING: PARADOX DETECTED."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -34207,6 +34249,11 @@ label000000076667: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[WARNING: PARADOX DETECTED."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -34243,6 +34290,11 @@ label000000076667: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[WARNING: PARADOX DETECTED."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -34666,6 +34718,11 @@ label000000077920: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[This is indeed the Lost combination of numbers. However, we can neither confirm or deny their veracity in predicting an extinction event and furthermore, they will not open the padlock. But well done for finding this."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -34738,6 +34795,11 @@ label000000078082: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[You didn\'t REALLY think this would be the correct combination. But you paid homage to gaming history and took your shot, and for that we commend you. Now go and solve the puzzle properly!"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -34784,6 +34846,11 @@ label000000078188: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[We are sorry. The provided serial number could not be found."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -34940,6 +35007,11 @@ label000000078325: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[User: Nozzarelli, Frank["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -34982,6 +35054,11 @@ label000000078325: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Security Clearance Level: B["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -35019,6 +35096,11 @@ label000000078325: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Access Granted![["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -35382,6 +35464,11 @@ label000000079556: ; inside doSerialNumberSearch$0, ; referenced by 1 spots
+ 	push op
+ 	li ax, "[[No results found."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_search_results
+ 	mr ax, mar
+ 	push op
+@@ -35676,6 +35763,14 @@ doTutorial$3: ; 3 args
  	ptrstack 8
  	memread4 ax
  	ptrinit ax
@@ -48,7 +216,7 @@ index a3a2998..5151106 100644
  	sourceline 4263
  	ptrstack 16
  	memread4 ax
-@@ -35775,6 +35800,11 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+@@ -35775,6 +35870,11 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
  	farpush ax
  	li ax, " from your home time period"
  	farpush ax
@@ -60,7 +228,7 @@ index a3a2998..5151106 100644
  	ptrstack 12
  	push mar
  	pop mar
-@@ -35795,8 +35825,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+@@ -35795,8 +35895,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
  	farpush ax
  	li ax, "to search for him"
  	farpush ax
@@ -79,7 +247,7 @@ index a3a2998..5151106 100644
  	ptrstack 12
  	push mar
  	pop mar
-@@ -35817,8 +35857,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+@@ -35817,8 +35927,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
  	farpush ax
  	li ax, "You can"
  	farpush ax
@@ -98,7 +266,7 @@ index a3a2998..5151106 100644
  	ptrstack 12
  	push mar
  	pop mar
-@@ -35839,8 +35889,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
+@@ -35839,8 +35959,18 @@ label000000080410: ; inside doTutorial$3, ; referenced by 1 spots
  	farpush ax
  	li ax, " to an info database"
  	farpush ax
@@ -117,7 +285,735 @@ index a3a2998..5151106 100644
  	ptrstack 12
  	push mar
  	pop mar
-@@ -111132,18 +111192,13 @@ btn_options_auto_OnClick$2: ; 2 args
+@@ -73822,10 +73952,71 @@ label000000166964: ; inside btnSprayGenerate_OnClick$2, ; referenced by 1 spots
+ 	li mar, showMenu
+ 	memwrite4 ax
+ 	sourceline 8951
++	li ax, 32
++	push ax
+ 	li mar, sprayName
+-	push mar
+-	pop mar
+ 	ptrget ax
++	push ax
++	li ax, StrSplit$2
++	call ax
++	subi sp, 8
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	li ax, 2
++	mr dx, ax
++	ptrstack 4
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
++	li ax, 1
++	mr dx, ax
++	ptrstack 4
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
++	li ax, 0
++	mr dx, ax
++	ptrstack 4
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrget ax
++	assert ax
++	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
++	li ax, "%s %s %s"
++	farpush ax
++	setfuncargs 4
++	li ax, String::Format^101
++	farcall ax
++	farsubsp 4
+ 	farpush ax
+ 	li ax, "A small spray bottle. A digital label on the bottle reads \"PasaGel: %s\""
+ 	farpush ax
+@@ -73833,6 +74024,9 @@ label000000166964: ; inside btnSprayGenerate_OnClick$2, ; referenced by 1 spots
+ 	li ax, String::Format^101
+ 	farcall ax
+ 	farsubsp 2
++	ptrstack 4
++	ptrzero 
++	subi sp, 4
+ 	mr mar, sp
+ 	ptrinit ax
+ 	addi sp, 4
+@@ -74395,6 +74589,11 @@ btnChatLog5_OnClick$2: ; 2 args
+ 	push op
+ 	li ax, "<Cassie> Can we PLEASE not test military grade electronic pulse code on our own system\?["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74431,6 +74630,11 @@ btnChatLog5_OnClick$2: ; 2 args
+ 	push op
+ 	li ax, "<Benji> Sorry. I didn\'t expect the pulse to be that strong.["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74449,6 +74653,11 @@ btnChatLog5_OnClick$2: ; 2 args
+ 	push op
+ 	li ax, "<Benji> I\'ve reprogrammed it so it can only deploy on a timer.["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74485,6 +74694,11 @@ btnChatLog5_OnClick$2: ; 2 args
+ 	push op
+ 	li ax, "<Madison> My tablet blew up! It set my purse on FIRE.["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74521,6 +74735,11 @@ btnChatLog5_OnClick$2: ; 2 args
+ 	push op
+ 	li ax, "<Benji> But think of the potential applications for timed delivery! It\'s worth a fortune.["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74557,6 +74776,11 @@ btnChatLog5_OnClick$2: ; 2 args
+ 	push op
+ 	li ax, "<Madison> Nobody will want to buy this.["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74593,6 +74817,11 @@ btnChatLog5_OnClick$2: ; 2 args
+ 	push op
+ 	li ax, "<Benji> EVERYONE will want to buy this!["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74629,6 +74858,11 @@ btnChatLog5_OnClick$2: ; 2 args
+ 	push op
+ 	li ax, "<Cassie> Until this is resolved, I took it off the network and stored it on a memStick. It\'ll be in my office.["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74662,6 +74896,11 @@ label000000169057: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Cassie, could you book me a shuttle back to NY\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74680,6 +74919,11 @@ label000000169057: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> I already booked you one. It left 6 hours ago. [["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74698,6 +74942,11 @@ label000000169057: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> I know. I was on it. I missed the stop. I\'m in Boston now.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74716,6 +74965,11 @@ label000000169057: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Benji> She means she fell asleep.["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74734,6 +74988,11 @@ label000000169057: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Benji> I told you this would happen. Trains always knock you out cold.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74752,6 +75011,11 @@ label000000169057: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Are you going to help me or are you going to judge\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74770,6 +75034,11 @@ label000000169057: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> I\'ve booked you a train back to NY. I also arranged to have a thermos of coffee waiting at your seat.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74788,6 +75057,11 @@ label000000169057: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Thanks, Cassie."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74821,6 +75095,11 @@ label000000169393: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Can you PLEASE reinforce this delivery drone\? It leaked dressing all over the table. It stained the whole thing.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74839,6 +75118,11 @@ label000000169393: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Benji> Can\'t we just use the clear vinaigrette\? Why do you insist on the orange stuff\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74857,6 +75141,11 @@ label000000169393: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Because it shows up on camera better, obviously.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74875,6 +75164,11 @@ label000000169393: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Benji> Fine. Cassie, could you order some seam sealer\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74893,6 +75187,11 @@ label000000169393: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> Already done."
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74926,6 +75225,11 @@ label000000169615: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Is PasaGel really the best name for it\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74944,6 +75248,11 @@ label000000169615: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Benji> I invented it. I can name it after myself.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74962,6 +75271,11 @@ label000000169615: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Fine. We\'ll workshop it later. Can you at least change the code phrases\? I\'m worried that it\'s too easy to set it off by accident. [["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74980,6 +75294,11 @@ label000000169615: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Benji> I can change the last set to nonsense phrases. Nobody will say those accidentally.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -74998,6 +75317,11 @@ label000000169615: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Famous last words. Nothing better explode this time.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75016,6 +75340,11 @@ label000000169615: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Benji> No promises![["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75034,6 +75363,11 @@ label000000169615: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> Unrelated to anything you\'re talking about, but I\'ve ordered some updated fire extinguishers.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75067,6 +75401,11 @@ label000000169913: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> Just FYI. The new temp is arriving later this morning.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75085,6 +75424,11 @@ label000000169913: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Benji> Are you sure this is necessary\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75103,6 +75447,11 @@ label000000169913: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> Yes.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75121,6 +75470,11 @@ label000000169913: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> We don\'t have funding yet. Adding more staff is a risk.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75139,6 +75493,11 @@ label000000169913: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> We can afford it.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75157,6 +75516,11 @@ label000000169913: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Benji> What\'s a temp going to do, anyway\? Everything around here runs like clockwork.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75175,6 +75539,11 @@ label000000169913: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> Trust me. They\'ll find something.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75193,6 +75562,11 @@ label000000169913: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> I have concerns.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75211,6 +75585,11 @@ label000000169913: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> Too late. [["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75244,6 +75623,11 @@ label000000170287: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> Who put this gun in my desk drawer\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75262,6 +75646,11 @@ label000000170287: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Sorry, Cassie. I have nowhere else to put it.["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75280,6 +75669,11 @@ label000000170287: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> You try carrying a gun while wearing a vintage Margiela Tabi.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75298,6 +75692,11 @@ label000000170287: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> Why bring it in the first place\? This place is locked down tight.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75316,6 +75715,11 @@ label000000170287: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> For the trip to and from home. Can\'t be too careful, Cassie.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75334,6 +75738,11 @@ label000000170287: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Cassie> You live two blocks away\? And you take a car service\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75352,6 +75761,11 @@ label000000170287: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Can\'t. Be. Too. Careful.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75385,6 +75799,11 @@ label000000170585: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Benji> Did you seriously get a WEG mark 1\?[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75403,6 +75822,11 @@ label000000170585: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Yes, I did. Can\'t be too careful.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75453,6 +75877,11 @@ label000000170585: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> I don\'t know what that means.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75471,6 +75900,11 @@ label000000170585: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Benji> It means that gun has no PUNCH. I could make you something better.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -75489,6 +75923,11 @@ label000000170585: ; inside btnChatLog5_OnClick$2, ; referenced by 1 spots
+ 	push op
+ 	li ax, "<Madison> Leave it, Benj. This is fine.[["
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+@@ -90976,6 +91415,11 @@ label000000206063: ; inside readConfession$1, ; referenced by 2 spots
+ 	push op
+ 	li ax, "Celia: Let\'s talk about those early days, Mr. Chord. Who was your first kill\?[[Nick: If you mean a kill I got paid for, that would be... Yvonne Lozzotti.[[Celia: You remember her name\?[[Nick: I remember \'em all.[[Celia: Why did you kill her\?[[Nick: No idea. I didn\'t ask. I got a list of names. She was second on the list. So I did her first.[[Celia: Why\?[[Nick: Because the first wasn\'t where they said she\'d be. Does it matter\?[[Celia: Not at all. So. How did you... do the deed\?[[Nick: Pretty standard stuff. Followed her until there wasn\'t anyone around. Pulled her into an alley. Pop pop. Done. Got paid.[[Celia: That sounds extremely risky. You weren\'t worried about getting caught\?[[Nick: I was young and cocky, sure. But getting caught\? You DO know what happened the next day, right\?"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_book
+ 	mr ax, mar
+ 	push op
+@@ -91020,6 +91464,11 @@ label000000206332: ; inside readConfession$1, ; referenced by 1 spots
+ 	push op
+ 	li ax, "Celia: Let\'s talk about those early days, Mr. Chord. You said Yvonne Lozzotti was your first paid kill\?[[Nick: Nah, she wasn\'t mine. She was supposed to be, but I was... busy.[[Celia: Oh right. That was when you were drugged and tied up in your apartment, right\?[[Nick: Jesus. Did your research, didn\'t you\?[[Celia: You reported that you were subdued by, quote: \"Some old lady and an Australian chick\"\?[[Nick: Sure. They got the drop on me. Didn\'t wake up till 10am. Didn\'t even know the towers fell, because I spent the whole morning trying to get free.[[Celia: That must have been embarrassing for a tough guy like you.[[Nick: Nah. It taught me a valuable lesson. Don\'t underestimate ANYONE.[[Celia: So you didn\'t kill Yvonne\?[[Nick: Nah. Not me. They gave it to someone else.[[Celia: Who\?[[Nick: Not gonna answer that. Next question\?"
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_book
+ 	mr ax, mar
+ 	push op
+@@ -91160,16 +91609,31 @@ label000000206664: ; inside readConfession$1, ; referenced by 1 spots
+ 	pop mar
+ 	ptrget ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 8
+ 	push mar
+ 	pop mar
+ 	ptrget ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	ptrstack 12
+ 	push mar
+ 	pop mar
+ 	ptrget ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "Celia: I\'d like to talk about Imani %s. You were given the job to kill her, correct\?[[Nick: Yeah, but I was... busy. As I said.[[Celia: We\'ll get to that, but one thing first. Was she targetted because of her connection to Lizzie %s\?[[Nick: Who\?[[Celia: The singer. Lizzie %s. They say she had connections to crime families going back to the 1870s.[[Nick: I wouldn\'t know anything about that.[[Celia: So why kill her\?[[Nick: No idea! You\'d have to ask Tanner. Not me.[[Celia: Tanner\?[[Nick: Nobody. Forget I said anything.[[Celia: What happened to being open and honest\?[[Nick: About ME, yeah. Anyone else\? Forget it. I got SOME scruples left. Next question\?"
+ 	farpush ax
+ 	setfuncargs 4
+@@ -111132,18 +111596,13 @@ btn_options_auto_OnClick$2: ; 2 args
  	farsubsp 2
  	pop op
  	sourceline 13594
@@ -139,3 +1035,249 @@ index a3a2998..5151106 100644
  	mr ax, bx
  	jzi label000000252232
  	sourceline 13596
+@@ -111506,6 +111965,245 @@ label000000252937: ; inside btnselectController_OnClick$2, ; referenced by 1 spo
+ 	ptrstack 8
+ 	ptrzerond 
+ 	ret 
++
++StrSplit$2: ; 2 args
++	thisaddr 0
++	ptrstack 8
++	memread4 ax
++	ptrinit ax
++	li ax, 1
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++label_00000000047: ; inside StrSplit$2, ; referenced by 1 spots
++	ptrstack 4
++	memread4 ax
++	push ax
++	ptrstack 24
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	jzi label_00000000170
++	ptrstack 20
++	ptrget ax
++	push ax
++	ptrstack 8
++	memread4 ax
++	mr dx, ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	farpush dx
++	setfuncargs 1
++	li ax, String::geti_Chars
++	farcall ax
++	farsubsp 1
++	pop op
++	push ax
++	ptrstack 28
++	memread4 ax
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label_00000000157
++	ptrstack 12
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++label_00000000157: ; inside StrSplit$2, ; referenced by 1 spots
++	ptrstack 4
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++	jmpi label_00000000047
++label_00000000170: ; inside StrSplit$2, ; referenced by 1 spots
++	subi sp, 4
++	ptrstack 8
++	memread4 ax
++	newarr ax, 4, 1
++	mr mar, sp
++	ptrinit ax
++	addi sp, 4
++	ptrstack 12
++	memread4 ax
++	push ax
++	li ax, 0
++	pop bx
++	gt bx, ax
++	mr ax, bx
++	jzi label_00000000566
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++	li ax, 0
++	mr mar, sp
++	memwrite4 ax
++	addi sp, 4
++label_00000000236: ; inside StrSplit$2, ; referenced by 1 spots
++	ptrstack 8
++	memread4 ax
++	push ax
++	ptrstack 32
++	ptrget ax
++	push ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	setfuncargs 0
++	li ax, String::get_Length
++	farcall ax
++	pop op
++	pop bx
++	lt bx, ax
++	mr ax, bx
++	jzi label_00000000467
++	ptrstack 28
++	ptrget ax
++	push ax
++	ptrstack 12
++	memread4 ax
++	mr dx, ax
++	pop mar
++	mr ax, mar
++	push op
++	callobj ax
++	farpush dx
++	setfuncargs 1
++	li ax, String::geti_Chars
++	farcall ax
++	farsubsp 1
++	pop op
++	push ax
++	ptrstack 36
++	memread4 ax
++	pop bx
++	cmpeq bx, ax
++	mr ax, bx
++	jzi label_00000000454
++	push op
++	ptrstack 12
++	memread4 ax
++	push ax
++	ptrstack 12
++	memread4 ax
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	farpush ax
++	ptrstack 8
++	memread4 ax
++	farpush ax
++	ptrstack 32
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::Substring^2
++	farcall ax
++	farsubsp 2
++	pop op
++	push ax
++	ptrstack 20
++	memread4 ax
++	mr dx, ax
++	pop ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrset ax
++	ptrstack 16
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++	ptrstack 8
++	memread4 ax
++	push ax
++	li ax, 1
++	pop bx
++	add bx, ax
++	mr ax, bx
++	ptrstack 4
++	memwrite4 ax
++label_00000000454: ; inside StrSplit$2, ; referenced by 1 spots
++	ptrstack 8
++	memread4 ax
++	addi ax, 1
++	memwrite4 ax
++	jmpi label_00000000236
++label_00000000467: ; inside StrSplit$2, ; referenced by 1 spots
++	push op
++	ptrstack 12
++	memread4 ax
++	push ax
++	ptrstack 12
++	memread4 ax
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	farpush ax
++	ptrstack 8
++	memread4 ax
++	farpush ax
++	ptrstack 32
++	ptrget ax
++	callobj ax
++	setfuncargs 2
++	li ax, String::Substring^2
++	farcall ax
++	farsubsp 2
++	pop op
++	push ax
++	ptrstack 24
++	memread4 ax
++	push ax
++	li ax, 1
++	pop bx
++	sub bx, ax
++	mr ax, bx
++	mr dx, ax
++	pop ax
++	ptrstack 12
++	muli dx, 4
++	ptrget mar
++	ptrassert 
++	dynamicbounds dx
++	add mar, dx
++	ptrset ax
++	subi sp, 8
++label_00000000566: ; inside StrSplit$2, ; referenced by 1 spots
++	ptrstack 4
++	push mar
++	pop mar
++	ptrget ax
++	ptrstack 20
++	ptrzerond 
++	ptrstack 4
++	ptrzerond 
++	subi sp, 12
++	ret 
+ .strings
+ "skies.inf"
+ "Current Outfit"

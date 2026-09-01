@@ -1,0 +1,28 @@
+diff --git a/Commentary.s b/../Commentary.s
+index bcc24b4..3958348 100644
+--- a/Commentary.s
++++ b/../Commentary.s
+@@ -1061,6 +1061,11 @@ label000000002342: ; inside playComm$4, ; referenced by 1 spots
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_comm
+ 	mr ax, mar
+ 	push op
+@@ -1123,6 +1128,11 @@ label000000002342: ; inside playComm$4, ; referenced by 1 spots
+ 	ptrget ax
+ 	assert ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li mar, lbl_comm
+ 	mr ax, mar
+ 	push op

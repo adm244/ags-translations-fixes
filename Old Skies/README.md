@@ -1,18 +1,25 @@
 # Old Skies fixes
 
-This folder contains script fixes for "Old Skies".
+This folder contains script fixes for "Old Skies" (GOG).
 
 Tested on version 2.0 (Steam, GOG). Version number taken from "vernum.osk" file.
 
-## Issues
+## Fixed issues
 
-This game has several issues with translations:
+When it comes to translations, this game is just broken:
 
 - [x] Text displayed with the "typewriter" animation is only translated after animation is complete (both "new location" and "current place and time").
 - [x] Incorrect speech bubble size if translated text is much longer or shorter than original.
 - [x] Missing translation for text displayed with "Character::GSay" function because line breaks were inserted.
 - [x] Missing translation for background speech text.
 - [x] Missing translation for "Personic", "News" and "E-mail" GUIs.
+- [x] Missing translation for save names.
+- [x] Missing translation for lock number search in chapter 1.
+- [x] Missing translation for inventory items in chapters 4 and 6.
+- [x] Missing translation for confession and chat logs in chapter 5.
+- [x] Missing translation for location descriptions on map in chapter 6.
+- [x] Bug with fully transparent "new location" animation.
+- [x] Broken string comparisons.
 - [x] Missing\broken translation of historic archive search (see [Notes](#historic-archive)).
 - [x] "Stuck on repeat" button hover sound effect for translated top panel buttons.
 
@@ -20,6 +27,12 @@ This game has several issues with translations:
 
 - BackgroundDialog.scom3:
     - Added `GetTranslation` call to `Character::BGSay` function replacing existing argument.
+
+- Commentary.scom3:
+    - Added `GetTranslation` calls to `playComm` function.
+
+- DialogScript.scom3:
+    - Added `GetTranslation` call to `_run_dialog102` function for time string comparison in chapter 4.
 
 - Emails.scom3:
     - Added `GetTranslation` calls to `generateVillageEyeMail` function for email sender\recipient, title, date and body.
@@ -45,10 +58,16 @@ This game has several issues with translations:
     - Added `GetTranslation` calls to `fieldGuideSet` function for each string append parameter.
     - Added `GetTranslation` calls to `historyGuideSet` function for each string append parameter.
     - Added `GetTranslation` calls to `processNozzoButton` function for some string parameters.
+    - Added `GetTranslation` calls to `raGetMitchellRecord` function for string parameters.
 
 - GlobalScript.scom3:
     - Added `GetTranslation` call to `doTutorial` function for string parameter.
     - Added `GetTranslation` calls to `doTutorial` function for some strings.
+    - Added `GetTranslation` calls to `doSerialNumberSearch` function for string parameters.
+    - Added new helper function `StrSplit` to split string.
+    - Added `StrSplit` and `GetTranslation` calls to `btnSprayGenerate_OnClick` function.
+    - Added `GetTranslation` calls to `btnChatLog5_OnClick` function for string parameters.
+    - Added `GetTranslation` calls to `readConfession` function for string parameters.
 
 - NewsManager.scom3:
     - Added `GetTranslation` calls to `setFiaNewsItem` function for news title and content.
@@ -66,10 +85,13 @@ This game has several issues with translations:
 
 - TwoClickHandler.scom3:
     - Added `GetTranslation` calls to `changeLblText` function for string parameter and some strings. "Stuck" sound fix.
+    - Added new helper function `StrSplit` to split string.
+    - Added `StrSplit` and `GetTranslation` calls to `GetInvDesc` function.
 
 - typewriter.scom3:
     - Added `GetTranslation` call to `Typewriter::Type` function replacing existing argument.
     - Added `GetTranslation` call to `mySlate` function replacing existing argument.
+    - Added `GUI::set_Transparency` call to `Typewriter::Type` function to fix (rare?) transparency issue before animation.
 
 ## Notes
 
@@ -99,7 +121,7 @@ BackgroundDialog.asc
 rewind.asc
 ```
 
-### Emails
+### Emails (chat logs)
 
 Some emails (like in Winera) have duplicate senders\recipients visually, but are technically different strings with added trailing spaces. These strings affect which message body will be displayed when clicked on email, so **make sure** to match any trailing spaces otherwise emails will be duplicated!
 
