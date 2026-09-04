@@ -95,6 +95,10 @@ When it comes to translations, this game is just broken:
 
 ## Notes
 
+> [!WARNING]
+> Prefer ASCII encoding for translation file. The 3.6.1 engine used by the game can read only 1023 bytes from TRA file (lower than legacy versions like 3.2.1).
+> UTF-8 encoding effectively halves this limit to ~511 symbols per line (depending on the language). Due to some texts in the game being longer than 700 symbols (such as the confession in chapter 5), your translation will likely get truncated.
+
 In main menu you can press `Ctrl+B` (twice) and type `oldbugs` to access debug menu that will allow you to skip to certain chapters.
 In this menu you can press `Ctrl+N` to get access to more options (like accessing sub-chapters and additional debug menus). Also, by pressing `Ctrl+X` you can teleport to a specific room.\
 Use this instead of save files to test translation.
