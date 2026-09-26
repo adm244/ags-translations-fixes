@@ -4,7 +4,7 @@ This folder contains script fixes for "Unavowed".
 
 Tested on version 2.0.0, Steam build 23529477. Version number taken from in-game main menu (string in `GlobalScript.scom3`).
 
-## Issues
+## Fixed issues
 
 This game has several issues with translations:
 
@@ -14,6 +14,7 @@ This game has several issues with translations:
 - [x] Missing translation for some Jordon journal texts.
 - [x] Missing translation for some bank email texts.
 - [x] Missing translation for diary texts.
+- [x] Missing translation for dragon teeth numbers.
 - [x] Missing translation for typewriter text.
 
 ## Changes
@@ -32,6 +33,9 @@ This game has several issues with translations:
 
 - LineBreak_200.scom3:
     - Added `GetTranslation` into `InsertLineBreaks` function.
+
+- TwoClickHandler.scom3:
+    - Added `GetTranslation` into `getGuiPillarDesc` function.
 
 - Typewriter.scom3:
     - Added `GetTranslation` into `Type` function.

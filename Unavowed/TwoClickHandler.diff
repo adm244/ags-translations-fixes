@@ -1,0 +1,16 @@
+diff --git a/TwoClickHandler.s b/../TwoClickHandler.s
+index 60bba20..01d5081 100644
+--- a/TwoClickHandler.s
++++ b/../TwoClickHandler.s
+@@ -3118,6 +3118,11 @@ label000000006711: ; inside getGuiPillarDesc$1, ; referenced by 9 spots
+ 	pop mar
+ 	ptrget ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "The %s tooth looks a little loose."
+ 	farpush ax
+ 	setfuncargs 2
