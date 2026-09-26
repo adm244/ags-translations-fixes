@@ -11,6 +11,7 @@ This game has several issues with translations:
 - [x] Missing translation in dialog options with substitutions in their text.
 - [x] Missing translation of flashing text when picking items.
 - [x] Missing translation for background speech texts because of inserted line breaks.
+- [x] Missing translation for some Jordon journal texts.
 - [x] Missing translation for diary texts.
 - [x] Missing translation for typewriter text.
 
@@ -24,6 +25,8 @@ This game has several issues with translations:
 
 - GlobalScript.scom3:
     - Added `GetTranslation` into `setSmithPage` function for each diary entry.
+    - Added `GetTranslation` into `compPage1` function.
+    - Added `GetTranslation` into `jordonPW_OnActivate` function.
 
 - LineBreak_200.scom3:
     - Added `GetTranslation` into `InsertLineBreaks` function.
