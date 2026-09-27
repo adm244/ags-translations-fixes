@@ -1,0 +1,28 @@
+diff --git a/room125.s b/../room125.s
+index f16938a..df2a148 100644
+--- a/room125.s
++++ b/../room125.s
+@@ -285,6 +285,11 @@ label000000000608: ; inside room_Load$0, ; referenced by 1 spots
+ 	pop mar
+ 	ptrget ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "%s found dead"
+ 	farpush ax
+ 	setfuncargs 2
+@@ -318,6 +323,11 @@ label000000000682: ; inside room_Load$0, ; referenced by 1 spots
+ 	pop mar
+ 	ptrget ax
+ 	farpush ax
++	setfuncargs 1
++	li ax, GetTranslation
++	farcall ax
++	farsubsp 1
++	farpush ax
+ 	li ax, "%s arrested at Last"
+ 	farpush ax
+ 	setfuncargs 2

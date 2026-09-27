@@ -16,6 +16,7 @@ This game has several issues with translations:
 - [x] Missing translation for diary texts.
 - [x] Missing translation for dragon teeth numbers.
 - [x] Missing translation for typewriter text.
+- [x] Missing translation for final news paper headline.
 
 ## Changes
 
@@ -39,3 +40,6 @@ This game has several issues with translations:
 
 - Typewriter.scom3:
     - Added `GetTranslation` into `Type` function.
+
+- room125.scom3:
+    - Added `GetTranslation` into `room_Load` function.
